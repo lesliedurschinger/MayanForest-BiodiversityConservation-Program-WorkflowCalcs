@@ -1,0 +1,94 @@
+---
+title: "Project Extent"
+format: html
+---
+
+The ecosystem typology for the Project Extent was determined differently than the instructions of the Nature Framework. This is a project deviation that was needed to accurately define the ecosystem typology in the Project Extent. When using the [IUCN GET level 3 classifications and tool](https://global-ecosystems.org/analyse) for the Project Extent (part of the Yucatan Peninsula, Mexico), the data was inaccurate and deficient. For instance, the main function groups that were found in the Project Extent included intensive landscapes like annual croplands, plantations, and urban and industrial ecosystems.
+
+<details>
+
+<summary><strong>Link CSV File Here</strong></summary>
+
+</details>
+
+However, these functional groups are not true for the Project Extent, as Terra Global has already worked in this area since 2022 and conducted ground truthing. These areas are primarily forested and many of the ejidos included in the program are in the buffer zone of the Calakmul Biosphere Reserve, a largely intact Mayan forest remnant home to much of the wildlife and one of the largest populations of jaguars left in the Yucatan peninsula.
+
+Thus, the data used to define the ecosystem types of the Project Extent was based on research and literature ([Jung, et al., 2020](https://www.nature.com/articles/s41597-020-00599-8)). The data was based on the IUCN Global Database that was later created and used for the methodology, so it is still appropriate to use in this case. This data also allowed the program to refine the Project Extent to the 9 ejidos that are included in the Program and it provided much more accurate results.
+
+<details>
+
+<summary><strong>Link SHP File Here</strong></summary>
+
+</details>
+
+The main functional group that was found in all of the ejidos was the Tropical/Sub-tropical Dry forests and thickets. While there were several ecosystem types found in each ejido ([Map 1](#map1)), these ecosystem types were excluded due to being arable land, plantations, or urban areas that are not eligible under the methodology. Furthermore, other ecosystem types, like wetlands and sub-tropical/tropical swamps only made up 1.44% and 0.78% respectively, in the largest areas of the ejidos. The CSV file for the different ecosystem types per ejido can also be found here.
+
+<details>
+
+<summary><strong>Link CSV File Here</strong></summary>
+
+</details>
+
+This file also contains how the other functional groups were excluded and the total number of dry forest per ejido was summed (find explanation in [Project Extent Calculations](#project-extent-calculations)).
+
+### Project Spatial Boundary
+
+::: terra-card
+
+<!-- Add script to the <head> of your page to load the embeddable map component -->
+```{=html}
+<script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
+```
+<!-- Add custom element to <body> of your page -->
+<arcgis-embedded-map style="height:600px;width:705px;" item-id="5cddc98a202d4be78cdd849c020a0e4d" theme="light" heading-enabled legend-enabled scroll-enabled basemap-gallery-enabled time-zone-label-enabled center="-89.62093728833757,18.568502808847466"scale="1155581.108577" portal-url="https://tgc.maps.arcgis.com"></arcgis-embedded-map>
+
+[Map 1](#map1). IUCN Functional Groups (Ecosystem Types) found in the Project Boundary
+:::
+
+### Project Extent Calculations {#project-extent-calculations}
+
+While dry savanna make up part of the ecosystem types for some ejidos, it was ultimately excluded from the Project Extent, as program activities are centered to be implemented in the dry forest ecosystems, and any ecosystem that makes up less than 35% of an ejido is excluded due to their limited spatial extent, which reduces their influence on landscape-scale ecological processes and biodiversity outcomes. Prioritizing ecosystem types that represent a more substantial portion of the Project Extent allows for more efficient allocation of resources, more robust monitoring, and greater potential for measurable impact. However, dry savannas are native ecosystems in the project extent and future instances will include this ecosystem.
+
+Following the exclusion of the hectares in the other functional groups, the [Table 1](#section3-table1) and [Map 1](#map1) were created to show the number of hectares of Tropical/sub-tropical dry forests in each ejido and the total hectares for the Project Extent.
+
+<details open>
+
+<summary><strong>[Table 1](#section3-table1). Forest Extension Areas, PAI Hectares</strong></summary>
+
+::: {#section3-table1 .terra-standard}
+| Ejido | X Coordinate | Y Coordinate | Project Activity Instance 1 (Hectares) |
+|------------------|------------------|------------------|------------------|
+| Cancabchen | 89° 37' 22.12" W | 19° 12' 26.11" N | 18,970 |
+| Chanchen | 89° 11' 05.37" W | 19° 13' 50.35" N | 9,627 |
+| Chun Ek | 89° 11' 02.89" W | 19° 07' 49.97" N | 13,994 |
+| Crescencio Rejón | 89° 16' 53.85" W | 18° 10' 36.43" N | 4,086 |
+| Felipe Ángeles | 89° 43' 10.00" W | 19° 17' 16.20" N | 3,016 |
+| Francisco J. Mújica | 89° 14' 38.41" W | 17° 54' 47.29" N | 3,777 |
+| Pustunich | 89° 58' 53.20" W | 18° 08' 29.34" N | 24,457 |
+| Xcanhá | 89° 26' 01.24" W | 19° 03' 43.36" N | 30,516 |
+| Yohaltún | 89° 46' 59.39" W | 17° 54' 38.62" N | 13,715 |
+| **TOTAL** |  |  | **122,158** |
+:::
+
+</details>
+
+Map 2 provides the location of the Project Activity Location in the Project Extent.
+
+::: terra-card
+```{=html}
+<script type="module" src="https://js.arcgis.com/5.0/embeddable-components/"></script>
+```
+
+<arcgis-embedded-map
+  style="height:600px;width:705px;"
+  item-id="2777f89d5b9c4ddd8f747c970ccdb1c8"
+  theme="light"
+  heading-enabled
+  legend-enabled
+  scroll-enabled
+  basemap-gallery-enabled
+  time-zone-label-enabled
+  center="-89.38912569784519,18.622649193767053"
+  scale="1155581.108577"
+  portal-url="https://tgc.maps.arcgis.com"> </arcgis-embedded-map> [Map 2](#map2). Project Extent Boundary
+:::

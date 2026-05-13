@@ -1,0 +1,32 @@
+---
+title: "Introduction"
+editor: visual
+---
+
+## Overview
+
+The workbook documents the SD VISta Nature Framework Methodology for quantification of nature credits. This includes quantifying nature benefits and setting a crediting baseline for validation.
+
+<details>
+
+**Scope:**
+
+\- Project Extent: 137,163 hectares\
+- Ecosystem: Tropical/Sub-tropical Dry Forest\
+- Location: Yucatán Peninsula, Mexico
+
+</details>
+
+------------------------------------------------------------------------
+
+This site is structured to support validation, verification, and audit transparency.
+
+# Introduction
+
+The Mayan Forest Biodiversity Conservation Program is located in the buffer zones of the Calakmul Biosphere Reserve in southeastern Mexico, within the Selva Maya region of the Yucatán Peninsula. The program operates across ejido lands in the states of Campeche, Quintana Roo, and Yucatán—a landscape of exceptional ecological importance that forms part of the Mesoamerican Biological Corridor. This region contains extensive tropical forest ecosystems and provides critical habitat for a wide range of species, including threatened and endangered wildlife such as the jaguar and Baird’s tapir.
+
+The program’s primary purpose is to conserve biodiversity and maintain forest ecosystem integrity while supporting the long-term well-being of local ejido communities. The program achieves this by securing forest conservation in ejido territories through legally binding agreements that commit participating communities to protect forests, reduce pressures from deforestation, hunting, and habitat fragmentation, and strengthen ecological connectivity between ejido lands and the Calakmul Biosphere Reserve.
+
+Conservation activities focus on the protection and restoration of tropical forest habitats, supported by community-based biodiversity monitoring and locally driven conservation practices. The program initially targets the conservation of approximately 126,000 hectares of forest across nine ejidos—Yohaltún, Pustunich, Manuel Crescencio Rejón, Xkanhá, Chanchén, General Francisco Mujica, Chun Ek, Cancabchén, and Felipe Ángeles—with plans to expand to more than 210,000 hectares in future phases.
+
+By combining forest conservation with community participation and long-term stewardship, the Mayan Forest Biodiversity Conservation Program aims to deliver durable biodiversity outcomes while reinforcing the role of ejidos as key guardians of one of Mexico’s most biologically rich forest landscapes.

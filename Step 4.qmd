@@ -1,0 +1,47 @@
+---
+title: "Step 4. Measure Condition indicators at project start"
+format: html
+---
+While the project does have historical start date, biodiversity monitoring was conducted two weeks after the start date, thus, we did not need to use proxy sites.
+
+The following Table 4 includes the condition at project start for each indicator, and each subsection provides an explanation on how these were calculated.
+
+<details open>
+
+<summary><strong>[Table 4](#table4). Condition at Project Start for each Indicator</strong></summary>
+
+::: {#table4 .terra-exec}
+| Condition Component | Indicator Description | Condition Value Measured at Project Start |
+|:-----------------------|:-----------------------|-----------------------:|
+| Composition (Cm1) | Species richness of herpetofauna | 46.000 |
+| Composition (Cm2) | Species richness of birds | 215.000 |
+| Composition (Cm3) | Species richness of mammals | 31.000 |
+| Structure (S1) | Aboveground biomass (Mg DM ha^-1^) | 152.051 |
+| Structure (S2) | Forest canopy cover (%) | 60.000 |
+:::
+
+</details>
+
+## Mammal Species Richness
+
+Each camera trap had a unique name and GPS coordinate to identify which camera captured which animal. Once we were able to get the raw data, we also needed to ensure that the data collected from the baseline assessment of the carbon project aligned with the Nature Framework requirements. We found that the data collected at each camera trap could have been associated with a different functional group, so we took each location of camera trap and added it to the shapefile of the functional groups. We then cross referenced this file to the raw data collected in the field according to the camera trap ID and coordinates. If the camera trap was in an area not described as Tropical/Sub-tropical dry forests, the data was excluded.
+
+To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+
+## Avian Species Richness
+
+At each point, the geographical coordinates, point number, time, species observed/heard, number of individuals per species, distance and observation height were taken. Another aspect to mention, in some points more transects were made and in others less, due to the conditions of the terrain and surface of the area. The recorded species were identified using binoculars (8x42) and the field guide “Go out and bird Yucatán” (2014) and the Merlin application (The Cornell Lab).
+
+Each coordinate for point counts (observation points) was included in the raw data and were cross referenced with the location of each coordinate and the associated functional group. Any point and corresponding data was excluded if it was not located in the Tropical/Sub-tropical dry forests.
+
+To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+
+## Herpetofauna Species Richness
+
+To determine which transects needed to be excluded from the study, the transect coordinates were cross referenced to the IUCN functional groups. Because transects were followed for these observations, multiple points along the transect were assessed to determine what functional group they were located in. Each transect had an initial and final coordinate along the transect.
+
+To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+
+### EMPTY Aboveground Biomass
+
+### EMPTY Canopy Cover

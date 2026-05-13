@@ -1,0 +1,35 @@
+---
+title: "Step 3. Define reference values for Condition indicators"
+format: html
+---
+Evidence of the documented inventory used to establish reference values for Condition indicators is maintained through a structured compilation of peer-reviewed literature, spatial datasets, and reproducible analytical workflows. All data sources, selection criteria, and analytical steps were recorded and archived to ensure transparency, traceability, and auditability in accordance with Verra requirements.
+
+For biodiversity composition indicators, including mammal, bird, and herpetofauna species richness, the documented inventory consists of peer-reviewed scientific studies published from 2000 onward and primarily conducted in the Calakmul Biosphere Reserve (CBR) and the broader Yucatan Peninsula. The CBR was selected as the primary reference area because it represents near-pristine ecological conditions where most anthropogenic activities are prohibited. Literature searches were conducted systematically using Google Scholar with predefined keyword combinations such as “species richness,” “diversity,” “Calakmul Biosphere Reserve,” and “Yucatan Peninsula,” tailored to each taxonomic group. Records of search terms, publication dates, and inclusion criteria were maintained as part of the inventory documentation.
+
+For mammal species richness, the inventory includes camera-trap and field-based studies focusing on different mammalian groups within the CBR. These include studies on ungulates documenting six species (Reyna-Hurtado & Tanner, 2007) and broader assessments of large terrestrial mammals across the Yucatan Peninsula, identifying a total of 14 large mammal species (Reyna-Hurtado et al., 2015). Because many studies focused on specific taxa, results were synthesized across multiple sources to produce a comprehensive mammal species inventory (excluding bats), resulting in a reference value of 46 species. All source publications are cited and archived as part of the documented inventory.
+
+For bird species richness, the inventory draws on multiple avifaunal surveys conducted within the CBR. These include a study assessing bird abundance across feeding guilds that identified more than 300 species (Walsh, 2018), as well as a comprehensive inventory documenting 403 bird species, which represents the most extensive avian dataset available for the reserve (González et al., 2016). These studies were used to inform a conservative reference value of 230 bird species, reflecting expected richness under intact ecological conditions while accounting for methodological variability among surveys.
+
+For herpetofauna species richness, the documented inventory includes post-2000 studies conducted in the CBR using standardized field methods such as Visual Encounter Surveys and pitfall traps. A key study documented the presence of 20 amphibian species and 69 reptile species, resulting in a total of 90 herpetofauna species under near-pristine conditions (Colston et al., 2015). This study and supporting literature were archived as evidence of the reference condition.
+
+For structural condition indicators where historical field-based reference data were limited, the documented inventory consists of spatially explicit remote sensing datasets and derived statistical analyses. Canopy cover reference values were based on Terra MODIS Vegetation Continuous Fields (VCF) products at 250 m resolution, generated annually using monthly composites of Terra MODIS land surface reflectance and temperature data across all seven spectral bands. Datasets covering the ten years preceding project start (t–10 to t=0) were included in the inventory, along with ecosystem classification layers and Habitat Conversion Risk maps used to filter pixels.
+
+Aboveground biomass reference values were derived from a documented inventory of GEDI Level 4 Aboveground Biomass data combined with Sentinel-1 synthetic aperture radar and Sentinel-2 multispectral imagery. A Random Forest regression model was trained annually using approximately 4,000 GEDI plots per year to predict AGB across the program’s ecoregion. All input datasets, model parameters, training samples, and output rasters were stored with accompanying metadata describing spatial resolution, temporal coverage, and ecosystem filtering criteria.
+
+All analytical procedures used to derive percentile-based reference values (75th percentile for canopy cover and 90th percentile for aboveground biomass) were fully documented, including pixel selection rules, statistical assumptions, and sample sizes. Reproducible scripts and summary outputs were archived to enable independent verification.
+
+<details open>
+
+<summary><strong>[Table 3.](#table3) Reference Values for each Indicator</strong></summary>
+
+::: {#table3 .terra-exec}
+| Condition Component | Indicator Description              | Reference Value |
+|:--------------------|:-----------------------------------|----------------:|
+| Composition (Cm1)   | Species richness of herpetofauna   |          90.000 |
+| Composition (Cm2)   | Species richness of birds          |         230.000 |
+| Composition (Cm3)   | Species richness of mammals        |          46.000 |
+| Structure (S1)      | Aboveground biomass (Mg DM ha^-1^) |         187.234 |
+| Structure (S2)      | Forest canopy cover (%)            |          72.000 |
+:::
+
+</details>

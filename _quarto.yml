@@ -1,0 +1,44 @@
+project:
+  type: book
+  output-dir: docs
+
+book:
+  title: "Mayan Forest Biodiversity Conservation Program Workbook"
+
+  sidebar:
+    style: floating
+
+  navbar:
+    logo: TGC-Logo-Color.png
+    background: "#ffffff"
+    foreground: "#022348"
+
+  page-navigation: true
+
+  chapters:
+    - index.qmd
+    - 02. Workflow Overview.qmd
+    - 03. Project Extent.qmd
+    - 04. Quantification of Biodiversity Outcomes.qmd
+    - Step 1.qmd
+    - Step 2.qmd
+    - Step 3.qmd
+    - Step 4.qmd
+    - Step 5.qmd
+    - Step 6.qmd
+    - Step 7.qmd
+    - Step 8.qmd
+    - Step 9.qmd
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    toc-location: right
+    toc-expand: 1
+    toc-collapse: true
+    smooth-scroll: true
+    number-sections: false
+    code-copy: false
+    embed-resources: false

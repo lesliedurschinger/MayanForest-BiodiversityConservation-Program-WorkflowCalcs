@@ -1,0 +1,255 @@
+---
+title: "Step 9. Monitor project impacts – Ex-Ante Projections"
+format: html
+---
+While the program is only seeking validation at this point, the estimated biodiversity outcomes (ex-ante projections) were required not only by the Methodology but also to understand allocation of funds for benefit sharing, and interest for potential buyers and funders. To estimate the biodiversity outcomes of the program, the VM007 Tool used for REDD+ projects under the VCS standard was used adding the drivers of biodiversity loss instead of drivers of deforestation and degradation, and how the program activities effectiveness reduces the identified drivers of biodiversity loss. A model was built out to incorporate the VM007 Tool and the changes necessary for quantifying the projected biodiversity outcomes.
+
+## Drivers of Biodiversity Loss {#Drivers-of-BL}
+
+Several studies have examined land use change, biodiversity dynamics, and socio-ecological drivers in and around the Calakmul Biosphere Reserve and the broader Yucatán Peninsula. Using satellite imagery and land use classification, landscape-scale research documented significant land cover change and increasing habitat fragmentation in Calakmul driven largely by agricultural expansion and logging activities ([Vester, et al., 2007)](https://doi.org/10.1890/05-1106). Parcel-level spatial analyses further demonstrated that deforestation patterns are strongly influenced by socio-economic factors affecting smallholder farmers, with remote sensing and spatial econometric modeling revealing how land tenure systems and household-level decisions shape land-use trajectories within the reserve ([Chowdhury, 2006](https://doi.org/10.1016/j.apgeog.2005.11.004)). Complementary research using GIS-based land cover comparisons also showed that productive agricultural activities continue to contribute to forest loss, highlighting the importance of sustainable land-use strategies in the region ([Špirić, Vallejo, & Ramírez, 2022](https://doi.org/10.1177/19400829221105712)). At a broader regional scale, land-use change modeling has also been used to explore future scenarios balancing biodiversity conservation, traditional agriculture, and ecotourism in protected areas of the northeastern Yucatán Peninsula ([García-Frapolli et al., 2007](https://doi.org/10.1016/j.landurbplan.2007.03.007)). Other studies have focused on biodiversity responses and ecological processes within Calakmul. A five-year biodiversity monitoring effort found that climate-related droughts negatively affected local fauna, particularly due to the drying of seasonal wetlands (aguadas) that serve as key wildlife water sources ([Slater, 2021](https://www.researchgate.net/profile/Kathy-Slater-3/publication/335701057_Monitoreo_del_impacto_de_perdida_de_aguadas_en_la_fauna_de_Calakmul/links/618d357c3068c54fa5ce71bf/Monitoreo-del-impacto-de-perdida-de-aguadas-en-la-fauna-de-Calakmul.pdf)). Research on traditional Mayan agroforestry systems demonstrated that these land-use practices can support biodiversity conservation, especially for bird and plant communities when compared to more intensive agricultural systems ([Bohn et al., 2014](https://doi.org/10.1007/s10457-014-9674-9)). Investigations of wetland ecosystems further revealed that human disturbance influences microbial diversity, with microbial sampling and sequencing indicating differences in bacterial community composition between conserved and urbanized areas ([García-Estrada, et al., 2024](https://doi.org/10.1186/s12866-024-03523-x)). Long-term ecological patterns in the region have also been examined through paleoecological studies, which used sediment cores and pollen analysis to reconstruct vegetation dynamics across the Holocene and showed how climatic shifts have historically shaped ecosystem composition across the Yucatán Peninsula ([Aragón-Moreno et al., 2018](https://doi.org/10.1016/j.palaeo.2018.01.014)). Socio-environmental interactions and conservation planning have also been key themes in the literature. Mixed-methods research combining participatory mapping and interviews demonstrated that climate variability and fire management policies interact to increase challenges for subsistence farmers in southeastern Mexico, contributing to heightened vulnerability in agricultural systems ([Monzón-Alvarado & Keys, 2017](https://doi.org/10.1007/s10113-016-1035-y)). At the national level, analyses of protected area networks have assessed the effectiveness of conservation strategies in Mexico, finding that although most mammal species occur within reserves, endemic and restricted-range species remain underrepresented, emphasizing the need for complementary conservation approaches outside protected areas ([Ceballos, 2007](https://doi.org/10.1890/06-0134)). Together, these studies provide important insights into the complex interactions among land use, climate variability, biodiversity conservation, and community livelihoods in Calakmul and the surrounding region. The following table (Table 10) represents the parameters calculated from the numbers that were used in the literature review.
+
+<details open>
+
+<summary><strong>[Table 10.](#table10) Drivers of Biodiversity Loss and Values for each Parameter</strong></summary>
+
+::: {#table10 .terra-standard}
+| Driver | Parameter | Value |
+|------------------------|------------------------|-----------------------:|
+| Agricultural conversion (From Forest Land to Agricultural Land) | Annual forest cover loss (ha/yr) | 282.71 |
+| Illegal Logging | Annual forest cover loss (ha/yr) | 145.38 |
+| Forest Fires | Annual forest cover loss (ha/yr) | 152.63 |
+| Cattle Ranching (From Forest Land to Pastures) | Annual forest cover loss (ha/yr) | 740.28 |
+| Hunting and Poaching | Biodiversity impact parameter (relative units) | 1100 |
+:::
+
+</details>
+
+Using the parameters from the table above, the proportion that each driver contributed to overall biodiversity loss was determined. The first four drivers of biodiversity loss (agricultural conversion, illegal logging, forest fires, cattle ranching) are all based on their impact on canopy cover (number of forest hectares lost), while the last driver, hunting and poaching, is based off the impact it has on the composition indicators for quantification (species richness). Table 11 shows these numbers and the calculation used to determine the proportion was dividing the number of hectares lost per driver from the total number lost.
+
+<details open>
+
+<summary><strong>[Table 11.](#table11) Proportion of Driver Contribution to Biodiversity Loss</strong></summary>
+
+::: {#table11 .terra-exec}
+| Drivers of Biodiversity | Biodiversity Loss | Proportion of Contribution to Biodiversity Loss |
+|:-----------------------|-----------------------:|-----------------------:|
+| Agricultural conversion | 283 | 12% |
+| Illegal Logging | 145 | 6% |
+| Forest Fires | 153 | 6% |
+| Cattle Ranching (From Forest Land to Pastures) | 740 | 31% |
+| Poaching and Hunting | 1,100 | 45% |
+| **TOTAL** | **2,421** |  |
+:::
+
+</details>
+
+## Implementation of Program Activities {#implementation-of-activites}
+
+The implementation years for each long-term outcome of the program were then calculated using the long-term implementation plan for the 40-year program period and how effective each outcome/activity is at reducing biodiversity loss drivers. The following literature review focused on the effectiveness of conservation and management interventions aimed at mitigating biodiversity loss and strengthening ecosystem resilience. These studies evaluated a range of strategies, including habitat connectivity planning, biodiversity and species monitoring, community-based patrolling, wildfire management, watershed protection, and alternative livelihood programs. One major focus is improving habitat connectivity in landscapes affected by agricultural expansion and fragmentation. Frameworks for selecting effective connectivity strategies emphasize the importance of restoring ecological linkages between habitat patches to maintain species movement and ecological processes ([Cameron et al., 2022](https://doi.org/10.1111/csp2.12698)). Supporting this approach, studies on connectivity metrics highlight the use of quantitative indicators to evaluate landscape connectivity and guide conservation planning and monitoring, particularly in fragmented ecosystems ([Keeley et al., 2021](https://doi.org/10.1016/j.biocon.2021.109008)). Together, these tools help identify priority areas for restoration and protection to maintain functional ecological networks. Monitoring and enforcement interventions also play an important role in addressing land-use pressures. Patrolling and monitoring systems, particularly those supported by satellite-based deforestation alerts, have been shown to improve the detection of illegal logging and agricultural clearing when combined with training and incentives for local patrol teams ([Slough et al., 2021](https://doi.org/10.1073/pnas.2015171118)). In parallel, biodiversity and species monitoring efforts are critical for understanding the mechanisms driving biodiversity loss and tracking conservation outcomes. Advances in wildlife tracking technologies allow researchers to monitor individual animals and identify processes contributing to species decline ([Yanco, et al., 2025](https://doi.org/10.1016/j.tree.2024.09.008)), while coordinated monitoring initiatives at larger scales can improve the detection of biodiversity change and inform global conservation strategies ([Navarro, et al., 2017](https://doi.org/10.1016/j.cosust.2018.02.005)). Several interventions also focus on reducing ecosystem risks associated with wildfire and watershed degradation. Watershed protection strategies aim to strengthen water resilience in landscapes affected by wildfire and degraded water systems, emphasizing the importance of integrated water and forest management ([Belongia et al., 2023](https://doi.org/10.1126/sciadv.adf9534)). Fuel reduction and wildfire containment are additional management approaches that can help reduce wildfire severity and mitigate risks to water supplies and surrounding ecosystems ([Gannon et al., 2019](https://doi.org/10.1071/WF18182); [Gannon et al., 2020](http://dx.doi.org/10.3390/fire3030045)). Establishing baseline understanding of wildfire impacts is also essential, as research shows that wildfire can significantly affect both biodiversity and long-term water supply systems ([Bladon et al., 2014](dx.doi.org/10.1021/es500130g)). Finally, conservation strategies often incorporate alternative livelihood programs to address underlying socio-economic drivers of environmental degradation by providing sustainable income opportunities that reduce reliance on activities contributing to habitat loss ([Roe, et al., 2015](https://doi.org/10.1111/cobi.12607)). Together, these interventions highlight the importance of integrating ecological monitoring, landscape management, and community-based approaches to support long-term biodiversity conservation. Based on this literature review, the implementation effectiveness for each outcome was estimated. This number was then used to estimate the overall effectiveness of each outcome addressing each biodiversity loss driver. The effectiveness is presented as a single number, thus the total effectiveness for each driver was combined using a simple summed average of the total. For the implementation of each outcome over the 40 year period, the percentage of activities that would begin to occur in year 1 of the program were estimated and the number of years it would take for the outcome to become 100% implemented [Table 12](#0).
+
+<details open>
+
+<summary><strong>[Table 12](#table12). Year of Implementation by Outcome</strong></summary>
+
+::: {#table12 .terra-exec}
+| Outcome | Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship | Maintaining Wildlife Conservation in the Project Extent (including CBR) | Enhance biodiversity monitoring in PAI and CBR | Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| Year 1 | 15% | 8% | 12% | 2% |
+| Year of 100% | 10 | 15 | 15 | 25 |
+:::
+
+</details>
+
+Using the logic in [Table 12](#table12), we then used the following calculation and logic to determine the year by year implementation for each outcome.
+
+The level of implementation in Year 1 was calculated as the minimum of 100% and the following expression:
+
+where ![](data:image/emf;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAjCAYAAACgj+sEAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAKgAgAEAAAAAQAAAAygAwAEAAAAAQAAACMAAAAA7G+nOQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAOVJREFUOBHtkysOwkAURUvBAAKDwmJRCD4bgECCYhtsAMGvu2ARCCxBoVAgCEsgAUvQwHmkr6FJOx1V1Zecfl7PbSczHcfJKnkGcigfWCarzgLHLXDwYGUR+CmuraheFtCZMJ1lHaQaMIAnrCG2dFqvGDN4xJr+Aw1UuS/B3jbQQbzAyzbQRTxGyHl6xf++Dkm+oIEK1zUYwRl6EJQE5BdvgQbkN27CDXbwhqAk0IYyTGELEzjACWSvhErWQd7cD3UNN7pwUcqYpoy/DncVTIENkqA1lAvd0552Dee57xuU7FFaM/AFugYc7RtleeAAAAAASUVORK5CYII=)represents the level of implementation of the project activity in Year 1, and ![](data:image/emf;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAjCAYAAACpZEt+AAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAKgAgAEAAAAAQAAAAigAwAEAAAAAQAAACMAAAAAn2eA9gAAAAlwSFlzAAALEwAACxMBAJqcGAAAAMFJREFUOBHtkjsKwkAQhmOw0kawsRQEGw+gdp4glxERGx85hFew9RjmCGJhY2OXxkYE/f6FgR2I2AcHvp3XvxlmSZLUwRos8YZtxTIbammTI4ddhSCU0m8Nq9dDoHfowsLWinxPsdYcwQCusIIjZNCCILjj56AvFXCBPdwgCM74B0zgBLIDPBXELzkmN4F6wUzQIRuCRjgzwZSqZpeuSyKBVl1CG/rgTM0XzFw1SmxEVPLhT4H9k7m/F7I1p/p/4wU+wjoXYFldiigAAAAASUVORK5CYII=)represents the total number of years required for the activity to reach full (100%) implementation.\
+This formulation ensured that the calculated implementation level did not exceed 100%.
+
+Table 13 describes the year-by-year implementation for each outcome based on the calculation from above.
+
+<details>
+
+<summary><strong>[Table 13.](#table13) Annual Implementation Level of Project Activities</strong></summary>
+
+::: {#table13 .terra-standard}
+| Project Year | Calendar Year | Expanded Participation | Wildlife Conservation (incl. CBR) | Biodiversity Monitoring (PAI & CBR) | Inclusive Income Streams |
+|-----------:|-----------:|-----------:|-----------:|-----------:|-----------:|
+| 1 | 2023 | 15% | 15% | 12% | 2% |
+| 2 | 2024 | 24% | 21% | 18% | 6% |
+| 3 | 2025 | 34% | 28% | 25% | 10% |
+| 4 | 2026 | 43% | 34% | 31% | 14% |
+| 5 | 2027 | 53% | 41% | 37% | 18% |
+| 6 | 2028 | 62% | 47% | 43% | 22% |
+| 7 | 2029 | 72% | 54% | 50% | 27% |
+| 8 | 2030 | 81% | 61% | 56% | 31% |
+| 9 | 2031 | 91% | 67% | 62% | 35% |
+| 10 | 2032 | 100% | 74% | 69% | 39% |
+| 11 | 2033 | 100% | 80% | 75% | 43% |
+| 12 | 2034 | 100% | 87% | 81% | 47% |
+| 13 | 2035 | 100% | 93% | 87% | 51% |
+| 14 | 2036 | 100% | 100% | 94% | 55% |
+| 15 | 2037 | 100% | 100% | 100% | 59% |
+| 16 | 2038 | 100% | 100% | 100% | 63% |
+| 17 | 2039 | 100% | 100% | 100% | 67% |
+| 18 | 2040 | 100% | 100% | 100% | 71% |
+| 19 | 2041 | 100% | 100% | 100% | 76% |
+| 20 | 2042 | 100% | 100% | 100% | 80% |
+| 21 | 2043 | 100% | 100% | 100% | 84% |
+| 22 | 2044 | 100% | 100% | 100% | 88% |
+| 23 | 2045 | 100% | 100% | 100% | 92% |
+| 24 | 2046 | 100% | 100% | 100% | 96% |
+| 25 | 2047 | 100% | 100% | 100% | 100% |
+| 26 | 2048 | 100% | 100% | 100% | 100% |
+| 27 | 2049 | 100% | 100% | 100% | 100% |
+| 28 | 2050 | 100% | 100% | 100% | 100% |
+| 29 | 2051 | 100% | 100% | 100% | 100% |
+| 30 | 2052 | 100% | 100% | 100% | 100% |
+| 31 | 2053 | 100% | 100% | 100% | 100% |
+| 32 | 2054 | 100% | 100% | 100% | 100% |
+| 33 | 2055 | 100% | 100% | 100% | 100% |
+| 34 | 2056 | 100% | 100% | 100% | 100% |
+| 35 | 2057 | 100% | 100% | 100% | 100% |
+| 36 | 2058 | 100% | 100% | 100% | 100% |
+| 37 | 2059 | 100% | 100% | 100% | 100% |
+| 38 | 2060 | 100% | 100% | 100% | 100% |
+| 39 | 2061 | 100% | 100% | 100% | 100% |
+| 40 | 2062 | 100% | 0% | 100% | 100% |
+:::
+
+</details>
+
+## Project Activity Effectiveness on Relative Biodiversity Loss Reduction {#Project-activity-effectiveness-BL}
+
+In this section we focused on the actual effectiveness of our program activities and outcomes in reducing relative biodiversity loss in the Project Extent. The following table ([Table 14](#table14)) describes the overall effectiveness of each outcome in reducing the biodiversity loss drivers. These numbers were based on assumptions made from the literature review on the effectiveness of relative activities on the identified drivers (see [Implementation of Program Activities](#implementation-of-activites)).
+
+<details open>
+
+<summary><strong>[Table 14.](#table14) Relative reduction in the Biodiversity Loss (BL) drivers due to project activities (Excluding Leakage)</strong></summary>
+
+::: {#table14 .terra-exec}
+| Driver of BL | Expanded Participation | Wildlife Conservation (incl. CBR) | Biodiversity Monitoring (PAI & CBR) | Inclusive Income Streams | TOTAL REDUCTION BL |
+|:-----------|-----------:|-----------:|-----------:|-----------:|-----------:|
+| Agricultural conversion | 20% | 20% | 13% | 12% | **65%** |
+| Illegal Logging | 20% | 18% | 13% | 15% | **66%** |
+| Forest Fires | 10% | 12% | 7% | 5% | **34%** |
+| Cattle Ranching (From Forest Land to Pastures) | 20% | 18% | 12% | 12% | **62%** |
+| Poaching and Hunting | 5% | 25% | 13% | 2% | **45%** |
+| **Net Effect on Total BL (Excl. Leakage)** | **13%** | **21%** | **12%** | **7%** |  |
+:::
+
+</details>
+
+<details>
+
+<summary><strong>[Table 15.](#table15) Relative Project Impact and Net Biodiversity Loss Rate</strong></summary>
+
+::: {#table15 .terra-exec}
+| Year | Biodiversity Condition Rate (Relative to Baseline) | Net Gain | Effectiveness |
+|-----------------:|-----------------:|-----------------:|-----------------:|
+| 2023 | 95% | 5% | 5.19% |
+| 2024 | 91% | 8% | 8.82% |
+| 2025 | 88% | 11% | 11.73% |
+| 2026 | 85% | 14% | 15.07% |
+| 2027 | 82% | 17% | 18.41% |
+| 2028 | 77% | 22% | 23.37% |
+| 2029 | 73% | 25% | 27.00% |
+| 2030 | 69% | 28% | 30.64% |
+| 2031 | 66% | 32% | 34.28% |
+| 2032 | 62% | 35% | 37.91% |
+| 2033 | 60% | 38% | 40.36% |
+| 2034 | 57% | 40% | 42.81% |
+| 2035 | 55% | 42% | 45.26% |
+| 2036 | 52% | 44% | 47.71% |
+| 2037 | 50% | 47% | 50.16% |
+| 2038 | 50% | 47% | 50.46% |
+| 2039 | 49% | 47% | 50.75% |
+| 2040 | 49% | 48% | 51.04% |
+| 2041 | 49% | 48% | 51.34% |
+| 2042 | 48% | 48% | 51.63% |
+| 2043 | 48% | 48% | 51.93% |
+| 2044 | 48% | 49% | 52.22% |
+| 2045 | 47% | 49% | 52.51% |
+| 2046 | 47% | 49% | 52.81% |
+| 2047 | 47% | 49% | 53.10% |
+| 2048 | 47% | 49% | 53.10% |
+| 2049 | 47% | 49% | 53.10% |
+| 2050 | 47% | 49% | 53.10% |
+| 2051 | 47% | 49% | 53.10% |
+| 2052 | 47% | 49% | 53.10% |
+| 2053 | 47% | 49% | 53.10% |
+| 2054 | 47% | 49% | 53.10% |
+| 2055 | 47% | 49% | 53.10% |
+| 2056 | 47% | 49% | 53.10% |
+| 2057 | 47% | 49% | 53.10% |
+| 2058 | 47% | 49% | 53.10% |
+| 2059 | 47% | 49% | 53.10% |
+| 2060 | 47% | 49% | 53.10% |
+| 2061 | 47% | 49% | 53.10% |
+| 2062 | 47% | 49% | 53.10% |
+:::
+
+</details>
+
+###Ex-Ante Projections 
+The ex-ante projections were based on the year-to-year effectiveness that was calculated utilizing components of the VT007 Tool. Please find this information in the following sections, [Drivers of Biodiversity Loss](#Drivers-of-BL), [Implementation of Program Activities](#implementation-of-activites), and [Project Activity Effectiveness on Relative Biodiversity Loss Reduction](#Project-activity-effectiveness-BL). To calculate the ex-ante projections for the total number of nature credits that the program will produce over the project period, the baseline conditions of the project from the Condition at time T were applied in the quantification calculation below:
+
+$$
+(E_t×C_t )- [(E_0×C_0 )×(1+(t×B_t ))]
+$$ Where: - $E_t$ =Extent at Time t - $C_t$ =Condition at Time t - $E_0$ =Extent at Time 0 (Project Start) - $C_0$ =Condition at Time 0 (Project Start) - $t$ =time of verification - $B_t$ =Baseline at Time t
+
+This equation calculates the net change in nature credit outcomes by comparing current project performance to a baseline-adjusted starting condition. The first term represents the current state of the project area, calculated as the extent of the project in hectares multiplied by its overall condition score at the time of verification. The second term represents the expected baseline outcome, calculated by multiplying the project’s initial extent and condition at the start of the project and adjusting this value over time using the baseline rate. Subtracting the baseline-adjusted starting condition from the current project state yields the net benefit attributable to the project at the time of verification. The ex-ante projections are based on a quality-hectare framework that integrates project extent, ecosystem condition, and a dynamic baseline. An assumption was made that the Extent would remain static over the crediting period. Although, this is a grouped program and future iterations for ex-ante projections will need to be reassessed when adding new Project Activity Locations to account for the increased Project Extent. The projected changes in outcomes are driven by improvements in ecosystem condition. Condition values increase over time in line with the expected effectiveness of project activities and stabilize once full effectiveness is achieved. Baseline outcomes are represented through a dynamically adjusted baseline that reflects gradual decline in ecosystem condition in the absence of the project. This baseline trajectory is applied consistently across the crediting period using an annual baseline change rate. Baseline values are expressed in quality-hectare terms to ensure direct comparability with project outcomes. Ex-ante project outcomes are calculated as the product of projected extent and condition for each year. Net benefit outcomes are then derived as the difference between ex-ante project quality-hectares and baseline quality-hectares, representing the additional nature benefits attributable to the project. This structure ensures that projected credits reflect only benefits that exceed the counterfactual baseline. Table 13 demonstrates the calculations that were made for the ex-ante projections. The average annual biodiversity outcomes are projected to be 35,142 Quality Hectares (Qha) and a total of 1,405,677 Qha’s.
+
+<details>
+
+<summary><strong>[Table 16.](#table16) Ex-ante Projections based on Yearly Effectiveness</strong></summary>
+
+::: {#table16 .terra-standard}
+| Year | Baseline (dynamic adjusted) | E0 (ha) | Co | t | Bt | Baseline Dynamic QHA | Et (ha) | Effective | Ct | Ex-Ante Project QHA | NBOt |
+|:----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|-----:|
+| 0 | 93409 | 122158 |  |  |  |  |  |  |  |  |  |
+| 1 | 92848 | 122158 | 0.765 | 1 | -0.006 | 92848 | 122158 | 5.19% | 0.804 | 97665 | 4817 |
+| 2 | 92288 | 122158 | 0.765 | 2 | -0.006 | 92288 | 122158 | 8.82% | 0.832 | 100431 | 8143 |
+| 3 | 91728 | 122158 | 0.765 | 3 | -0.006 | 91728 | 122158 | 11.73% | 0.854 | 102486 | 10758 |
+| 4 | 91167 | 122158 | 0.765 | 4 | -0.006 | 91167 | 122158 | 15.07% | 0.880 | 104906 | 13739 |
+| 5 | 90607 | 122158 | 0.765 | 5 | -0.006 | 90607 | 122158 | 18.41% | 0.905 | 107290 | 16683 |
+| 6 | 90046 | 122158 | 0.765 | 6 | -0.006 | 90046 | 122158 | 23.37% | 0.943 | 111088 | 21042 |
+| 7 | 89486 | 122158 | 0.765 | 7 | -0.006 | 89486 | 122158 | 27.00% | 0.971 | 113650 | 24164 |
+| 8 | 88925 | 122158 | 0.765 | 8 | -0.006 | 88925 | 122158 | 30.64% | 0.999 | 116172 | 27246 |
+| 9 | 88365 | 122158 | 0.765 | 9 | -0.006 | 88365 | 122158 | 34.28% | 1.027 | 118652 | 30288 |
+| 10 | 87804 | 122158 | 0.765 | 10 | -0.006 | 87804 | 122158 | 37.91% | 1.055 | 121092 | 33288 |
+| 11 | 87244 | 122158 | 0.765 | 11 | -0.006 | 87244 | 122158 | 40.36% | 1.073 | 122457 | 35213 |
+| 12 | 86683 | 122158 | 0.765 | 12 | -0.006 | 86683 | 122158 | 42.81% | 1.092 | 123795 | 37111 |
+| 13 | 86123 | 122158 | 0.765 | 13 | -0.006 | 86123 | 122158 | 45.26% | 1.111 | 125104 | 38981 |
+| 14 | 85563 | 122158 | 0.765 | 14 | -0.006 | 85563 | 122158 | 47.71% | 1.129 | 126387 | 40824 |
+| 15 | 85002 | 122158 | 0.765 | 15 | -0.006 | 85002 | 122158 | 50.16% | 1.148 | 127642 | 42640 |
+| 16 | 84442 | 122158 | 0.765 | 16 | -0.006 | 84442 | 122158 | 50.46% | 1.150 | 127048 | 42607 |
+| 17 | 83881 | 122158 | 0.765 | 17 | -0.006 | 83881 | 122158 | 50.75% | 1.153 | 126452 | 42570 |
+| 18 | 83321 | 122158 | 0.765 | 18 | -0.006 | 83321 | 122158 | 51.04% | 1.155 | 125851 | 42531 |
+| 19 | 82760 | 122158 | 0.765 | 19 | -0.006 | 82760 | 122158 | 51.34% | 1.157 | 125248 | 42488 |
+| 20 | 82200 | 122158 | 0.765 | 20 | -0.006 | 82200 | 122158 | 51.63% | 1.159 | 124641 | 42442 |
+| 21 | 81639 | 122158 | 0.765 | 21 | -0.006 | 81639 | 122158 | 51.93% | 1.162 | 124031 | 42392 |
+| 22 | 81079 | 122158 | 0.765 | 22 | -0.006 | 81079 | 122158 | 52.22% | 1.164 | 123418 | 42339 |
+| 23 | 80518 | 122158 | 0.765 | 23 | -0.006 | 80518 | 122158 | 52.51% | 1.166 | 122802 | 42283 |
+| 24 | 79958 | 122158 | 0.765 | 24 | -0.006 | 79958 | 122158 | 52.81% | 1.168 | 122182 | 42224 |
+| 25 | 79398 | 122158 | 0.765 | 25 | -0.006 | 79398 | 122158 | 53.10% | 1.171 | 121559 | 42161 |
+| 26 | 78837 | 122158 | 0.765 | 26 | -0.006 | 78837 | 122158 | 53.10% | 1.171 | 120701 | 41863 |
+| 27 | 78277 | 122158 | 0.765 | 27 | -0.006 | 78277 | 122158 | 53.10% | 1.171 | 119842 | 41566 |
+| 28 | 77716 | 122158 | 0.765 | 28 | -0.006 | 77716 | 122158 | 53.10% | 1.171 | 118984 | 41268 |
+| 29 | 77156 | 122158 | 0.765 | 29 | -0.006 | 77156 | 122158 | 53.10% | 1.171 | 118126 | 40971 |
+| 30 | 76595 | 122158 | 0.765 | 30 | -0.006 | 76595 | 122158 | 53.10% | 1.171 | 117268 | 40673 |
+| 31 | 76035 | 122158 | 0.765 | 31 | -0.006 | 76035 | 122158 | 53.10% | 1.171 | 116410 | 40375 |
+| 32 | 75474 | 122158 | 0.765 | 32 | -0.006 | 75474 | 122158 | 53.10% | 1.171 | 115552 | 40078 |
+| 33 | 74914 | 122158 | 0.765 | 33 | -0.006 | 74914 | 122158 | 53.10% | 1.171 | 114694 | 39780 |
+| 34 | 74353 | 122158 | 0.765 | 34 | -0.006 | 74353 | 122158 | 53.10% | 1.171 | 113836 | 39483 |
+| 35 | 73793 | 122158 | 0.765 | 35 | -0.006 | 73793 | 122158 | 53.10% | 1.171 | 112978 | 39185 |
+| 36 | 73233 | 122158 | 0.765 | 36 | -0.006 | 73233 | 122158 | 53.10% | 1.171 | 112120 | 38887 |
+| 37 | 72672 | 122158 | 0.765 | 37 | -0.006 | 72672 | 122158 | 53.10% | 1.171 | 111262 | 38590 |
+| 38 | 72112 | 122158 | 0.765 | 38 | -0.006 | 72112 | 122158 | 53.10% | 1.171 | 110404 | 38292 |
+| 39 | 71551 | 122158 | 0.765 | 39 | -0.006 | 71551 | 122158 | 53.10% | 1.171 | 109546 | 37995 |
+| 40 | 70991 | 122158 | 0.765 | 40 | -0.006 | 70991 | 122158 | 53.10% | 1.171 | 108688 | 37697 |
+:::
+
+</details>
+

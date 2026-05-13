@@ -1,0 +1,28 @@
+---
+title: "Workflow Overview"
+format: html
+---
+
+## Workflow Diagram
+
+::: terra-card
+<div class="responsive-embed">
+  <iframe
+    src="https://miro.com/app/live-embed/uXjVGWtDRtw=/?focusWidget=3458764654571379646&embedMode=view_only_without_ui&embedId=888574849578"
+    allow="fullscreen; clipboard-read; clipboard-write"
+    allowfullscreen
+    loading="lazy">
+  </iframe>
+</div>
+:::
+
+### Crediting Baseline Number
+
+::: terra-card
+<div class="responsive-embed">
+  <iframe
+    src="https://miro.com/app/live-embed/uXjVGWtDRtw=/?focusWidget=3458764654571379385&amp;embedMode=view_only_without_ui&amp;embedId=888574849578" frameborder="0" scrolling="no" allow="fullscreen; clipboard-read; clipboard-write" allowfullscreen
+    loading="lazy">
+  </iframe>
+</div>
+:::

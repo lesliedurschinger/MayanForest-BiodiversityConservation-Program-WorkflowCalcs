@@ -1,0 +1,35 @@
+---
+title: "Step 7. Calculate area-adjusted Condition at project start (year 0)"
+format: html
+---
+Note: In grouped project scenarios, the area-adjusted Condition must be independently calculated for each instance and then summed.
+
+Multiply the total ecosystem Extent (in hectares) by the Condition at project start calculated in the previous step. Report the value, showing the calculation.
+
+The following equation from Step 7 was used for validation of the tropical/sub-tropical dry forests ecosystem:
+
+$$
+Ca_0 = E_0 \times C_0
+$$
+
+Where:
+
+-   $Ca_0$ = Area-adjusted condition
+
+-   $E_0$ = Project extent at project start
+
+-   $C_0$ = Condition at project start
+
+The results can be found in Table 7.
+
+<details open>
+
+<summary><strong>[Table 7](#table7). Area-adjusted Condition at Project Start</strong></summary>
+
+::: {#table7 .terra-standard}
+| Ecosystem Type          | Extent (E₀) (ha) |   C₀ |       Ca₀ |
+|:------------------------|-----------------:|-----:|----------:|
+| Subtropical Dry Forests |       122,158.00 | 0.76 | 93,408.90 |
+:::
+
+</details>

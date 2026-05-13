@@ -1,0 +1,21 @@
+---
+title: "Step 1. Ecosystem type and Extent"
+numbered: false
+format: html
+---
+Define all ecosystem types in the project Extent (or the instance being added, in the case of grouped projects) using the IUCN GET Level 3 (i.e., functional group) classifications and the tool accessed via [this link](https://global-ecosystems.org/analyse). Where applicable, stratify land uses within each ecosystem type defined. Indicate the Extent (in hectares) for each ecosystem type defined and in total.
+
+The functional group ([IUCN GET level 3 classifications and tool](https://global-ecosystems.org/analyse)) for the Project Extent (part of the Yucatan Peninsula, Mexico) was inaccurate and data was deficient. Thus, the data used to define the ecosystem types of the Project Extent was based on research and literature ([Jung, et al., 2020](https://www.nature.com/articles/s41597-020-00599-8)). The data was based on the IUCN Global Database that was later created and used for the methodology.
+
+<details open>
+
+<summary><strong>[Table 2.](#table2) Data from IUCN Global Database to define the ecosystem types of the Project Extent</strong></summary>
+
+::: {#table2 .terra-standard}
+| Realm | Biome | Ecosystem | Extent (in ha) |
+|:-----------------|:-----------------|:-----------------|-----------------:|
+| Terrestrial | Tropical and Sub-Tropical Forests | Tropical/Sub-tropical dry forests | 122,158 |
+|  |  | **TOTAL** | **122,158** |
+:::
+
+</details>

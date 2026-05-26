@@ -1,0 +1,19 @@
+{
+  "hash": "6c7e5f6a6eab1da8f78969657110bc27",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Step 7. Calculate area-adjusted Condition at project start (year 0)\"\nformat: html\n---\nThe following equation from Step 7 was used for validation of the tropical/sub-tropical dry forests ecosystem:\n\n$$\nCa_0 = E_0 \\times C_0\n$$\n\nWhere:\n\n-   $Ca_0$ = Area-adjusted condition\n\n-   $E_0$ = Project extent at project start\n\n-   $C_0$ = Condition at project start\n\n<br>\n\nThe results are described in [Table 14](#table14).\n\n<details>\n\n<summary>Table 14. Area-adjusted Condition at Project Start</summary>\n\n::::{#table14}\n::::\n\n<div class=\"terra-table-title\">\nTable 14. Area-adjusted Condition at Project Start\n</div>\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"datatables html-widget html-fill-item\" id=\"htmlwidget-dd3796f4bf3f957496ed\" style=\"width:100%;height:auto;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-dd3796f4bf3f957496ed\">{\"x\":{\"filter\":\"none\",\"vertical\":false,\"data\":[[\"Subtropical Dry Forests\"],[\"122,158.00\"],[\"0.72\"],[\"87,347.99\"]],\"container\":\"<table class=\\\"stripe hover compact\\\">\\n  <thead>\\n    <tr>\\n      <th>Ecosystem Type<\\/th>\\n      <th>Project Extent (E0) (Ha)<\\/th>\\n      <th>C0<\\/th>\\n      <th>Ca0<\\/th>\\n    <\\/tr>\\n  <\\/thead>\\n<\\/table>\",\"options\":{\"paging\":false,\"searching\":false,\"info\":false,\"ordering\":false,\"scrollX\":true,\"autoWidth\":false,\"columnDefs\":[{\"className\":\"dt-center\",\"targets\":\"_all\"},{\"name\":\"Ecosystem Type\",\"targets\":0},{\"name\":\"Project Extent (E0) (Ha)\",\"targets\":1},{\"name\":\"C0\",\"targets\":2},{\"name\":\"Ca0\",\"targets\":3}],\"order\":[],\"orderClasses\":false}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n\n</details>",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/htmltools-fill-0.5.9/fill.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<link href=\"site_libs/datatables-css-0.0.0/datatables-crosstalk.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/datatables-binding-0.34.0/datatables.js\"></script>\n<script src=\"site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css\" rel=\"stylesheet\" />\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js\"></script>\n<link href=\"site_libs/crosstalk-1.2.2/css/crosstalk.min.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/crosstalk-1.2.2/js/crosstalk.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

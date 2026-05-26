@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -70,6 +90,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -153,7 +183,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03. Project Extent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project Extent</span></a>
+  <a href="./03. Program Definitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Program Definitions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -218,7 +248,8 @@ window.Quarto = {
   <ul>
   <li><a href="#Drivers-of-BL" id="toc-Drivers-of-BL" class="nav-link active" data-scroll-target="#Drivers-of-BL">Drivers of Biodiversity Loss</a></li>
   <li><a href="#implementation-of-activites" id="toc-implementation-of-activites" class="nav-link" data-scroll-target="#implementation-of-activites">Implementation of Program Activities</a></li>
-  <li><a href="#Project-activity-effectiveness-BL" id="toc-Project-activity-effectiveness-BL" class="nav-link" data-scroll-target="#Project-activity-effectiveness-BL">Project Activity Effectiveness on Relative Biodiversity Loss Reduction</a></li>
+  <li><a href="#project-activity-effectiveness" id="toc-project-activity-effectiveness" class="nav-link" data-scroll-target="#project-activity-effectiveness">Project Activity Effectiveness on Relative Biodiversity Loss Reduction</a></li>
+  <li><a href="#ex-ante-projections" id="toc-ex-ante-projections" class="nav-link" data-scroll-target="#ex-ante-projections">Ex-Ante Projections</a></li>
   </ul>
 </nav>
     </div>
@@ -244,1479 +275,238 @@ window.Quarto = {
 </header>
 
 
-<p>While the program is only seeking validation at this point, the estimated biodiversity outcomes (ex-ante projections) were required not only by the Methodology but also to understand allocation of funds for benefit sharing, and interest for potential buyers and funders. To estimate the biodiversity outcomes of the program, the VM007 Tool used for REDD+ projects under the VCS standard was used adding the drivers of biodiversity loss instead of drivers of deforestation and degradation, and how the program activities effectiveness reduces the identified drivers of biodiversity loss. A model was built out to incorporate the VM007 Tool and the changes necessary for quantifying the projected biodiversity outcomes.</p>
+<p>While the program is only seeking validation at this point, the estimated biodiversity outcomes (ex-ante projections) were required not only by the Methodology but also to understand allocation of funds for benefit sharing, and interest for potential buyers and funders. To estimate the biodiversity outcomes of the program, section 8.2 of the VCS Methodology VM0006 was used to quantify “effectiveness” and drivers of biodiversity loss were used instead of drivers of deforestation and degradation. A simile table was used for quantifying program activities effectiveness reducing the identified drivers of biodiversity loss.</p>
 <section id="Drivers-of-BL" class="level2">
 <h2 class="anchored" data-anchor-id="Drivers-of-BL">Drivers of Biodiversity Loss</h2>
-<p>Several studies have examined land use change, biodiversity dynamics, and socio-ecological drivers in and around the Calakmul Biosphere Reserve and the broader Yucatán Peninsula. Using satellite imagery and land use classification, landscape-scale research documented significant land cover change and increasing habitat fragmentation in Calakmul driven largely by agricultural expansion and logging activities (<a href="https://doi.org/10.1890/05-1106">Vester, et al., 2007)</a>. Parcel-level spatial analyses further demonstrated that deforestation patterns are strongly influenced by socio-economic factors affecting smallholder farmers, with remote sensing and spatial econometric modeling revealing how land tenure systems and household-level decisions shape land-use trajectories within the reserve (<a href="https://doi.org/10.1016/j.apgeog.2005.11.004">Chowdhury, 2006</a>). Complementary research using GIS-based land cover comparisons also showed that productive agricultural activities continue to contribute to forest loss, highlighting the importance of sustainable land-use strategies in the region (<a href="https://doi.org/10.1177/19400829221105712">Špirić, Vallejo, &amp; Ramírez, 2022</a>). At a broader regional scale, land-use change modeling has also been used to explore future scenarios balancing biodiversity conservation, traditional agriculture, and ecotourism in protected areas of the northeastern Yucatán Peninsula (<a href="https://doi.org/10.1016/j.landurbplan.2007.03.007">García-Frapolli et al., 2007</a>). Other studies have focused on biodiversity responses and ecological processes within Calakmul. A five-year biodiversity monitoring effort found that climate-related droughts negatively affected local fauna, particularly due to the drying of seasonal wetlands (aguadas) that serve as key wildlife water sources (<a href="https://www.researchgate.net/profile/Kathy-Slater-3/publication/335701057_Monitoreo_del_impacto_de_perdida_de_aguadas_en_la_fauna_de_Calakmul/links/618d357c3068c54fa5ce71bf/Monitoreo-del-impacto-de-perdida-de-aguadas-en-la-fauna-de-Calakmul.pdf">Slater, 2021</a>). Research on traditional Mayan agroforestry systems demonstrated that these land-use practices can support biodiversity conservation, especially for bird and plant communities when compared to more intensive agricultural systems (<a href="https://doi.org/10.1007/s10457-014-9674-9">Bohn et al., 2014</a>). Investigations of wetland ecosystems further revealed that human disturbance influences microbial diversity, with microbial sampling and sequencing indicating differences in bacterial community composition between conserved and urbanized areas (<a href="https://doi.org/10.1186/s12866-024-03523-x">García-Estrada, et al., 2024</a>). Long-term ecological patterns in the region have also been examined through paleoecological studies, which used sediment cores and pollen analysis to reconstruct vegetation dynamics across the Holocene and showed how climatic shifts have historically shaped ecosystem composition across the Yucatán Peninsula (<a href="https://doi.org/10.1016/j.palaeo.2018.01.014">Aragón-Moreno et al., 2018</a>). Socio-environmental interactions and conservation planning have also been key themes in the literature. Mixed-methods research combining participatory mapping and interviews demonstrated that climate variability and fire management policies interact to increase challenges for subsistence farmers in southeastern Mexico, contributing to heightened vulnerability in agricultural systems (<a href="https://doi.org/10.1007/s10113-016-1035-y">Monzón-Alvarado &amp; Keys, 2017</a>). At the national level, analyses of protected area networks have assessed the effectiveness of conservation strategies in Mexico, finding that although most mammal species occur within reserves, endemic and restricted-range species remain underrepresented, emphasizing the need for complementary conservation approaches outside protected areas (<a href="https://doi.org/10.1890/06-0134">Ceballos, 2007</a>). Together, these studies provide important insights into the complex interactions among land use, climate variability, biodiversity conservation, and community livelihoods in Calakmul and the surrounding region. The following table (Table 10) represents the parameters calculated from the numbers that were used in the literature review.</p>
-<details open="">
+<p>Several studies have examined land-use change, biodiversity dynamics, and socio-ecological drivers in and around the Calakmul Biosphere Reserve and the broader Yucatán Peninsula. Using satellite imagery and land use classification, landscape-scale research documented significant land cover change and increasing habitat fragmentation in Calakmul driven largely by agricultural expansion and logging activities <span class="citation" data-cites="vester2007">(<a href="#ref-vester2007" role="doc-biblioref">Vester et al. 2007</a>)</span>. Parcel-level spatial analyses further demonstrated that deforestation patterns are strongly influenced by socio-economic factors affecting smallholder farmers, with remote sensing and spatial econometric modeling revealing how land tenure systems and household-level decisions shape land-use trajectories within the reserve <span class="citation" data-cites="roychowdhury2006">(<a href="#ref-roychowdhury2006" role="doc-biblioref">Roy Chowdhury 2006</a>)</span>. Complementary research using GIS-based land cover comparisons also showed that productive agricultural activities continue to contribute to forest loss, highlighting the importance of sustainable land-use strategies in the region <span class="citation" data-cites="spiric2022">(<a href="#ref-spiric2022" role="doc-biblioref">Špirić, Vallejo, and Ramírez 2022</a>)</span>. At a broader regional scale, land-use change modeling has also been used to explore future scenarios balancing biodiversity conservation, traditional agriculture, and ecotourism in protected areas of the northeastern Yucatán Peninsula <span class="citation" data-cites="garcía-frapolli2007">(<a href="#ref-garcía-frapolli2007" role="doc-biblioref">García-Frapolli et al. 2007</a>)</span>.</p>
+<p>Other studies have focused on biodiversity responses and ecological processes within Calakmul. A five-year biodiversity monitoring effort found that climate-related droughts negatively affected local fauna, particularly due to the drying of seasonal wetlands (“aguadas”) that serve as key wildlife water sources <span class="citation" data-cites="slater2019">(<a href="#ref-slater2019" role="doc-biblioref">Slater 2019</a>)</span>. Research on traditional Mayan agroforestry systems demonstrated that these land-use practices can support biodiversity conservation, especially for bird and plant communities when compared to more intensive agricultural systems <span class="citation" data-cites="bohn2014">(<a href="#ref-bohn2014" role="doc-biblioref">Bohn et al. 2014</a>)</span>. Investigations of wetland ecosystems further revealed that human disturbance influences microbial diversity, with microbial sampling and sequencing indicating differences in bacterial community composition between conserved and urbanized areas <span class="citation" data-cites="garcía-estrada2024">(<a href="#ref-garcía-estrada2024" role="doc-biblioref">García-Estrada et al. 2024</a>)</span>. Long-term ecological patterns in the region have also been examined through paleoecological studies, which used sediment cores and pollen analysis to reconstruct vegetation dynamics across the Holocene and showed how climatic shifts have historically shaped ecosystem composition across the Yucatán Peninsula <span class="citation" data-cites="aragón-moreno2018">(<a href="#ref-aragón-moreno2018" role="doc-biblioref">Aragón-Moreno et al. 2018</a>)</span>.</p>
+<p>Socio-environmental interactions and conservation planning have also been key themes in the literature. Mixed-methods research combining participatory mapping and interviews demonstrated that climate variability and fire management policies interact to increase challenges for subsistence farmers in southeastern Mexico, contributing to heightened vulnerability in agricultural systems <span class="citation" data-cites="monzón-alvarado2016">(<a href="#ref-monzón-alvarado2016" role="doc-biblioref">Monzón-Alvarado and Keys 2016</a>)</span>. At the national level, analyses of protected area networks have assessed the effectiveness of conservation strategies in Mexico, finding that although most mammal species occur within reserves, endemic and restricted-range species remain underrepresented, emphasizing the need for complementary conservation approaches outside protected areas <span class="citation" data-cites="ceballos2007">(<a href="#ref-ceballos2007" role="doc-biblioref">Ceballos 2007</a>)</span>. Together, these studies provide important insights into the complex interactions among land use, climate variability, biodiversity conservation, and community livelihoods in Calakmul and the surrounding region.</p>
+<p><a href="#table17">Table 17</a> represents the parameters calculated from the numbers that were used in the literature review</p>
+<details>
 <summary>
-<strong><a href="#table10">Table 10.</a> Drivers of Biodiversity Loss and Values for each Parameter</strong>
+Table 17. Drivers of Biodiversity Loss and Values for each Parameter
 </summary>
-<div id="table10" class="terra-standard">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Driver</th>
-<th>Parameter</th>
-<th style="text-align: right;">Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Agricultural conversion (From Forest Land to Agricultural Land)</td>
-<td>Annual forest cover loss (ha/yr)</td>
-<td style="text-align: right;">282.71</td>
-</tr>
-<tr class="even">
-<td>Illegal Logging</td>
-<td>Annual forest cover loss (ha/yr)</td>
-<td style="text-align: right;">145.38</td>
-</tr>
-<tr class="odd">
-<td>Forest Fires</td>
-<td>Annual forest cover loss (ha/yr)</td>
-<td style="text-align: right;">152.63</td>
-</tr>
-<tr class="even">
-<td>Cattle Ranching (From Forest Land to Pastures)</td>
-<td>Annual forest cover loss (ha/yr)</td>
-<td style="text-align: right;">740.28</td>
-</tr>
-<tr class="odd">
-<td>Hunting and Poaching</td>
-<td>Biodiversity impact parameter (relative units)</td>
-<td style="text-align: right;">1100</td>
-</tr>
-</tbody>
-</table>
+<div id="table17">
+
+</div>
+<div class="terra-table-title">
+<p>Table 17. Drivers of Biodiversity Loss and Values for each Parameter</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f8dd9030bab78ff69f4b" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f8dd9030bab78ff69f4b">{"x":{"filter":"none","vertical":false,"data":[["Agricultural conversion (From Forest land to Agricultural Land)","Illegal Logging","Forest Fires","Cattle Ranching (From Forest Land to Pastures)","Hunting and Poaching"],["Hectares (ha) annual forest cover loss (ha/yr)","Hectares/year","Hectares/year","Hectares annual forest cover loss (ha/yr)",""],["282.71","145.38","152.63","740.28","1,100"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Driver<\/th>\n      <th>Parameter<\/th>\n      <th>Value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"450px","targets":0},{"width":"350px","targets":1},{"width":"150px","targets":2},{"className":"dt-center","targets":2},{"className":"dt-left","targets":[0,1]},{"name":"Driver","targets":0},{"name":"Parameter","targets":1},{"name":"Value","targets":2}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
-<p>Using the parameters from the table above, the proportion that each driver contributed to overall biodiversity loss was determined. The first four drivers of biodiversity loss (agricultural conversion, illegal logging, forest fires, cattle ranching) are all based on their impact on canopy cover (number of forest hectares lost), while the last driver, hunting and poaching, is based off the impact it has on the composition indicators for quantification (species richness). Table 11 shows these numbers and the calculation used to determine the proportion was dividing the number of hectares lost per driver from the total number lost.</p>
-<details open="">
+<p>Using the parameters from the table above, the proportion that each driver contributed to overall biodiversity loss was determined. The first four drivers of biodiversity loss (agricultural conversion, illegal logging, forest fires, cattle ranching) are all based on their impact on canopy cover (number of forest hectares lost), while the last driver, hunting and poaching, is based off the impact it has on the composition indicators for quantification (species richness). <a href="#table18">Table 18</a> shows these numbers and the calculation used to determine the proportion was dividing the number of hectares lost per driver from the total number lost.</p>
+<details>
 <summary>
-<strong><a href="#table11">Table 11.</a> Proportion of Driver Contribution to Biodiversity Loss</strong>
+Table 18. Proportion of Driver Contribution to Biodiversity Loss
 </summary>
-<div id="table11" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Drivers of Biodiversity</th>
-<th style="text-align: right;">Biodiversity Loss</th>
-<th style="text-align: right;">Proportion of Contribution to Biodiversity Loss</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Agricultural conversion</td>
-<td style="text-align: right;">283</td>
-<td style="text-align: right;">12%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Illegal Logging</td>
-<td style="text-align: right;">145</td>
-<td style="text-align: right;">6%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Forest Fires</td>
-<td style="text-align: right;">153</td>
-<td style="text-align: right;">6%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cattle Ranching (From Forest Land to Pastures)</td>
-<td style="text-align: right;">740</td>
-<td style="text-align: right;">31%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Poaching and Hunting</td>
-<td style="text-align: right;">1,100</td>
-<td style="text-align: right;">45%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>TOTAL</strong></td>
-<td style="text-align: right;"><strong>2,421</strong></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
+<div id="table18">
+
+</div>
+<div class="terra-table-title">
+<p>Table 18. Proportion of Driver Contribution to Biodiversity Loss</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-b477add59be2cb19ae39" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-b477add59be2cb19ae39">{"x":{"filter":"none","vertical":false,"data":[["Agricultural conversion","Illegal Logging","Forest Fires","Cattle Ranching (From Forest Land to Pastures)","Poaching and Hunting","Total"],["283","145","153","740","1,100","2,421"],["12%","6%","6%","31%","45%",""]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Drivers of Biodiversity<\/th>\n      <th>Biodiversity Loss (ha/yr)<\/th>\n      <th>Proportion of Contribution to Biodiversity Loss<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"450px","targets":0},{"width":"220px","targets":1},{"width":"350px","targets":2},{"className":"dt-left","targets":0},{"className":"dt-center","targets":[1,2]},{"name":"Drivers of Biodiversity","targets":0},{"name":"Biodiversity Loss (ha/yr)","targets":1},{"name":"Proportion of Contribution to Biodiversity Loss","targets":2}],"order":[],"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(row).css({'font-weight':value == \"Total\" ? \"bold\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 </section>
 <section id="implementation-of-activites" class="level2">
 <h2 class="anchored" data-anchor-id="implementation-of-activites">Implementation of Program Activities</h2>
-<p>The implementation years for each long-term outcome of the program were then calculated using the long-term implementation plan for the 40-year program period and how effective each outcome/activity is at reducing biodiversity loss drivers. The following literature review focused on the effectiveness of conservation and management interventions aimed at mitigating biodiversity loss and strengthening ecosystem resilience. These studies evaluated a range of strategies, including habitat connectivity planning, biodiversity and species monitoring, community-based patrolling, wildfire management, watershed protection, and alternative livelihood programs. One major focus is improving habitat connectivity in landscapes affected by agricultural expansion and fragmentation. Frameworks for selecting effective connectivity strategies emphasize the importance of restoring ecological linkages between habitat patches to maintain species movement and ecological processes (<a href="https://doi.org/10.1111/csp2.12698">Cameron et al., 2022</a>). Supporting this approach, studies on connectivity metrics highlight the use of quantitative indicators to evaluate landscape connectivity and guide conservation planning and monitoring, particularly in fragmented ecosystems (<a href="https://doi.org/10.1016/j.biocon.2021.109008">Keeley et al., 2021</a>). Together, these tools help identify priority areas for restoration and protection to maintain functional ecological networks. Monitoring and enforcement interventions also play an important role in addressing land-use pressures. Patrolling and monitoring systems, particularly those supported by satellite-based deforestation alerts, have been shown to improve the detection of illegal logging and agricultural clearing when combined with training and incentives for local patrol teams (<a href="https://doi.org/10.1073/pnas.2015171118">Slough et al., 2021</a>). In parallel, biodiversity and species monitoring efforts are critical for understanding the mechanisms driving biodiversity loss and tracking conservation outcomes. Advances in wildlife tracking technologies allow researchers to monitor individual animals and identify processes contributing to species decline (<a href="https://doi.org/10.1016/j.tree.2024.09.008">Yanco, et al., 2025</a>), while coordinated monitoring initiatives at larger scales can improve the detection of biodiversity change and inform global conservation strategies (<a href="https://doi.org/10.1016/j.cosust.2018.02.005">Navarro, et al., 2017</a>). Several interventions also focus on reducing ecosystem risks associated with wildfire and watershed degradation. Watershed protection strategies aim to strengthen water resilience in landscapes affected by wildfire and degraded water systems, emphasizing the importance of integrated water and forest management (<a href="https://doi.org/10.1126/sciadv.adf9534">Belongia et al., 2023</a>). Fuel reduction and wildfire containment are additional management approaches that can help reduce wildfire severity and mitigate risks to water supplies and surrounding ecosystems (<a href="https://doi.org/10.1071/WF18182">Gannon et al., 2019</a>; <a href="http://dx.doi.org/10.3390/fire3030045">Gannon et al., 2020</a>). Establishing baseline understanding of wildfire impacts is also essential, as research shows that wildfire can significantly affect both biodiversity and long-term water supply systems (<a href="dx.doi.org/10.1021/es500130g">Bladon et al., 2014</a>). Finally, conservation strategies often incorporate alternative livelihood programs to address underlying socio-economic drivers of environmental degradation by providing sustainable income opportunities that reduce reliance on activities contributing to habitat loss (<a href="https://doi.org/10.1111/cobi.12607">Roe, et al., 2015</a>). Together, these interventions highlight the importance of integrating ecological monitoring, landscape management, and community-based approaches to support long-term biodiversity conservation. Based on this literature review, the implementation effectiveness for each outcome was estimated. This number was then used to estimate the overall effectiveness of each outcome addressing each biodiversity loss driver. The effectiveness is presented as a single number, thus the total effectiveness for each driver was combined using a simple summed average of the total. For the implementation of each outcome over the 40 year period, the percentage of activities that would begin to occur in year 1 of the program were estimated and the number of years it would take for the outcome to become 100% implemented <a href="#0">Table 12</a>.</p>
-<details open="">
-<summary>
-<strong><a href="#table12">Table 12</a>. Year of Implementation by Outcome</strong>
-</summary>
-<div id="table12" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Outcome</th>
-<th style="text-align: left;">Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship</th>
-<th style="text-align: left;">Maintaining Wildlife Conservation in the Project Extent (including CBR)</th>
-<th style="text-align: left;">Enhance biodiversity monitoring in PAI and CBR</th>
-<th style="text-align: left;">Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Year 1</td>
-<td style="text-align: left;">15%</td>
-<td style="text-align: left;">8%</td>
-<td style="text-align: left;">12%</td>
-<td style="text-align: left;">2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Year of 100%</td>
-<td style="text-align: left;">10</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">15</td>
-<td style="text-align: left;">25</td>
-</tr>
-</tbody>
-</table>
-</div>
-</details>
-<p>Using the logic in <a href="#table12">Table 12</a>, we then used the following calculation and logic to determine the year by year implementation for each outcome.</p>
-<p>The level of implementation in Year 1 was calculated as the minimum of 100% and the following expression:</p>
-<p>where <img src="data:image/emf;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAjCAYAAACgj+sEAAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAKgAgAEAAAAAQAAAAygAwAEAAAAAQAAACMAAAAA7G+nOQAAAAlwSFlzAAALEwAACxMBAJqcGAAAAOVJREFUOBHtkysOwkAURUvBAAKDwmJRCD4bgECCYhtsAMGvu2ARCCxBoVAgCEsgAUvQwHmkr6FJOx1V1Zecfl7PbSczHcfJKnkGcigfWCarzgLHLXDwYGUR+CmuraheFtCZMJ1lHaQaMIAnrCG2dFqvGDN4xJr+Aw1UuS/B3jbQQbzAyzbQRTxGyHl6xf++Dkm+oIEK1zUYwRl6EJQE5BdvgQbkN27CDXbwhqAk0IYyTGELEzjACWSvhErWQd7cD3UNN7pwUcqYpoy/DncVTIENkqA1lAvd0552Dee57xuU7FFaM/AFugYc7RtleeAAAAAASUVORK5CYII=" class="img-fluid">represents the level of implementation of the project activity in Year 1, and <img src="data:image/emf;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAjCAYAAACpZEt+AAAAAXNSR0IArs4c6QAAAHhlWElmTU0AKgAAAAgABQESAAMAAAABAAEAAAEaAAUAAAABAAAASgEbAAUAAAABAAAAUgEoAAMAAAABAAIAAIdpAAQAAAABAAAAWgAAAAAAAABIAAAAAQAAAEgAAAABAAKgAgAEAAAAAQAAAAigAwAEAAAAAQAAACMAAAAAn2eA9gAAAAlwSFlzAAALEwAACxMBAJqcGAAAAMFJREFUOBHtkjsKwkAQhmOw0kawsRQEGw+gdp4glxERGx85hFew9RjmCGJhY2OXxkYE/f6FgR2I2AcHvp3XvxlmSZLUwRos8YZtxTIbammTI4ddhSCU0m8Nq9dDoHfowsLWinxPsdYcwQCusIIjZNCCILjj56AvFXCBPdwgCM74B0zgBLIDPBXELzkmN4F6wUzQIRuCRjgzwZSqZpeuSyKBVl1CG/rgTM0XzFw1SmxEVPLhT4H9k7m/F7I1p/p/4wU+wjoXYFldiigAAAAASUVORK5CYII=" class="img-fluid">represents the total number of years required for the activity to reach full (100%) implementation.<br>
-This formulation ensured that the calculated implementation level did not exceed 100%.</p>
-<p>Table 13 describes the year-by-year implementation for each outcome based on the calculation from above.</p>
+<p>The implementation years for each long-term outcome of the program were then calculated using the long-term implementation plan for the 40-year program period and how effective each outcome/activity is at reducing biodiversity loss drivers. The following literature review focused on the effectiveness of conservation and management interventions aimed at mitigating biodiversity loss and strengthening ecosystem resilience. These studies evaluated a range of strategies, including habitat connectivity planning, biodiversity and species monitoring, community-based patrolling, wildfire management, watershed protection, and alternative livelihood programs.</p>
+<p>One major focus is improving habitat connectivity in landscapes affected by agricultural expansion and fragmentation. Frameworks for selecting effective connectivity strategies emphasize the importance of restoring ecological linkages between habitat patches to maintain species movement and ecological processes <span class="citation" data-cites="cameron2022">(<a href="#ref-cameron2022" role="doc-biblioref">Cameron et al. 2022</a>)</span>. Supporting this approach, studies on connectivity metrics highlight the use of quantitative indicators to evaluate landscape connectivity and guide conservation planning and monitoring, particularly in fragmented ecosystems <span class="citation" data-cites="keeley2021">(<a href="#ref-keeley2021" role="doc-biblioref">Keeley, Beier, and Jenness 2021</a>)</span>. Together, these tools help identify priority areas for restoration and protection to maintain functional ecological networks.</p>
+<p>Monitoring and enforcement interventions also play an important role in addressing land-use pressures. Patrolling and monitoring systems, particularly those supported by satellite-based deforestation alerts, have been shown to improve the detection of illegal logging and agricultural clearing when combined with training and incentives for local patrol teams <span class="citation" data-cites="slough2021">(<a href="#ref-slough2021" role="doc-biblioref">Slough, Kopas, and Urpelainen 2021</a>)</span>. In parallel, biodiversity and species monitoring efforts are critical for understanding the mechanisms driving biodiversity loss and tracking conservation outcomes. Advances in wildlife tracking technologies allow researchers to monitor individual animals and identify processes contributing to species decline <span class="citation" data-cites="yanco2025">(<a href="#ref-yanco2025" role="doc-biblioref">Yanco et al. 2025</a>)</span>, while coordinated monitoring initiatives at larger scales can improve the detection of biodiversity change and inform global conservation strategies <span class="citation" data-cites="navarro2017">(<a href="#ref-navarro2017" role="doc-biblioref">Navarro et al. 2017</a>)</span>.</p>
+<p>Several interventions also focus on reducing ecosystem risks associated with wildfire and watershed degradation. Watershed protection strategies aim to strengthen water resilience in landscapes affected by wildfire and degraded water systems, emphasizing the importance of integrated water and forest management <span class="citation" data-cites="belongia2023">(<a href="#ref-belongia2023" role="doc-biblioref">Belongia et al. 2023</a>)</span>. Fuel reduction and wildfire containment are additional management approaches that can help reduce wildfire severity and mitigate risks to water supplies and surrounding ecosystems <span class="citation" data-cites="gannon2020">(<a href="#ref-gannon2020" role="doc-biblioref">Gannon, Wei, and Thompson 2020</a>)</span>. Establishing baseline understanding of wildfire impacts is also essential, as research shows that wildfire can significantly affect both biodiversity and long-term water supply systems <span class="citation" data-cites="bladon2014">(<a href="#ref-bladon2014" role="doc-biblioref">Bladon et al. 2014</a>)</span>. Finally, conservation strategies often incorporate alternative livelihood programs to address underlying socio-economic drivers of environmental degradation by providing sustainable income opportunities that reduce reliance on activities contributing to habitat loss <span class="citation" data-cites="roe2015">(<a href="#ref-roe2015" role="doc-biblioref">Roe et al. 2015</a>)</span>. Together, these interventions highlight the importance of integrating ecological monitoring, landscape management, and community-based approaches to support long-term biodiversity conservation.</p>
+<p>Based on the literature review, the implementation effectiveness for each outcome was estimated. This number was then used to estimate the overall effectiveness of each outcome addressing each biodiversity loss driver. The effectiveness is presented as a single number, thus the total effectiveness for each driver was combined using a simple summed average of the total.</p>
+<p>For the implementation of each outcome over the 40 year period, the percentage of activities that would begin to occur in year 1 of the program were estimated and the number of years it would take for the outcome to become 100% implemented <a href="#table19">Table 19</a>.</p>
 <details>
 <summary>
-<strong><a href="#table13">Table 13.</a> Annual Implementation Level of Project Activities</strong>
+Table 19. Year of Implementation by Outcome
 </summary>
-<div id="table13" class="terra-standard">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Project Year</th>
-<th style="text-align: right;">Calendar Year</th>
-<th style="text-align: right;">Expanded Participation</th>
-<th style="text-align: right;">Wildlife Conservation (incl.&nbsp;CBR)</th>
-<th style="text-align: right;">Biodiversity Monitoring (PAI &amp; CBR)</th>
-<th style="text-align: right;">Inclusive Income Streams</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">15%</td>
-<td style="text-align: right;">15%</td>
-<td style="text-align: right;">12%</td>
-<td style="text-align: right;">2%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2024</td>
-<td style="text-align: right;">24%</td>
-<td style="text-align: right;">21%</td>
-<td style="text-align: right;">18%</td>
-<td style="text-align: right;">6%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2025</td>
-<td style="text-align: right;">34%</td>
-<td style="text-align: right;">28%</td>
-<td style="text-align: right;">25%</td>
-<td style="text-align: right;">10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2026</td>
-<td style="text-align: right;">43%</td>
-<td style="text-align: right;">34%</td>
-<td style="text-align: right;">31%</td>
-<td style="text-align: right;">14%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">2027</td>
-<td style="text-align: right;">53%</td>
-<td style="text-align: right;">41%</td>
-<td style="text-align: right;">37%</td>
-<td style="text-align: right;">18%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">2028</td>
-<td style="text-align: right;">62%</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">43%</td>
-<td style="text-align: right;">22%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">2029</td>
-<td style="text-align: right;">72%</td>
-<td style="text-align: right;">54%</td>
-<td style="text-align: right;">50%</td>
-<td style="text-align: right;">27%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">2030</td>
-<td style="text-align: right;">81%</td>
-<td style="text-align: right;">61%</td>
-<td style="text-align: right;">56%</td>
-<td style="text-align: right;">31%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">2031</td>
-<td style="text-align: right;">91%</td>
-<td style="text-align: right;">67%</td>
-<td style="text-align: right;">62%</td>
-<td style="text-align: right;">35%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">2032</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">74%</td>
-<td style="text-align: right;">69%</td>
-<td style="text-align: right;">39%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">2033</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">80%</td>
-<td style="text-align: right;">75%</td>
-<td style="text-align: right;">43%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">2034</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">87%</td>
-<td style="text-align: right;">81%</td>
-<td style="text-align: right;">47%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">2035</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">93%</td>
-<td style="text-align: right;">87%</td>
-<td style="text-align: right;">51%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">2036</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">94%</td>
-<td style="text-align: right;">55%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">2037</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">59%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">2038</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">63%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">2039</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">67%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">2040</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">71%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">2041</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">76%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">2042</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">80%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">2043</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">84%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">2044</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">88%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">2045</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">92%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">2046</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">96%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">2047</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">2048</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">2049</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">2050</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">2051</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">2052</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">2053</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">32</td>
-<td style="text-align: right;">2054</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">2055</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">2056</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">2057</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">2058</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">2059</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">2060</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">39</td>
-<td style="text-align: right;">2061</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">2062</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">0%</td>
-<td style="text-align: right;">100%</td>
-<td style="text-align: right;">100%</td>
-</tr>
-</tbody>
-</table>
+<div id="table19">
+
+</div>
+<div class="terra-table-title">
+<p>Table 19. Year of Implementation by Outcome</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-69b30c0d7fe3f9ff5ca6" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-69b30c0d7fe3f9ff5ca6">{"x":{"filter":"none","vertical":false,"data":[["Year 1","Year of 100%"],["15%","10"],["8%","15"],["12%","15"],["2%","25"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Outcome<\/th>\n      <th>Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship<\/th>\n      <th>Maintaining Wildlife Conservation in the Project Extent (including CBR)<\/th>\n      <th>Enhance biodiversity monitoring in PAI and CBR<\/th>\n      <th>Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"180px","targets":0},{"width":"350px","targets":1},{"width":"300px","targets":2},{"width":"250px","targets":3},{"width":"450px","targets":4},{"className":"dt-left","targets":0},{"className":"dt-center","targets":[1,2,3,4]},{"name":"Outcome","targets":0},{"name":"Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship","targets":1},{"name":"Maintaining Wildlife Conservation in the Project Extent (including CBR)","targets":2},{"name":"Enhance biodiversity monitoring in PAI and CBR","targets":3},{"name":"Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation","targets":4}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</details>
+<p>Using the logic in <a href="#table19">Table 19</a>, the following calculation and logic was used to determine the year-by-year implementation for each outcome.</p>
+<p>The level of implementation in Year 1 was calculated as the minimum of 100% and the following expression:</p>
+<p><span class="math display">\[L_1 + \frac{1 - L_1}{T - 1}\]</span></p>
+<p>where <span class="math inline">\(L_1\)</span> represents the level of implementation of the project activity in Year 1, and <span class="math inline">\(T\)</span> represents the total number of years required for the activity to reach full (100%) implementation. This formulation ensured that the calculated implementation level did not exceed 100%.</p>
+<p><a href="#table20">Table 20</a> describes the year-by-year implementation for each outcome based on the calculation from above.</p>
+<details>
+<summary>
+Table 20. Annual Implementation Level of Project Activities
+</summary>
+<div id="table20">
+
+</div>
+<div class="terra-table-title">
+<p>Table 20. Annual Implementation Level of Project Activities</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8e6d34a9ac8b9d534697" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8e6d34a9ac8b9d534697">{"x":{"filter":"none","vertical":false,"data":[[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],[2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062],["15%","24%","34%","43%","53%","62%","72%","81%","91%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%"],["15%","21%","28%","34%","41%","47%","54%","61%","67%","74%","80%","87%","93%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","0%"],["12%","18%","25%","31%","37%","43%","50%","56%","62%","69%","75%","81%","87%","94%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%"],["2%","6%","10%","14%","18%","22%","27%","31%","35%","39%","43%","47%","51%","55%","59%","63%","67%","71%","76%","80%","84%","88%","92%","96%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%","100%"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Project Year<\/th>\n      <th>Calendar Year<\/th>\n      <th>Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship<\/th>\n      <th>Maintaining Wildlife Conservation in the Project Extent (including CBR)<\/th>\n      <th>Enhance biodiversity monitoring in PAI and CBR<\/th>\n      <th>Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":15,"paging":true,"searching":true,"info":true,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"120px","targets":0},{"width":"140px","targets":1},{"width":"400px","targets":2},{"width":"350px","targets":3},{"width":"300px","targets":4},{"width":"500px","targets":5},{"className":"dt-center","targets":"_all"},{"name":"Project Year","targets":0},{"name":"Calendar Year","targets":1},{"name":"Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship","targets":2},{"name":"Maintaining Wildlife Conservation in the Project Extent (including CBR)","targets":3},{"name":"Enhance biodiversity monitoring in PAI and CBR","targets":4},{"name":"Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation","targets":5}],"order":[],"orderClasses":false,"lengthMenu":[10,15,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 </section>
-<section id="Project-activity-effectiveness-BL" class="level2">
-<h2 class="anchored" data-anchor-id="Project-activity-effectiveness-BL">Project Activity Effectiveness on Relative Biodiversity Loss Reduction</h2>
-<p>In this section we focused on the actual effectiveness of our program activities and outcomes in reducing relative biodiversity loss in the Project Extent. The following table (<a href="#table14">Table 14</a>) describes the overall effectiveness of each outcome in reducing the biodiversity loss drivers. These numbers were based on assumptions made from the literature review on the effectiveness of relative activities on the identified drivers (see <a href="#implementation-of-activites">Implementation of Program Activities</a>).</p>
-<details open="">
-<summary>
-<strong><a href="#table14">Table 14.</a> Relative reduction in the Biodiversity Loss (BL) drivers due to project activities (Excluding Leakage)</strong>
-</summary>
-<div id="table14" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-<col style="width: 16%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Driver of BL</th>
-<th style="text-align: right;">Expanded Participation</th>
-<th style="text-align: right;">Wildlife Conservation (incl.&nbsp;CBR)</th>
-<th style="text-align: right;">Biodiversity Monitoring (PAI &amp; CBR)</th>
-<th style="text-align: right;">Inclusive Income Streams</th>
-<th style="text-align: right;">TOTAL REDUCTION BL</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Agricultural conversion</td>
-<td style="text-align: right;">20%</td>
-<td style="text-align: right;">20%</td>
-<td style="text-align: right;">13%</td>
-<td style="text-align: right;">12%</td>
-<td style="text-align: right;"><strong>65%</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Illegal Logging</td>
-<td style="text-align: right;">20%</td>
-<td style="text-align: right;">18%</td>
-<td style="text-align: right;">13%</td>
-<td style="text-align: right;">15%</td>
-<td style="text-align: right;"><strong>66%</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Forest Fires</td>
-<td style="text-align: right;">10%</td>
-<td style="text-align: right;">12%</td>
-<td style="text-align: right;">7%</td>
-<td style="text-align: right;">5%</td>
-<td style="text-align: right;"><strong>34%</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Cattle Ranching (From Forest Land to Pastures)</td>
-<td style="text-align: right;">20%</td>
-<td style="text-align: right;">18%</td>
-<td style="text-align: right;">12%</td>
-<td style="text-align: right;">12%</td>
-<td style="text-align: right;"><strong>62%</strong></td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Poaching and Hunting</td>
-<td style="text-align: right;">5%</td>
-<td style="text-align: right;">25%</td>
-<td style="text-align: right;">13%</td>
-<td style="text-align: right;">2%</td>
-<td style="text-align: right;"><strong>45%</strong></td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"><strong>Net Effect on Total BL (Excl. Leakage)</strong></td>
-<td style="text-align: right;"><strong>13%</strong></td>
-<td style="text-align: right;"><strong>21%</strong></td>
-<td style="text-align: right;"><strong>12%</strong></td>
-<td style="text-align: right;"><strong>7%</strong></td>
-<td style="text-align: right;"></td>
-</tr>
-</tbody>
-</table>
-</div>
-</details>
+<section id="project-activity-effectiveness" class="level2">
+<h2 class="anchored" data-anchor-id="project-activity-effectiveness">Project Activity Effectiveness on Relative Biodiversity Loss Reduction</h2>
+<p><a href="#table21">Table 21</a> describes the overall effectiveness of each outcome of the Program in reducing relative biodiversity loss drivers in the Project Extent. These numbers were based on assumptions made from the literature review on the effectiveness of activities on the identified drivers (see <a href="Step 9.html#implementation-of-activities">Implementation of Program Activities</a>).</p>
 <details>
 <summary>
-<strong><a href="#table15">Table 15.</a> Relative Project Impact and Net Biodiversity Loss Rate</strong>
+Table 21. Relative Reduction in Biodiversity Loss Drivers Due to Project Activities (Excluding Leakage)
 </summary>
-<div id="table15" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: right;">Year</th>
-<th style="text-align: right;">Biodiversity Condition Rate (Relative to Baseline)</th>
-<th style="text-align: right;">Net Gain</th>
-<th style="text-align: right;">Effectiveness</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: right;">2023</td>
-<td style="text-align: right;">95%</td>
-<td style="text-align: right;">5%</td>
-<td style="text-align: right;">5.19%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2024</td>
-<td style="text-align: right;">91%</td>
-<td style="text-align: right;">8%</td>
-<td style="text-align: right;">8.82%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2025</td>
-<td style="text-align: right;">88%</td>
-<td style="text-align: right;">11%</td>
-<td style="text-align: right;">11.73%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2026</td>
-<td style="text-align: right;">85%</td>
-<td style="text-align: right;">14%</td>
-<td style="text-align: right;">15.07%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2027</td>
-<td style="text-align: right;">82%</td>
-<td style="text-align: right;">17%</td>
-<td style="text-align: right;">18.41%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2028</td>
-<td style="text-align: right;">77%</td>
-<td style="text-align: right;">22%</td>
-<td style="text-align: right;">23.37%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2029</td>
-<td style="text-align: right;">73%</td>
-<td style="text-align: right;">25%</td>
-<td style="text-align: right;">27.00%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2030</td>
-<td style="text-align: right;">69%</td>
-<td style="text-align: right;">28%</td>
-<td style="text-align: right;">30.64%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2031</td>
-<td style="text-align: right;">66%</td>
-<td style="text-align: right;">32%</td>
-<td style="text-align: right;">34.28%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2032</td>
-<td style="text-align: right;">62%</td>
-<td style="text-align: right;">35%</td>
-<td style="text-align: right;">37.91%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2033</td>
-<td style="text-align: right;">60%</td>
-<td style="text-align: right;">38%</td>
-<td style="text-align: right;">40.36%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2034</td>
-<td style="text-align: right;">57%</td>
-<td style="text-align: right;">40%</td>
-<td style="text-align: right;">42.81%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2035</td>
-<td style="text-align: right;">55%</td>
-<td style="text-align: right;">42%</td>
-<td style="text-align: right;">45.26%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2036</td>
-<td style="text-align: right;">52%</td>
-<td style="text-align: right;">44%</td>
-<td style="text-align: right;">47.71%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2037</td>
-<td style="text-align: right;">50%</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">50.16%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2038</td>
-<td style="text-align: right;">50%</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">50.46%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2039</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">50.75%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2040</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">51.04%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2041</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">51.34%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2042</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">51.63%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2043</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">51.93%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2044</td>
-<td style="text-align: right;">48%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">52.22%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2045</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">52.51%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2046</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">52.81%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2047</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2048</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2049</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2050</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2051</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2052</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2053</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2054</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2055</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2056</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2057</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2058</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2059</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2060</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2061</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2062</td>
-<td style="text-align: right;">47%</td>
-<td style="text-align: right;">49%</td>
-<td style="text-align: right;">53.10%</td>
-</tr>
-</tbody>
-</table>
+<div id="table21">
+
+</div>
+<div class="terra-table-title">
+<p>Table 21. Relative Reduction in Biodiversity Loss Drivers Due to Project Activities</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-f4de6a777171fe5c57c3" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-f4de6a777171fe5c57c3">{"x":{"filter":"none","vertical":false,"data":[["Agricultural conversion","Illegal Logging","Forest Fires","Cattle Ranching (From Forest Land to Pastures)","Poaching and Hunting","Net Effect on Total BL (Excl. Leakage)"],["20%","20%","10%","20%","5%","13%"],["20%","18%","12%","18%","25%","21%"],["13%","13%","7%","12%","13%","12%"],["12%","15%","5%","12%","2%","7%"],["65%","66%","34%","62%","45%",""]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Driver of BL<\/th>\n      <th>Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship<\/th>\n      <th>Maintaining Wildlife Conservation in the Project Extent (including CBR)<\/th>\n      <th>Enhance biodiversity monitoring in PAI and CBR<\/th>\n      <th>Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation<\/th>\n      <th>TOTAL REDUCTION (BL)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"300px","targets":0},{"width":"350px","targets":1},{"width":"320px","targets":2},{"width":"260px","targets":3},{"width":"420px","targets":4},{"width":"180px","targets":5},{"className":"dt-left","targets":0},{"className":"dt-center","targets":[1,2,3,4,5]},{"name":"Driver of BL","targets":0},{"name":"Expanded Participation in the Grouped Project to improve habitat connectivity and increase long-term community stewardship","targets":1},{"name":"Maintaining Wildlife Conservation in the Project Extent (including CBR)","targets":2},{"name":"Enhance biodiversity monitoring in PAI and CBR","targets":3},{"name":"Increase income streams with an inclusive perspective to enhance livelihoods and improve attitude towards wildlife and ecosystem conservation","targets":4},{"name":"TOTAL REDUCTION (BL)","targets":5}],"order":[],"orderClasses":false,"rowCallback":"function(row, data, displayNum, displayIndex, dataIndex) {\nvar value=data[0]; $(row).css({'font-weight':value == \"Net Effect on Total BL (Excl. Leakage)\" ? \"bold\" : null});\n}"}},"evals":["options.rowCallback"],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
-<p>###Ex-Ante Projections The ex-ante projections were based on the year-to-year effectiveness that was calculated utilizing components of the VT007 Tool. Please find this information in the following sections, <a href="#Drivers-of-BL">Drivers of Biodiversity Loss</a>, <a href="#implementation-of-activites">Implementation of Program Activities</a>, and <a href="#Project-activity-effectiveness-BL">Project Activity Effectiveness on Relative Biodiversity Loss Reduction</a>. To calculate the ex-ante projections for the total number of nature credits that the program will produce over the project period, the baseline conditions of the project from the Condition at time T were applied in the quantification calculation below:</p>
-<p><span class="math display">\[
-(E_t×C_t )- [(E_0×C_0 )×(1+(t×B_t ))]
-\]</span> Where: - <span class="math inline">\(E_t\)</span> =Extent at Time t - <span class="math inline">\(C_t\)</span> =Condition at Time t - <span class="math inline">\(E_0\)</span> =Extent at Time 0 (Project Start) - <span class="math inline">\(C_0\)</span> =Condition at Time 0 (Project Start) - <span class="math inline">\(t\)</span> =time of verification - <span class="math inline">\(B_t\)</span> =Baseline at Time t</p>
-<p>This equation calculates the net change in nature credit outcomes by comparing current project performance to a baseline-adjusted starting condition. The first term represents the current state of the project area, calculated as the extent of the project in hectares multiplied by its overall condition score at the time of verification. The second term represents the expected baseline outcome, calculated by multiplying the project’s initial extent and condition at the start of the project and adjusting this value over time using the baseline rate. Subtracting the baseline-adjusted starting condition from the current project state yields the net benefit attributable to the project at the time of verification. The ex-ante projections are based on a quality-hectare framework that integrates project extent, ecosystem condition, and a dynamic baseline. An assumption was made that the Extent would remain static over the crediting period. Although, this is a grouped program and future iterations for ex-ante projections will need to be reassessed when adding new Project Activity Locations to account for the increased Project Extent. The projected changes in outcomes are driven by improvements in ecosystem condition. Condition values increase over time in line with the expected effectiveness of project activities and stabilize once full effectiveness is achieved. Baseline outcomes are represented through a dynamically adjusted baseline that reflects gradual decline in ecosystem condition in the absence of the project. This baseline trajectory is applied consistently across the crediting period using an annual baseline change rate. Baseline values are expressed in quality-hectare terms to ensure direct comparability with project outcomes. Ex-ante project outcomes are calculated as the product of projected extent and condition for each year. Net benefit outcomes are then derived as the difference between ex-ante project quality-hectares and baseline quality-hectares, representing the additional nature benefits attributable to the project. This structure ensures that projected credits reflect only benefits that exceed the counterfactual baseline. Table 13 demonstrates the calculations that were made for the ex-ante projections. The average annual biodiversity outcomes are projected to be 35,142 Quality Hectares (Qha) and a total of 1,405,677 Qha’s.</p>
+<p>The projections in <a href="#table22">Table 22</a> estimate how biodiversity condition improves relative to the baseline over time as project activities are implemented and become effective.</p>
+<p>The Biodiversity Condition Rate Relative to Baseline represents the expected condition of the ecosystem under the baseline scenario compared to the initial project condition. This value gradually declines over time, reflecting the expected degradation of biodiversity in the absence of the project.</p>
+<p>The Net Gain represents the improvement in biodiversity condition attributable to the project compared to the baseline trajectory. It is calculated as the difference between the baseline condition rate and the full potential condition of the ecosystem. As the baseline condition declines, the relative benefit of the project increases, resulting in larger net gains in the earlier years of implementation until the system approaches its maximum achievable improvement.</p>
+<p>The Effectiveness column represents the proportion of the total potential biodiversity improvement that has been realized by the project at a given point in time. This value increases gradually during the early years as project interventions are implemented and ecological recovery processes begin to take effect. Effectiveness approaches a maximum level of approximately 53% once the project reaches full operational maturity and ecosystem responses stabilize.</p>
 <details>
 <summary>
-<strong><a href="#table16">Table 16.</a> Ex-ante Projections based on Yearly Effectiveness</strong>
+Table 22. Relative Project Impact and Net Biodiversity Loss Rate
 </summary>
-<div id="table16" class="terra-standard">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-<col style="width: 8%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: center;">Year</th>
-<th style="text-align: right;">Baseline (dynamic adjusted)</th>
-<th style="text-align: right;">E0 (ha)</th>
-<th style="text-align: right;">Co</th>
-<th style="text-align: right;">t</th>
-<th style="text-align: right;">Bt</th>
-<th style="text-align: right;">Baseline Dynamic QHA</th>
-<th style="text-align: right;">Et (ha)</th>
-<th style="text-align: right;">Effective</th>
-<th style="text-align: right;">Ct</th>
-<th style="text-align: right;">Ex-Ante Project QHA</th>
-<th style="text-align: right;">NBOt</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;">0</td>
-<td style="text-align: right;">93409</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-<td style="text-align: right;"></td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">1</td>
-<td style="text-align: right;">92848</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">92848</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">5.19%</td>
-<td style="text-align: right;">0.804</td>
-<td style="text-align: right;">97665</td>
-<td style="text-align: right;">4817</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">2</td>
-<td style="text-align: right;">92288</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">92288</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">8.82%</td>
-<td style="text-align: right;">0.832</td>
-<td style="text-align: right;">100431</td>
-<td style="text-align: right;">8143</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">3</td>
-<td style="text-align: right;">91728</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">91728</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">11.73%</td>
-<td style="text-align: right;">0.854</td>
-<td style="text-align: right;">102486</td>
-<td style="text-align: right;">10758</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">4</td>
-<td style="text-align: right;">91167</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">91167</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">15.07%</td>
-<td style="text-align: right;">0.880</td>
-<td style="text-align: right;">104906</td>
-<td style="text-align: right;">13739</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">5</td>
-<td style="text-align: right;">90607</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">90607</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">18.41%</td>
-<td style="text-align: right;">0.905</td>
-<td style="text-align: right;">107290</td>
-<td style="text-align: right;">16683</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">6</td>
-<td style="text-align: right;">90046</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">6</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">90046</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">23.37%</td>
-<td style="text-align: right;">0.943</td>
-<td style="text-align: right;">111088</td>
-<td style="text-align: right;">21042</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">7</td>
-<td style="text-align: right;">89486</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">7</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">89486</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">27.00%</td>
-<td style="text-align: right;">0.971</td>
-<td style="text-align: right;">113650</td>
-<td style="text-align: right;">24164</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">8</td>
-<td style="text-align: right;">88925</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">8</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">88925</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">30.64%</td>
-<td style="text-align: right;">0.999</td>
-<td style="text-align: right;">116172</td>
-<td style="text-align: right;">27246</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">9</td>
-<td style="text-align: right;">88365</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">9</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">88365</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">34.28%</td>
-<td style="text-align: right;">1.027</td>
-<td style="text-align: right;">118652</td>
-<td style="text-align: right;">30288</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">10</td>
-<td style="text-align: right;">87804</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">10</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">87804</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">37.91%</td>
-<td style="text-align: right;">1.055</td>
-<td style="text-align: right;">121092</td>
-<td style="text-align: right;">33288</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">11</td>
-<td style="text-align: right;">87244</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">11</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">87244</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">40.36%</td>
-<td style="text-align: right;">1.073</td>
-<td style="text-align: right;">122457</td>
-<td style="text-align: right;">35213</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">12</td>
-<td style="text-align: right;">86683</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">12</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">86683</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">42.81%</td>
-<td style="text-align: right;">1.092</td>
-<td style="text-align: right;">123795</td>
-<td style="text-align: right;">37111</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">13</td>
-<td style="text-align: right;">86123</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">13</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">86123</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">45.26%</td>
-<td style="text-align: right;">1.111</td>
-<td style="text-align: right;">125104</td>
-<td style="text-align: right;">38981</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">14</td>
-<td style="text-align: right;">85563</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">14</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">85563</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">47.71%</td>
-<td style="text-align: right;">1.129</td>
-<td style="text-align: right;">126387</td>
-<td style="text-align: right;">40824</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">15</td>
-<td style="text-align: right;">85002</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">15</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">85002</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">50.16%</td>
-<td style="text-align: right;">1.148</td>
-<td style="text-align: right;">127642</td>
-<td style="text-align: right;">42640</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">16</td>
-<td style="text-align: right;">84442</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">16</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">84442</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">50.46%</td>
-<td style="text-align: right;">1.150</td>
-<td style="text-align: right;">127048</td>
-<td style="text-align: right;">42607</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">17</td>
-<td style="text-align: right;">83881</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">17</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">83881</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">50.75%</td>
-<td style="text-align: right;">1.153</td>
-<td style="text-align: right;">126452</td>
-<td style="text-align: right;">42570</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">18</td>
-<td style="text-align: right;">83321</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">18</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">83321</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">51.04%</td>
-<td style="text-align: right;">1.155</td>
-<td style="text-align: right;">125851</td>
-<td style="text-align: right;">42531</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">19</td>
-<td style="text-align: right;">82760</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">19</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">82760</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">51.34%</td>
-<td style="text-align: right;">1.157</td>
-<td style="text-align: right;">125248</td>
-<td style="text-align: right;">42488</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">20</td>
-<td style="text-align: right;">82200</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">20</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">82200</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">51.63%</td>
-<td style="text-align: right;">1.159</td>
-<td style="text-align: right;">124641</td>
-<td style="text-align: right;">42442</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">21</td>
-<td style="text-align: right;">81639</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">21</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">81639</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">51.93%</td>
-<td style="text-align: right;">1.162</td>
-<td style="text-align: right;">124031</td>
-<td style="text-align: right;">42392</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">22</td>
-<td style="text-align: right;">81079</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">22</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">81079</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">52.22%</td>
-<td style="text-align: right;">1.164</td>
-<td style="text-align: right;">123418</td>
-<td style="text-align: right;">42339</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">23</td>
-<td style="text-align: right;">80518</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">23</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">80518</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">52.51%</td>
-<td style="text-align: right;">1.166</td>
-<td style="text-align: right;">122802</td>
-<td style="text-align: right;">42283</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">24</td>
-<td style="text-align: right;">79958</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">24</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">79958</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">52.81%</td>
-<td style="text-align: right;">1.168</td>
-<td style="text-align: right;">122182</td>
-<td style="text-align: right;">42224</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">25</td>
-<td style="text-align: right;">79398</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">25</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">79398</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">121559</td>
-<td style="text-align: right;">42161</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">26</td>
-<td style="text-align: right;">78837</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">26</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">78837</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">120701</td>
-<td style="text-align: right;">41863</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">27</td>
-<td style="text-align: right;">78277</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">27</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">78277</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">119842</td>
-<td style="text-align: right;">41566</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">28</td>
-<td style="text-align: right;">77716</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">28</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">77716</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">118984</td>
-<td style="text-align: right;">41268</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">29</td>
-<td style="text-align: right;">77156</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">29</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">77156</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">118126</td>
-<td style="text-align: right;">40971</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">30</td>
-<td style="text-align: right;">76595</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">76595</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">117268</td>
-<td style="text-align: right;">40673</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">31</td>
-<td style="text-align: right;">76035</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">31</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">76035</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">116410</td>
-<td style="text-align: right;">40375</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">32</td>
-<td style="text-align: right;">75474</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">32</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">75474</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">115552</td>
-<td style="text-align: right;">40078</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">33</td>
-<td style="text-align: right;">74914</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">33</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">74914</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">114694</td>
-<td style="text-align: right;">39780</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">34</td>
-<td style="text-align: right;">74353</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">34</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">74353</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">113836</td>
-<td style="text-align: right;">39483</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">35</td>
-<td style="text-align: right;">73793</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">35</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">73793</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">112978</td>
-<td style="text-align: right;">39185</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">36</td>
-<td style="text-align: right;">73233</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">36</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">73233</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">112120</td>
-<td style="text-align: right;">38887</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">37</td>
-<td style="text-align: right;">72672</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">37</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">72672</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">111262</td>
-<td style="text-align: right;">38590</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">38</td>
-<td style="text-align: right;">72112</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">38</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">72112</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">110404</td>
-<td style="text-align: right;">38292</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;">39</td>
-<td style="text-align: right;">71551</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">39</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">71551</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">109546</td>
-<td style="text-align: right;">37995</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;">40</td>
-<td style="text-align: right;">70991</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">0.765</td>
-<td style="text-align: right;">40</td>
-<td style="text-align: right;">-0.006</td>
-<td style="text-align: right;">70991</td>
-<td style="text-align: right;">122158</td>
-<td style="text-align: right;">53.10%</td>
-<td style="text-align: right;">1.171</td>
-<td style="text-align: right;">108688</td>
-<td style="text-align: right;">37697</td>
-</tr>
-</tbody>
-</table>
+<div id="table22">
+
+</div>
+<div class="terra-table-title">
+<p>Table 22. Relative Project Impact and Net Biodiversity Loss Rate</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8d82475c2f0ed5853784" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8d82475c2f0ed5853784">{"x":{"filter":"none","vertical":false,"data":[[2023,2024,2025,2026,2027,2028,2029,2030,2031,2032,2033,2034,2035,2036,2037,2038,2039,2040,2041,2042,2043,2044,2045,2046,2047,2048,2049,2050,2051,2052,2053,2054,2055,2056,2057,2058,2059,2060,2061,2062],["95%","91%","88%","85%","82%","77%","73%","69%","66%","62%","60%","57%","55%","52%","50%","50%","49%","49%","49%","48%","48%","48%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%","47%"],["5%","8%","11%","14%","17%","22%","25%","28%","32%","35%","38%","40%","42%","44%","47%","47%","47%","48%","48%","48%","48%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%","49%"],["5.19%","8.82%","11.73%","15.07%","18.41%","23.37%","27.00%","30.64%","34.28%","37.91%","40.36%","42.81%","45.26%","47.71%","50.16%","50.46%","50.75%","51.04%","51.34%","51.63%","51.93%","52.22%","52.51%","52.81%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%","53.10%"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Biodiversity Condition rate relative to baseline<\/th>\n      <th>Net gain<\/th>\n      <th>Effectiveness<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":15,"searching":true,"info":true,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"width":"120px","targets":0},{"width":"350px","targets":1},{"width":"180px","targets":2},{"width":"180px","targets":3},{"className":"dt-center","targets":"_all"},{"name":"Year","targets":0},{"name":"Biodiversity Condition rate relative to baseline","targets":1},{"name":"Net gain","targets":2},{"name":"Effectiveness","targets":3}],"order":[],"orderClasses":false,"lengthMenu":[10,15,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</details>
+</section>
+<section id="ex-ante-projections" class="level2">
+<h2 class="anchored" data-anchor-id="ex-ante-projections">Ex-Ante Projections</h2>
+<p>The ex-ante projections of biodiversity outcomes were based on the year-to-year effectiveness that was calculated utilizing components of the <a href="https://verra.org/wp-content/uploads/imported/methodologies/VM0006-REDD-Mosaic-Methodology-v2.2.pdf#page=99">VM0006 Section 8.4</a>.</p>
+<p>To calculate the ex-ante projections for the total number of nature credits that the program will produce over the project period, the baseline conditions of the project from the Condition at time <span class="math inline">\(T\)</span> were applied in the quantification calculation below:</p>
+<p><span class="math display">\[(E_t \times C_t) - \left[(E_0 \times C_0) \times (1 + (t \times B_t))\right]\]</span></p>
+<p>Where:</p>
+<ul>
+<li><p><span class="math inline">\(E_t = \text{Extent at Time } t\)</span></p></li>
+<li><p><span class="math inline">\(C_t = \text{Condition at Time } t\)</span></p></li>
+<li><p><span class="math inline">\(E_0 = \text{Extent at Time 0 (Project Start)}\)</span></p></li>
+<li><p><span class="math inline">\(C_0 = \text{Condition at Time 0 (Project Start)}\)</span></p></li>
+<li><p><span class="math inline">\(t = \text{time of verification}\)</span></p></li>
+<li><p><span class="math inline">\(B_t = \text{Baseline at Time } t\)</span></p></li>
+</ul>
+<p>This equation calculates the net change in nature credit outcomes by comparing current project performance to a baseline-adjusted starting condition.</p>
+<p>The first term represents the current state of the project area, calculated as the extent of the project in hectares multiplied by its overall condition score at the time of verification. The second term represents the expected baseline outcome, calculated by multiplying the project’s initial extent and condition at the start of the project and adjusting this value over time using the baseline rate.</p>
+<p>Subtracting the baseline-adjusted starting condition from the current project state yields the net benefit attributable to the project at the time of verification.</p>
+<p>The ex-ante projections are based on a quality-hectare framework that integrates project extent, ecosystem condition, and a dynamic baseline. An assumption was made that the Extent would remain static over the crediting period. Although this is a grouped program, future iterations for ex-ante projections will need to be reassessed when adding new Project Activity Locations to account for the increased Project Extent. The projected changes in outcomes are driven by improvements in ecosystem condition. Condition values increase over time in line with the expected effectiveness of project activities and stabilize once full effectiveness is achieved.</p>
+<p>Baseline outcomes are represented through a dynamically adjusted baseline that reflects gradual decline in ecosystem condition in the absence of the project. This baseline trajectory is applied consistently across the crediting period using an annual baseline change rate. Baseline values are expressed in quality-hectare terms to ensure direct comparability with project outcomes.</p>
+<p>Ex-ante project outcomes are calculated as the product of projected extent and condition for each year. Net benefit outcomes are then derived as the difference between ex-ante project quality-hectares and baseline quality-hectares, representing the additional nature benefits attributable to the project. This structure ensures that projected credits reflect only benefits that exceed the counterfactual baseline.</p>
+<p><a href="#table23">Table 23</a> demonstrates the calculations that were made for the ex-ante projections. The average annual biodiversity outcomes are projected to be 125,629 Quality Hectares (Qha) and a total of 5,025,166 Qha.</p>
+<details>
+<summary>
+Table 23. Ex-Ante Projections Based on Yearly Effectiveness
+</summary>
+<div id="table23">
+
+</div>
+<div class="terra-table-title">
+<p>Table 23. Ex-Ante Projections Based on Yearly Effectiveness</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-0005d6249d31811bbb58" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-0005d6249d31811bbb58">{"x":{"filter":"none","vertical":false,"data":[[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40],["87,348","77,322","67,296","57,271","47,245","37,219","27,193","17,167","7,142","-2,884","-12,910","-22,936","-32,962","-42,987","-53,013","-63,039","-73,065","-83,091","-93,116","-103,142","-113,168","-123,194","-133,220","-143,245","-153,271","-163,297","-173,323","-183,349","-193,374","-203,400","-213,426","-223,452","-233,478","-243,503","-253,529","-263,555","-273,581","-283,607","-293,633","-303,658","-313,684"],["122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158"],["","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.715","0.765","0.765","0.765","0.765","0.765","0.765","0.765","0.765","0.765"],["","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40"],["","0.11478","0.11478","0.11478","-0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478","0.11478"],["","77,322","67,296","57,271","47,245","37,219","27,193","17,167","7,142","-2,884","-12,910","-22,936","-32,962","-42,987","-53,013","-63,039","-73,065","-83,091","-93,116","-103,142","-113,168","-123,194","-133,220","-143,245","-153,271","-163,297","-173,323","-183,349","-193,374","-203,400","-213,426","-223,452","-233,478","-243,503","-253,529","-263,555","-273,581","-283,607","-293,633","-303,658","-313,684"],["","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158","122,158"],["","0.752","0.778","0.799","0.823","0.847","0.882","0.908","0.934","0.960","0.986","1.004","1.021","1.039","1.056","1.074","1.076","1.078","1.080","1.082","1.084","1.086","1.088","1.091","1.093","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095","1.095"],["","91,879","95,055","97,592","100,512","103,431","107,759","110,935","114,111","117,287","120,463","122,603","124,744","126,884","129,024","131,164","131,421","131,678","131,934","132,191","132,448","132,704","132,961","133,218","133,474","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731","133,731"],["","14,557","27,759","40,322","53,267","66,212","80,566","93,768","106,970","120,171","133,373","145,539","157,705","169,871","182,037","194,204","204,486","214,768","225,051","235,333","245,616","255,898","266,181","276,463","286,745","297,028","307,054","317,079","327,105","337,131","347,157","357,183","367,208","377,234","387,260","397,286","407,312","417,337","427,363","437,389","447,415"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Year<\/th>\n      <th>Baseline (dynamic adjusted)<\/th>\n      <th>E0 (ha)<\/th>\n      <th>Co<\/th>\n      <th>t<\/th>\n      <th>Bt<\/th>\n      <th>Baseline Dynamic QHA<\/th>\n      <th>Et (ha)<\/th>\n      <th>Ct<\/th>\n      <th>Ex-Ante Project QHA<\/th>\n      <th>NBOt<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"pageLength":15,"searching":true,"info":true,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"width":"100px","targets":0},{"width":"180px","targets":1},{"width":"120px","targets":2},{"width":"100px","targets":3},{"width":"80px","targets":4},{"width":"120px","targets":5},{"width":"180px","targets":6},{"width":"120px","targets":7},{"width":"180px","targets":8},{"width":"150px","targets":9},{"name":"Year","targets":0},{"name":"Baseline (dynamic adjusted)","targets":1},{"name":"E0 (ha)","targets":2},{"name":"Co","targets":3},{"name":"t","targets":4},{"name":"Bt","targets":5},{"name":"Baseline Dynamic QHA","targets":6},{"name":"Et (ha)","targets":7},{"name":"Ct","targets":8},{"name":"Ex-Ante Project QHA","targets":9},{"name":"NBOt","targets":10}],"order":[],"orderClasses":false,"lengthMenu":[10,15,25,50,100]}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-aragón-moreno2018" class="csl-entry" role="listitem">
+Aragón-Moreno, Alejandro A., Gerald A. Islebe, Priyadarsi D. Roy, Nuria Torrescano-Valle, and Andreas D. Mueller. 2018. <span>“Climate Forcings on Vegetation of the Southeastern Yucatán Peninsula (Mexico) During the Middle to Late Holocene.”</span> <em>Palaeogeography, Palaeoclimatology, Palaeoecology</em> 495 (April): 214–26. <a href="https://doi.org/10.1016/j.palaeo.2018.01.014">https://doi.org/10.1016/j.palaeo.2018.01.014</a>.
+</div>
+<div id="ref-belongia2023" class="csl-entry" role="listitem">
+Belongia, Megan F., Courtney Hammond Wagner, Kimberly Quesnel Seipp, and Newsha K. Ajami. 2023. <span>“Building Water Resilience in the Face of Cascading Wildfire Risks.”</span> <em>Science Advances</em> 9 (37). <a href="https://doi.org/10.1126/sciadv.adf9534">https://doi.org/10.1126/sciadv.adf9534</a>.
+</div>
+<div id="ref-bladon2014" class="csl-entry" role="listitem">
+Bladon, Kevin D., Monica B. Emelko, Uldis Silins, and Micheal Stone. 2014. <span>“Wildfire and the Future of Water Supply.”</span> <em>Environmental Science &amp; Technology</em> 48 (16): 8936–43. <a href="https://doi.org/10.1021/es500130g">https://doi.org/10.1021/es500130g</a>.
+</div>
+<div id="ref-bohn2014" class="csl-entry" role="listitem">
+Bohn, Jessica L., Stewart A. W. Diemont, James P. Gibbs, Stephen V. Stehman, and Jorge Mendoza Vega. 2014. <span>“Implications of Mayan Agroforestry for Biodiversity Conservation in the Calakmul Biosphere Reserve, Mexico.”</span> <em>Agroforestry Systems</em> 88 (2): 269–85. <a href="https://doi.org/10.1007/s10457-014-9674-9">https://doi.org/10.1007/s10457-014-9674-9</a>.
+</div>
+<div id="ref-cameron2022" class="csl-entry" role="listitem">
+Cameron, D. Richard, Carrie A. Schloss, David M. Theobald, and Scott A. Morrison. 2022. <span>“A Framework to Select Strategies for Conserving and Restoring Habitat Connectivity in Complex Landscapes.”</span> <em>Conservation Science and Practice</em> 4 (6). <a href="https://doi.org/10.1111/csp2.12698">https://doi.org/10.1111/csp2.12698</a>.
+</div>
+<div id="ref-ceballos2007" class="csl-entry" role="listitem">
+Ceballos, Gerardo. 2007. <span>“CONSERVATION PRIORITIES FOR MAMMALS IN MEGADIVERSE MEXICO: THE EFFICIENCY OF RESERVE NETWORKS.”</span> <em>Ecological Applications</em> 17 (2): 569–78. <a href="https://doi.org/10.1890/06-0134">https://doi.org/10.1890/06-0134</a>.
+</div>
+<div id="ref-gannon2020" class="csl-entry" role="listitem">
+Gannon, Benjamin M., Yu Wei, and Matthew P. Thompson. 2020. <span>“Mitigating Source Water Risks with Improved Wildfire Containment.”</span> <em>Fire</em> 3 (3): 45. <a href="https://doi.org/10.3390/fire3030045">https://doi.org/10.3390/fire3030045</a>.
+</div>
+<div id="ref-garcía-estrada2024" class="csl-entry" role="listitem">
+García-Estrada, David Alberto, Nelly Selem-Mojica, Aída Martínez-Hernández, Joel Lara-Reyna, Sonia Dávila-Ramos, and Karina Verdel-Aranda. 2024. <span>“Diversity of Bacterial Communities in Wetlands of Calakmul Biosphere Reserve: A Comparative Analysis Between Conserved and Semi-Urbanized Zones in Pre-Mayan Train Era.”</span> <em>BMC Microbiology</em> 24 (1). <a href="https://doi.org/10.1186/s12866-024-03523-x">https://doi.org/10.1186/s12866-024-03523-x</a>.
+</div>
+<div id="ref-garcía-frapolli2007" class="csl-entry" role="listitem">
+García-Frapolli, Eduardo, Bárbara Ayala-Orozco, Martha Bonilla-Moheno, Celene Espadas-Manrique, and Gabriel Ramos-Fernández. 2007. <span>“Biodiversity Conservation, Traditional Agriculture and Ecotourism: Land Cover/Land Use Change Projections for a Natural Protected Area in the Northeastern Yucatan Peninsula, Mexico.”</span> <em>Landscape and Urban Planning</em> 83 (2-3): 137–53. <a href="https://doi.org/10.1016/j.landurbplan.2007.03.007">https://doi.org/10.1016/j.landurbplan.2007.03.007</a>.
+</div>
+<div id="ref-keeley2021" class="csl-entry" role="listitem">
+Keeley, Annika T. H., Paul Beier, and Jeff S. Jenness. 2021. <span>“Connectivity Metrics for Conservation Planning and Monitoring.”</span> <em>Biological Conservation</em> 255 (March): 109008. <a href="https://doi.org/10.1016/j.biocon.2021.109008">https://doi.org/10.1016/j.biocon.2021.109008</a>.
+</div>
+<div id="ref-monzón-alvarado2016" class="csl-entry" role="listitem">
+Monzón-Alvarado, Claudia María, and Eric Keys. 2016. <span>“Synergistic Vulnerabilities: Climate Variability and Fire Management Policy Increase Farming Challenges in Southeastern Mexico.”</span> <em>Regional Environmental Change</em> 17 (2): 489–500. <a href="https://doi.org/10.1007/s10113-016-1035-y">https://doi.org/10.1007/s10113-016-1035-y</a>.
+</div>
+<div id="ref-navarro2017" class="csl-entry" role="listitem">
+Navarro, Laetitia M, Néstor Fernández, Carlos Guerra, Rob Guralnick, W Daniel Kissling, Maria Cecilia Londoño, Frank Muller-Karger, et al. 2017. <span>“Monitoring Biodiversity Change Through Effective Global Coordination.”</span> <em>Current Opinion in Environmental Sustainability</em> 29 (December): 158–69. <a href="https://doi.org/10.1016/j.cosust.2018.02.005">https://doi.org/10.1016/j.cosust.2018.02.005</a>.
+</div>
+<div id="ref-roe2015" class="csl-entry" role="listitem">
+Roe, Dilys, Francesca Booker, Mike Day, Wen Zhou, Sophie Allebone-Webb, Nicholas A. O. Hill, Noelle Kumpel, et al. 2015. <span>“Are Alternative Livelihood Projects Effective at Reducing Local Threats to Specified Elements of Biodiversity and/or Improving or Maintaining the Conservation Status of Those Elements?”</span> <em>Environmental Evidence</em> 4 (1). <a href="https://doi.org/10.1186/s13750-015-0048-1">https://doi.org/10.1186/s13750-015-0048-1</a>.
+</div>
+<div id="ref-roychowdhury2006" class="csl-entry" role="listitem">
+Roy Chowdhury, Rinku. 2006. <span>“Landscape Change in the Calakmul Biosphere Reserve, Mexico: Modeling the Driving Forces of Smallholder Deforestation in Land Parcels.”</span> <em>Applied Geography</em> 26 (2): 129–52. <a href="https://doi.org/10.1016/j.apgeog.2005.11.004">https://doi.org/10.1016/j.apgeog.2005.11.004</a>.
+</div>
+<div id="ref-slater2019" class="csl-entry" role="listitem">
+Slater, Kathy. 2019. <span>“Monitoreo Del Impacto de Perdida de Aguadas En La Fauna de Calakmul.”</span>
+</div>
+<div id="ref-slough2021" class="csl-entry" role="listitem">
+Slough, Tara, Jacob Kopas, and Johannes Urpelainen. 2021. <span>“Satellite-Based Deforestation Alerts with Training and Incentives for Patrolling Facilitate Community Monitoring in the Peruvian Amazon.”</span> <em>Proceedings of the National Academy of Sciences</em> 118 (29). <a href="https://doi.org/10.1073/pnas.2015171118">https://doi.org/10.1073/pnas.2015171118</a>.
+</div>
+<div id="ref-spiric2022" class="csl-entry" role="listitem">
+Špirić, Jovanka, Mariana Vallejo, and M. Isabel Ramírez. 2022. <span>“Impact of Productive Activities on Forest Cover Change in the Calakmul Biosphere Reserve Region: Evidence and Research Gaps.”</span> <em>Tropical Conservation Science</em> 15 (June). <a href="https://doi.org/10.1177/19400829221105712">https://doi.org/10.1177/19400829221105712</a>.
+</div>
+<div id="ref-vester2007" class="csl-entry" role="listitem">
+Vester, Henricus F. M., Deborah Lawrence, J. Ronald Eastman, B. L. Turner, Sophie Calmé, Rebecca Dickson, Carmen Pozo, and Florencia Sangermano. 2007. <span>“LAND CHANGE IN THE SOUTHERN YUCATÁN AND CALAKMUL BIOSPHERE RESERVE: EFFECTS ON HABITAT AND BIODIVERSITY.”</span> <em>Ecological Applications</em> 17 (4): 989–1003. <a href="https://doi.org/10.1890/05-1106">https://doi.org/10.1890/05-1106</a>.
+</div>
+<div id="ref-yanco2025" class="csl-entry" role="listitem">
+Yanco, Scott W., Christian Rutz, Briana Abrahms, Nathan W. Cooper, Peter P. Marra, Thomas Mueller, Brian C. Weeks, Martin Wikelski, and Ruth Y. Oliver. 2025. <span>“Tracking Individual Animals Can Reveal the Mechanisms of Species Loss.”</span> <em>Trends in Ecology &amp; Evolution</em> 40 (1): 47–56. <a href="https://doi.org/10.1016/j.tree.2024.09.008">https://doi.org/10.1016/j.tree.2024.09.008</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->

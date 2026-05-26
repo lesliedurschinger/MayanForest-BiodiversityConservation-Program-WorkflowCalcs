@@ -2,52 +2,107 @@
 title: "Step 5. Standardize Condition indicators"
 format: html
 ---
-Following the equation for Step 3 (below), each standardized condition value was calculated and can be found in [Table 5](#table5).
 
-$$
-SI_0 = \frac{I_0}{RV}
-$$
+Following the equation for Step 3 (below), each standardized condition value was calculated and can be found in [Table 12](#table12).
+
+$$SI_0 = \frac{I_0}{RV}$$
 
 Where:
 
--   $SI_0$ = Standardized Condition Indicator at project start
+- $SI_0$ = Standardized Condition Indicator at project start
 
--   $I_0$ = Condition indicator value at project start
+- $I_0$ = Condition indicator value at project start
 
--   $RV$ = Reference value
+- $RV$ = Reference value
+
+<br>
 
 Species richness of herpetofauna: $$ 
     SI_{0,\text{herp}} = \frac{46}{90} = 0.511
     $$
 
-Species richness of birds: $$
-SI_{0,\text{birds}} = \frac{215}{230} = 0.935
-$$
+Species richness of birds: $$SI_{0,\text{birds}} = \frac{215}{230} = 0.935$$
 
-Species richness of mammals: $$
-SI_{0,\text{mammals}} = \frac{31}{46} = 0.674
-$$
+Species richness of mammals: $$SI_{0,\text{mammals}} = \frac{31}{46} = 0.674$$
 
-Aboveground biomass: $$
-SI_{0,\text{AGB}} = \frac{152.051}{187.234} = 0.812
-$$
+Aboveground biomass: $$SI_{0,\text{AGB}} = \frac{152.051}{187.234} = 0.812$$
 
-Forest canopy cover: $$
-SI_{0,\text{canopy}} = \frac{60}{72} = 0.833
-$$
+Forest canopy cover: $$SI_{0,\text{canopy}} = \frac{60}{72} = 0.833$$
 
-<details open>
+<details>
 
-<summary><strong>[Table 5](#table5). Standardized Condition Indicators</strong></summary>
+<summary>Table 12. Standardized Condition Indicators</summary>
 
-::: {#table5 .terra-exec}
-| Condition Component | Indicator Description | Reference Value | Condition Value Measured at Project Start | Standardized Condition Value |
-|:--------------|:--------------|--------------:|--------------:|--------------:|
-| Composition (Cm1) | Species richness of herpetofauna | 90.000 | 46.000 | 0.511 |
-| Composition (Cm2) | Species richness of birds | 230.000 | 215.000 | 0.935 |
-| Composition (Cm3) | Species richness of mammals | 46.000 | 31.000 | 0.674 |
-| Structure (S1) | Aboveground biomass (Mg DM ha^-1^) | 187.234 | 152.051 | 0.812 |
-| Structure (S2) | Forest canopy cover (%) | 72.000 | 60.000 | 0.833 |
+::: {#table12}
 :::
+
+::: terra-table-title
+Table 12. Standardized Condition Indicators
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+table_data <- data.frame(
+  check.names = FALSE,
+  
+  `Condition Component` = c(
+    "Composition (Cm1)",
+    "Composition (Cm2)",
+    "Composition (Cm3)",
+    "Structure (S1)",
+    "Structure (S2)"
+  ),
+  
+  `Indicator Description` = c(
+    "Species richness of herpetofauna",
+    "Species richness of birds",
+    "Species richness of mammals",
+    "Aboveground biomass (MG DM ha-1)",
+    "Forest canopy cover (%)"
+  ),
+  
+  `Reference Value` = c(
+    "90.000",
+    "230.000",
+    "46.000",
+    "48.860",
+    "66.280"
+  ),
+  
+  `Condition value measured at project start` = c(
+    "46.000",
+    "215.000",
+    "31.000",
+    "34.540",
+    "49.050"
+  ),
+  
+  `Standardized Condition value` = c(
+    "0.511",
+    "0.935",
+    "0.674",
+    "0.707",
+    "0.740"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
 
 </details>

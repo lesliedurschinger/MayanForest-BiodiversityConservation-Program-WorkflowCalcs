@@ -3,46 +3,263 @@ title: "Step 8. Crediting Baseline"
 format: html
 ---
 
-## Step H1. Map buffer zone around project Extent
+## Step H1. Map Buffer Zone Around Project Extent {#step-h1-buffer-zone}
 
-The spatial boundaries of the project extent were digitally mapped using QGIS and provided as a .geojson file. Per the SD Vista Nature Framework v1.0 Habitat conversion Risk Method, budder zones around the project extent are not required for baseline calculation. The methodology requires baseline calculations only within the project extent where conservation activities are implemented and credits will be claimed.
+The spatial boundaries of the Project Extent were digitally mapped using QGIS and provided as a shapefile. Per the SD VISta Nature Framework v1.0 Habitat Conversion Risk Method, buffer zones around the Project Extent are not required for baseline calculation. The methodology requires baseline calculations only within the Project Extent where conservation activities are implemented and credits will be claimed. Nevertheless, the buffer is mapped in Step 1 of the Crediting Baseline code.
 
-## Step H2. Choose structure indicator for modeling
+The spatial boundaries of the Project Extent were digitally mapped using the selected Ejidos and the Tropical and Sub-Tropical Forests class from the IUCN global dataset described in [Step 1](Step%201.html#step1).
 
-The structural indicator used for the Habitat Conversion Risk method is one of the structure indicators chosen for monitoring, that is Canopy Cover. As such, it is a target indicator, and not a proxy indicator, and as such it did not require quantifying the correlation with its proxy (i.e. the indicator is not a proxy). For a justification as to why this index was used, refer to [Table 3](#table3).
+------------------------------------------------------------------------
 
-<details open>
+## Step H2. Choose Structure Indicator for Modeling {#step-h2-structure-indicator}
 
-<summary><strong>[Table 8](#table8). Condition indicator employed for quantify habitat loss risk</strong></summary>
+The structural indicator used for the Habitat Conversion Risk Method is one of the structure indicators chosen for monitoring, specifically Canopy Cover. As such, it is a target indicator and not a proxy indicator, and therefore did not require quantifying correlation with a proxy variable (i.e. the indicator itself is directly measured).
 
-::: {#table8 .terra-standard}
-| Condition Indicator | Target or Proxy | Credible Source & Justification |
-|:-----------------------|:-----------------------|:-----------------------|
-| Canopy Cover | Structural Indicator – Target | Canopy Cover directly measures habitat structure and is highly sensitive to both ecosystem degradation and conversion. The indicator has 10 years of continuous historical data, enabling regression-based forecasting as required by SD VISta for using historical conversion rates. MODIS is a credible, globally recognized source with documented accuracy and validation. Spatial resolution (250m) complies with SD VISta requirement of ≤300m. The indicator is already used for program monitoring, ensuring consistency between baseline and verification. Compliance with Section 7.5.4: Dataset meets all data requirements including spatial resolution, temporal coverage, credible source, and sensitivity to habitat conversion. |
-:::
-
-</details>
-
-## Step H3. Create or source a raster of the structure indicator
-
-A probability raster was generated using regression analysis fitted to 10 years of historical Canopy Cover data. This approach fulfills SD VISta’s requirements to use historical conversion rate for predicting future habitat conditions. This approach employs pixel-level linear regression models that incorporate both spatial and temporal drivers of habitat conversion, allowing for spatially explicit forecasts that reflect observed historical trends.
+For additional justification regarding the use of this indicator, refer to [Table 15](#table15).
 
 <details>
 
-<summary><strong>[Table 9.](#table9) Sources and Justification for Covariates Used for Crediting Baseline</strong></summary>
+<summary>Table 15. Condition Indicator Employed for Quantifying Habitat Loss Risk</summary>
 
-::: {#table9 .terra-standard}
-| Covariate | Credible Source & Justification |
-|:-----------------------------------|:-----------------------------------|
-| IUCN Habitat Map | Jung et al. (2020) was utilized to characterize and describe the Project Extent, applying the IUCN habitat classification and counting pixels per habitat class. |
-| MODIS NPP (Response Variable) | The response variable for the regression analysis is the MODIS Tree Cover dataset (MOD44B Collection 6.1), which provides annual measurements of tree canopy cover. This 10-year time series serves as the dependent variable in the regression models, with each pixel containing 10 annual observations. The dataset has a spatial resolution of 250m × 250m, complying with SD VISta’s requirement of ≤300m resolution. MODIS Tree Cover is a credible, globally recognized data source with documented accuracy and validation procedures. The 10-year temporal coverage provides sufficient historical data to detect meaningful trends and fit robust regression models. Geographic coverage includes both the reference region and project extent, ensuring that baseline calculations are conducted across all relevant areas. Data were obtained from NASA Earth Observations and processed as a multi-band GeoTIFF file, with each band representing one year of observations. |
-| CISI (Static Spatial Covariate) | To account for spatial variation in conversion risk, the regression models incorporate the Critical Infrastructure & Societal Index (CISI) as a static covariate. CISI is derived from the Harmonized Global Critical Infrastructure & Societal Index developed by Nirandjan et al. (2022), which provides a spatially explicit measure of human pressure based on proximity to critical anthropogenic infrastructure including roads, settlements, and urban areas. Distance from infrastructure is a well-established driver of deforestation and forest degradation in tropical forest landscapes. Areas closer to roads and settlements typically experience higher conversion pressure due to greater accessibility for agricultural expansion, logging, and other land-use activities. The CISI dataset provides a continuous measure of this spatial gradient of human influence. |
-| Year (Temporal Covariate) | This predictor variable represents time in the regression models, included as a simple linear year variable. The temporal covariate captures the historical trend in tree cover change over the 10-year observation period. The coefficient associated with the year variable represents the average annual rate of change (increase or decline) in tree cover at each pixel, after accounting for the influence of infrastructure proximity. |
+::: {#table15}
 :::
+
+::: terra-table-title
+Table 15. Condition Indicator Employed for Quantifying Habitat Loss Risk
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(DT)
+
+table_data <- data.frame(
+
+  check.names = FALSE,
+
+  `Condition Indicator` = c(
+    "Canopy Cover"
+  ),
+
+  `Target or Proxy` = c(
+    "Structural Indicator - Target"
+  ),
+
+  `Credible Source & Justification` = c(
+
+"
+<b>Canopy Cover - MODIS Vegetation Continuous Fields (MOD44B) v061</b> directly measures habitat structure and is highly sensitive to both ecosystem degradation and conversion, making it an appropriate indicator for tracking habitat condition under SD VISta requirements.
+
+<br><br>
+
+<ul>
+
+<li><b>Temporal coverage:</b> The dataset provides 10 years of continuous historical data, enabling regression-based forecasting of historical conversion rates as required by SD VISta.</li>
+
+<li><b>Credible source:</b> MODIS is a globally recognized, peer-reviewed remote sensing product with documented accuracy and independent validation, satisfying SD VISta requirements for credible and transparent data sources.</li>
+
+<li><b>Spatial resolution:</b> At 250m resolution, the dataset complies with the SD VISta maximum threshold of ≤300m spatial resolution for habitat conversion risk assessments.</li>
+
+<li><b>Sensitivity to change:</b> The indicator captures both gradual degradation and abrupt habitat conversion, ensuring that meaningful changes in ecosystem condition are detectable within the crediting period.</li>
+
+<li><b>Consistency with program monitoring:</b> The indicator is already used for program-level monitoring, ensuring methodological consistency between the baseline assessment and future verification events.</li>
+
+</ul>
+
+<b>Compliance with Section 7.5.4:</b> The dataset meets all data requirements specified under Section 7.5.4, including spatial resolution, temporal coverage, use of a credible and documented source, and demonstrated sensitivity to habitat conversion.
+"
+  )
+)
+
+datatable(
+
+  table_data,
+
+  escape = FALSE,
+
+  options = list(
+
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+
+    scrollX = TRUE,
+
+    autoWidth = FALSE,
+
+    columnDefs = list(
+
+      list(width = '180px', targets = 0),
+      list(width = '220px', targets = 1),
+      list(width = '900px', targets = 2),
+
+      list(className = 'dt-left', targets = 2),
+      list(className = 'dt-center', targets = c(0,1))
+    )
+  ),
+
+  rownames = FALSE,
+
+  class = "stripe hover compact"
+
+)
+
+```
 
 </details>
 
-### Modeling approach:
+------------------------------------------------------------------------
+
+## Step H3. Create or source a raster of the structure indicator {#step-h3-raster}
+
+A probability raster was generated using regression analysis fitted to 10 years of historical Canopy Cover data. This approach fulfills SD VISta’s requirements to use historical conversion rate for predicting future habitat conditions. This approach employs pixel-level linear regression models that incorporate both spatial and temporal drivers of habitat conversion, allowing for spatially explicit forecasts that reflect observed historical trends.
+
+[Table 16](#table16) describes the sources and justification for covariates used for the crediting baseline.
+
+<details>
+
+<summary>Table 16. Sources and Justification for Covariates Used for Crediting Baseline</summary>
+
+::: {#table16}
+:::
+
+::: terra-table-title
+Table 16. Sources and Justification for Covariates Used for Crediting Baseline
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(DT)
+
+table_data <- data.frame(
+
+  check.names = FALSE,
+
+  Covariate = c(
+    "IUCN Habitat map",
+    "MODIS Vegetation Continuous Fields (MOD44B) v061 (Response Variable)",
+    "CISI (Static Spatial Covariate)",
+    "Year (Temporal Covariate)"
+  ),
+
+  `Credible Source & Justification` = c(
+
+"
+<b>IUCN Habitat map</b><br><br>
+
+ 
+<a href='https://doi.org/10.1038/s41597-020-00599-8' target='_blank'>
+Jung et al. (2020)
+</a>
+was utilized to characterize and describe the Project Extent, utilizing the IUCN habitat classification count of pixels per habitat class.
+",
+
+"
+<b>MODIS Vegetation Continuous Fields (MOD44B) v061 (Response Variable)</b><br><br>
+
+The response variable for the regression analysis is the MODIS Tree Cover dataset (MOD44B Collection 6.1), which provides annual measurements of tree canopy cover.
+
+<br><br>
+
+This 10-year time series serves as the dependent variable in the regression models, with each pixel containing 10 annual observations.
+
+<br><br>
+
+<ul>
+
+<li>The dataset has a spatial resolution of 250m × 250m, which complies with SD VISta's requirement of ≤300m resolution.</li>
+
+<li>MODIS Tree Cover is a credible, globally recognized data source with documented accuracy and validation procedures.</li>
+
+<li>The temporal coverage of 10 years provides sufficient historical data to detect meaningful trends and fit robust regression models.</li>
+
+<li>The geographic coverage encompasses both the reference region and project extent, ensuring that baseline calculations are conducted across all relevant areas.</li>
+
+<li>The data were obtained from NASA Earth Observations and processed as a multi-band GeoTIFF file, with each band representing one year of observations.</li>
+
+</ul>
+",
+
+"
+<b>CISI (Static Spatial Covariate)</b><br><br>
+
+To account for spatial variation in conversion risk, the regression models incorporate the Critical Infrastructure & Societal Index (CISI) as a static covariate.
+
+<br><br>
+
+CISI is derived from the Harmonized Global Critical Infrastructure & Societal Index developed by Nirandjan et al. (2022), which provides a spatially explicit measure of human pressure based on proximity to critical anthropogenic infrastructure including roads, settlements, and urban areas.
+
+<br><br>
+
+Distance from infrastructure is a well-established driver of deforestation and forest degradation in tropical forest landscapes.
+
+<br><br>
+
+Areas closer to roads and settlements typically experience higher conversion pressure due to greater accessibility for agricultural expansion, logging, and other land-use activities.
+
+<br><br>
+
+The CISI dataset provides a continuous measure of this spatial gradient of human influence.
+",
+
+"
+<b>Year (Temporal Covariate)</b><br><br>
+
+This predictor variable in the regression models is time, represented as a simple linear year variable.
+
+<br><br>
+
+This temporal covariate captures the historical trend in tree cover change over the 10-year observation period.
+
+<br><br>
+
+The coefficient associated with the year variable represents the average annual rate of change (increase or decline) in tree cover at each pixel, after accounting for the influence of infrastructure proximity.
+"
+  )
+)
+
+datatable(
+
+  table_data,
+
+  escape = FALSE,
+
+  options = list(
+
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+
+    scrollX = TRUE,
+
+    autoWidth = FALSE,
+
+    columnDefs = list(
+
+      list(width = '260px', targets = 0),
+      list(width = '1000px', targets = 1),
+
+      list(className = 'dt-left', targets = 1),
+      list(className = 'dt-center', targets = 0)
+    )
+  ),
+
+  rownames = FALSE,
+
+  class = "stripe hover compact"
+
+)
+
+```
+
+</details>
+
+<details>
+
+<summary>H3.1 Modeling Approach</summary>
+
+<br> **Modeling approach**
 
 The probability raster was generated using a pixel-level regression approach. For each pixel in the study area, a separate linear regression model was fitted to the 10-year historical time series of tree cover. This spatially explicit approach allows conversion risks to vary across the landscape based on local conditions and trends, rather than imposing a uniform average across all areas.
 
@@ -52,9 +269,15 @@ The model is fitted using ordinary least squares (OLS) regression, which estimat
 
 The coefficient β₁ quantifies the spatial relationship between infrastructure proximity and tree cover. A negative β₁ indicates that pixels closer to infrastructure (higher CISI values) tend to have lower tree cover, consistent with accessibility-driven deforestation patterns. The magnitude of β₁ indicates how strongly infrastructure proximity affects tree cover at that location. The coefficient β₂ quantifies the temporal trend in tree cover over the historical period. A negative β₂ indicates declining tree cover (deforestation), while a positive β₂ would indicate increasing tree cover (reforestation or regeneration). The magnitude of β₂ represents the historical conversion rate in percentage points per year, which is the key parameter for projecting future conditions.
 
-Once the regression model is fitted to historical data, it is used to generate forecasts for the end of the monitoring period, defined as current year plus 5 years. For each pixel, the forecast is calculated by extrapolating the fitted relationship forward in time using the equation: Forecast at t₀ plus 5 equals β₀ plus β₁ times CISI plus β₂ times (Current_Year plus 5). This forecast represents the expected tree cover value if historical trends continue without intervention. Because CISI is static, its contribution to the forecast remains constant. The temporal component, β₂ times Year, drives the predicted change, with the 5-year projection multiplying the annual conversion rate by the length of the monitoring period.
+Once the regression model is fitted to historical data, it is used to generate forecasts for the end of the monitoring period, defined as current year plus 5 years. For each pixel, the forecast is calculated by extrapolating the fitted relationship forward in time using the equation: Forecast at t₀ plus 5 equals β₀ plus β₁ times CISI plus β₂ times (Current Year plus 5). This forecast represents the expected tree cover value if historical trends continue without intervention. Because CISI is static, its contribution to the forecast remains constant. The temporal component, β₂ times Year, drives the predicted change, with the 5-year projection multiplying the annual conversion rate by the length of the monitoring period.
 
-### Model Outputs:
+</details>
+
+<details>
+
+<summary>H3.2 Model Outputs</summary>
+
+<br> **Model Outputs**
 
 The regression analysis generates two distinct outputs, both required for the SD VISta Habitat Conversion Risk Method. These outputs serve different purposes in the baseline calculation methodology and must not be conflated.
 
@@ -62,182 +285,668 @@ The first output is a raster of forecast values, representing the predicted tree
 
 The second output is a probability raster, representing the likelihood that future tree cover will decline below current levels at each pixel. This probability is calculated using the forecast uncertainty (standard error) from the regression model according to the formula: P(decline) equals Φ times (I at t₀ minus Forecast divided by σ), where P(decline) is the probability that future tree cover will be below current tree cover, Φ is the cumulative distribution function (CDF) of the standard normal distribution, I at t₀ is the current tree cover value at baseline, Forecast is the predicted future value from the regression, and σ is the standard error of the regression representing prediction uncertainty.
 
-This formula calculates how many standard errors below the forecast the current value lies, then converts this standardized distance into a probability using the normal cumulative distribution function. If the forecast predicts substantial decline, meaning the forecast is much less than current value, the probability will be high, approaching 1. If the forecast predicts stable or increasing conditions, meaning the forecast is greater than or equal to current value, the probability will be low, approaching. The probability values range from 0 to 1, with values close to 0 indicating low likelihood of decline and values close to 1 indicating high likelihood of decline.
+This formula calculates how many standard errors below the forecast the current value lies, then converts this standardized distance into a probability using the normal cumulative distribution function. If the forecast predicts substantial decline, meaning the forecast is much less than current value, the probability will be high, approaching 1. If the forecast predicts stable or increasing conditions, meaning the forecast is greater than or equal to current value, the probability will be low, approaching.
+
+The probability values range from 0 to 1, with values close to 0 indicating low likelihood of decline and values close to 1 indicating high likelihood of decline.
 
 These probabilities are used in Steps H4 through H6 to classify pixels as high-risk when probability is greater than or equal to 0.3, or low risk when probability is less than 0.3, and to calculate the weighted proportion of the project extent facing conversion risk. The probability raster serves as a risk classification layer, identifying where habitat conversion is most likely to occur within the project extent, without quantifying the magnitude of that conversion.
 
-### Statistical Justification:
+</details>
+
+<details>
+
+<summary>H3.3 Statistical Justification</summary>
+
+<br> **Statistical Justification**
 
 The probability calculation relies on the statistical assumption that forecast errors are normally distributed around the predicted value with mean zero. This assumption is standard in regression-based forecasting and is justified for ecosystem change models where errors arise from natural variability, measurement uncertainty, and stochastic processes that cannot be perfectly predicted. By using the standard normal cumulative distribution function, the methodology converts the forecast error into a probability statement. This probabilistic framework appropriately reflects the inherent uncertainty in predicting future ecosystem conditions. It acknowledges that forecasts are not deterministic but rather represent expected values with associated uncertainty bands. Areas where the forecast strongly predicts decline, meaning the forecast is many standard errors below the current value, receive high probabilities approaching 1. Areas with uncertain or stable forecasts, where the forecast is within one or two standard errors of the current value, receive moderate probabilities. Areas with increasing forecasts receive low probabilities approaching 0.
 
 This approach is scientifically sound and provides a transparent, replicable method for quantifying conversion risk. The probability values are empirically derived from the data itself through the standard error rather than being arbitrarily assigned, ensuring that risk classifications reflect actual historical variability and predictability at each location. Pixels where tree cover has been highly variable historically will have larger standard errors and more moderate probabilities, while pixels with consistent declining trends will have smaller standard errors and more extreme (high or low) probabilities.
 
-### Outputs provided:
+</details>
+
+<details>
+
+<summary>H3.4 Outputs provided</summary>
+
+<br> **Outputs provided**
 
 Two GeoTIFF files were generated and are provided as deliverables for this step.
 
-The first file, forecast_values.tif, contains the regression-based forecast values for all pixels in the study area. The technical specifications are as follows: compressed float32 GeoTIFF format for efficient storage; projection matching the project extent shapefile, specifically WGS84 UTM Zone 16N; no-data value set to -1 for pixels outside the analysis area or with insufficient data; spatial resolution of 250m by 250m which complies with SD VISta's requirement of no more than 300m; geographic coverage encompassing the reference region and project extent to enable calculations across all required areas; units expressed as percentage tree cover on a 0 to 100 scale; and a single band representing the forecast for t₀ plus 5 years. This raster provides spatially explicit predictions of future tree cover across the landscape, enabling visual identification of areas expected to experience the greatest declines. High-risk hotspots can be identified as areas with low forecast values indicating substantial predicted decline, which can inform program design and prioritization of conservation interventions.
+The first file, StepH3-2_forecast_values.tif, contains the regression-based forecast values for all pixels in the study area. The technical specifications are as follows: compressed float32 GeoTIFF format for efficient storage; projection matching the project extent shapefile, specifically WGS84 UTM Zone 16N; no-data value set to -1 for pixels outside the analysis area or with insufficient data; spatial resolution of 250m by 250m which complies with SD VISta's requirement of no more than 300m; geographic coverage encompassing the reference region and project extent to enable calculations across all required areas; units expressed as percentage tree cover on a 0 to 100 scale; and a single band representing the forecast for t₀ plus 5 years. This raster provides spatially explicit predictions of future tree cover across the landscape, enabling visual identification of areas expected to experience the greatest declines. High-risk hotspots can be identified as areas with low forecast values indicating substantial predicted decline, which can inform program design and prioritization of conservation interventions.
 
-The second file, probability_of_decay.tif, contains the probability of decline values for all pixels in the study area. The technical specifications mirror those of the forecast file: compressed float32 GeoTIFF format; projection matching the project extent shapefile; no-data value of -1; spatial resolution of 250m by 250m; coverage of reference region and project extent. However, the units differ fundamentally. Probability values are expressed on a 0 to 1 scale, where 0 represents 0% probability of decline and 1 represents 100% probability of decline. This raster serves as the primary input to Step H4, where the 0.3 probability threshold is applied to classify high-risk pixels. It provides a risk classification surface that quantifies the spatial distribution of conversion threat across the project landscape. When overlaid with the project extent boundary, this raster enables calculation of the weighted proportion of high-risk area, which directly informs the slope of the crediting baseline according to SD VISta principles.
+The second file, StepH3-1_probability_of_decay.tif, contains the probability of decline in values for all pixels in the study area. The technical specifications mirror those of the forecast file: compressed float32 GeoTIFF format; projection matching the project extent shapefile; no-data value of -1; spatial resolution of 250m by 250m; coverage of reference region and project extent. Probability values are expressed on a 0 to 1 scale, where 0 represents 0% probability of decline and 1 represents 100% probability of decline. This raster serves as the primary input to Step H4, where the 0.3 probability threshold is applied: pixels below the threshold are zeroed out while high-risk pixels retain their continuous probability values (0.3–1.0), producing the output stepH4_high_risk_probability.tif. This continuous surface quantifies the spatial distribution of conversion threat across the project landscape and feeds two downstream steps: the magnitude of expected ecosystem condition loss in Step H7, and the binary count of high-risk pixels within the project extent in Step H6, which directly informs the slope of the crediting baseline according to SD VISta principles.
 
-### Compliance statement:
+</details>
 
-This approach fulfills SD VISta's requirement to model "spatially explicit probabilities of habitat conversion using historical conversion rates" as stated in ***Section 4.2.1*** of the methodology. The regression-based forecasting methodology satisfies all key requirements of the framework through multiple mechanisms.
+<details>
 
-First, the approach uses historical conversion rates by fitting regression models to 10 years of observed data. The temporal coefficient β₂ in each pixel's regression model captures the actual conversion trend over this period measured in percentage points per year, and projecting this coefficient forward embeds historical rates into future predictions rather than relying on expert judgment or literature values. Second, the methodology provides spatially explicit outputs where each individual pixel receives its own regression model, forecast value, and probability value based on local conditions and trends. This spatial heterogeneity allows conversion risk to vary across the landscape, reflecting the reality that some areas face higher pressure than others due to differences in accessibility, land tenure, and historical management. Third, the approach generates probability surfaces as required by SD VISta. The probability_of_decay.tif raster quantifies the likelihood of decline at each location, providing both the magnitude through forecast values and the likelihood through probability values of habitat conversion. These dual outputs enable the risk-based weighting approach specified in the methodology.
+<summary>H3.5 Compliance statement</summary>
+
+<br> **Compliance statement**
+
+This approach fulfills SD VISta's requirement to model "spatially explicit probabilities of habitat conversion using historical conversion rates" as stated in Section 4.2.1 of the methodology. The regression-based forecasting methodology satisfies all key requirements of the framework through multiple mechanisms.
+
+First, the approach uses historical conversion rates by fitting regression models to 10 years of observed data. The temporal coefficient β₂ in each pixel's regression model captures the actual conversion trend over this period measured in percentage points per year, and projecting this coefficient forward embeds historical rates into future predictions rather than relying on expert judgment or literature values. Second, the methodology provides spatially explicit outputs where each individual pixel receives its own regression model, forecast value, and probability value based on local conditions and trends. This spatial heterogeneity allows conversion risk to vary across the landscape, reflecting the reality that some areas face higher pressure than others due to differences in accessibility, land tenure, and historical management. Third, the approach generates probability surfaces as required by SD VISta. The probability of StepH3-1_probability_of_decay.tif raster quantifies the likelihood of decline at each location, providing both the magnitude through forecast values and the likelihood through probability values of habitat conversion. These dual outputs enable the risk-based weighting approach specified in the methodology.
 
 Fourth, the methodology incorporates predictors of habitat loss, specifically the CISI covariate representing a well-established driver of deforestation, namely infrastructure proximity. This ensures that forecasts reflect not only temporal trends, but also spatial patterns of conversion risk driven by accessibility and human pressure gradients.
 
-Fifth, the outputs enable the risk-based baseline calculations required in Steps H4 through H11. The probability raster supports risk classification in H4, exclusion zone application in H5, and risk weighting in H6. The forecast raster supports magnitude calculations in H7 through H11. Together, these outputs provide all information needed to calculate a conservative, defensible crediting baseline that approriately reflects both the likelihood and magnitude of expected habitat conversion.
+Fifth, the outputs enable the risk-based baseline calculations required in Steps H4 through H11. The probability raster supports risk classification in H4, exclusion zone application in H5, and binary counting of high-risk pixels in H6. The continuous probability values retained after thresholding (HighRiskProb_p, ranging from 0.3 to 1.0) support magnitude calculations in H7 through H11, where expected ecosystem condition is estimated as I(t0) × (1 − HighRiskProb_p) using the baseline indicator derived from the observed tree cover time series. Together, these outputs provide all information needed to calculate a conservative, defensible crediting baseline that appropriately reflects both the likelihood and magnitude of expected habitat conversion.
 
 The methodology is transparent, replicable, and scientifically robust. All assumptions are explicitly documented, all calculations are performed using open-source software with version-controlled scripts, and all outputs are provided in standard geospatial formats that can be validated by third parties. This approach can be replicated at verification events by updating the time series with new observations and re-running the regression models, supporting SD VISta's requirement for dynamic baseline recalculation that adapts to changing conditions over the program lifetime.
 
+</details>
+
+------------------------------------------------------------------------
+
 ## Step H4. Identify areas of high habitat conversion risk
 
-Per SD VISta methodology, pixels with a probability of decline greater than or equal to 0.3 (representing a 30% or greater chance of conversion during the monitoring period) are classified as high-risk for habitat conversion. The threshold of 0.3 was applied to the probability raster generated in Step H3 to identify these high-risk areas. This threshold is explicitly specified in the SD VISta methodology and represents a balance between including areas with meaningful conversion risk while excluding areas with negligible risk, thereby adopting a conservative approach to baseline estimation. The process for applying the threshold involved loading the probability_of_decay.tif file from Step H3 and applying a conditional filter where pixels with probability values less than 0.3 were set to 0, indicating they are not considered high-risk. Pixels with probability values greater than or equal to 0.3 retained their original probability values rather than being converted to a binary value of 1. This retention of original probability values is critical because these values are used in Step H6 to calculate the weighted proportion of high-risk area. The weighting accounts for both the spatial extent of high-risk areas (the number of pixels classified as high-risk) and the magnitude of risk (the actual probability values ranging from 0.3 to 1.0). Per SD VISta Section 4.2.5, "This proportion directly informs the slope of the crediting baseline: the greater the overlap, the steeper the expected decline." By retaining the actual probability values rather than converting to binary classification, the methodology appropriately weights pixels with very high probability of decline (for example 0.9) more heavily than pixels with marginal high-risk classification (for example 0.31), reflecting the reality that not all high-risk pixels face equal levels of threat.
+Per SD VISta methodology, pixels with a probability of decline greater than or equal to 0.3 (representing a 30% or greater chance of conversion during the monitoring period) are classified as high-risk for habitat conversion. The threshold of 0.3 was applied to the probability raster generated in Step H3 to identify these high-risk areas. This threshold is explicitly specified in the SD VISta methodology and represents a balance between including areas with meaningful conversion risk while excluding areas with negligible risk, thereby adopting a conservative approach to baseline estimation.
 
-The resulting raster, probability_of_decay_thresholded.tif, was saved in compressed float32 GeoTIFF format with projection matching the project extent shapefile, no-data value of -1, spatial resolution of 250m by 250m, and coverage of the project extent. The pixel values in this output are either 0 for pixels classified as low-risk, or values ranging from 0.3 to 1.0 representing the original probability values for pixels classified as high-risk. Analysis of the thresholded raster revealed the spatial distribution of conversion risk across the project extent. The total number of pixels analyzed corresponds to the full project extent area. Among these, the number of pixels classified as high-risk (probability greater than or equal to 0.3) and the percentage of total pixels classified as high-risk were calculated. The mean probability among high-risk pixels provides insight into the average severity of risk in threatened areas, with higher mean values indicating more certain predictions of decline.
+The process for applying the threshold involved loading the StepH3-1_probability_of_decay.tif file from Step H3 and applying a conditional filter where the original NaN pixels were reclassified as -1, pixels with probability values less than 0.3 were set to NaN indicating they are not considered high-risk, and pixels with probability values greater than or equal to 0.3 retained their original continuous probability values. This retention of continuous values is critical because they serve two distinct roles in downstream steps: in Step H6, a binary count determines the proportion of high-risk pixels within the project extent (any pixel with a value greater than zero is counted as high-risk regardless of its exact probability); and in Step H7, the actual probability values (HighRiskProb_p, ranging from 0.3 to 1.0) are used to estimate the magnitude of expected ecosystem condition loss via the formula I_hat = I(t0) × (1 − HighRiskProb_p), ensuring that pixels with higher probability of decline (for example 0.9) produce a greater expected loss than pixels at the margin of classification (for example 0.31).
+
+The resulting raster, stepH4_high_risk_probability.tif, was saved in float32 GeoTIFF format reprojected to EPSG:4326, with NaN as the no-data value for low-risk pixels and -1 reserved for pixels that were originally NaN in the input, spatial resolution of 250m by 250m, and coverage of the project extent. The pixel values in this output range from 0.3 to 1.0, representing the original probability values for pixels classified as high-risk. Analysis of the thresholded raster revealed the spatial distribution of conversion risk across the project extent. The total number of pixels analyzed corresponds to the full project extent area. Among these, the number of pixels classified as high-risk (probability greater than or equal to 0.3) and the percentage of total pixels classified as high-risk were calculated. The mean probability among high-risk pixels provides insight into the average severity of risk in threatened areas, with higher mean values indicating more certain predictions of decline.
 
 This step fulfills SD VISta Section A1.2 Step H4 requirement that "any pixel with a greater than 30% chance of conversion during the monitoring period is considered high risk." The 0.3 threshold is explicitly specified in the SD VISta methodology and represents standard practice in conservation risk assessment. This threshold strikes a balance between including areas with meaningful conversion risk that warrant conservation attention while excluding areas with negligible risk where baseline projections would be overly speculative. The conservative nature of this threshold ensures that credits are claimed only for protecting areas that face genuine, measurable threats.
 
+------------------------------------------------------------------------
+
 ## Step H5. Exclude high-risk pixels meeting exclusion criteria
 
-A high-risk exclusion criteria raster was created wherein all pixels within the project extent and reference region were assigned a value of 0, indicating that no geographic areas were excluded from the baseline calculation. The analysis determined that no areas within the project extent meet the SD VISta ***Section 4.2.4*** criteria for exclusion, which include areas where conversion is legally prohibited with effective enforcement, conversion is physically impossible, or the program provides no additionality. All areas within the project extent face measurable conversion risk based on historical data, and the program provides additionality throughout. The exclusion raster was generated as a compressed uint8 GeoTIFF file with spatial resolution of 250m by 250m and projection matching the ***Step H4*** probability raster. No source layers were used to develop the exclusion raster because no geographic exclusion zones were identified.
+Step H5 removes exclusion zones from the thresholded probability raster produced in Step H4, following the exclusion criteria outlined in Section 7.5.7 of the SD VISta Nature Framework v1.0. Three categories of exclusions are applied programmatically and combined into a single exclusion mask.
+
+The first exclusion is a 10km donut buffer computed around the project zone boundary. The project zone itself is not excluded; only the 10km ring immediately surrounding it is masked out, preventing pixels in the near-project transition zone from influencing the baseline calculation. The second exclusion removes all pixels located beyond a 500km radius from the project zone, restricting the analysis to a geographically relevant area and excluding distant pixels whose conversion dynamics are unlikely to be representative of project-area risk. The third exclusion applies the polygon geometries contained in the Excluded_all.shp file, which captures protected areas, other carbon projects, and any additional areas within the reference region that must be excluded per SD VISta requirements. All three exclusion geometries are reprojected to match the CRS of the probability raster before rasterization.
+
+The combined exclusion mask assigns a value of 1 to excluded pixels and 0 to non-excluded pixels, and is saved as stepH5_HR_exclusions.tif in uint8 GeoTIFF format with spatial resolution and projection inherited from the Step H3 probability raster. The mask is then applied to the working probability array, setting all excluded pixels to zero so they do not contribute to the high-risk proportion calculation in Step H6 or the magnitude estimation in Step H7.
+
+------------------------------------------------------------------------
 
 ## Step H6. Assess overlap of high-risk pixels with project Extent {#step-h6}
 
-The weighted proportion of high-risk pixels within the project extent was calculated following the SD VISta Step H6 formula exactly as specified in the methodology. This weighted proportion, denoted as w, directly informs the slope of the crediting baseline, with greater overlap indicating steeper expected decline in ecosystem condition.
+The stepwise calculation proceeded as follows. First, the total number of pixels in the project extent was counted by creating a mask from the project boundary shapefile and counting the number of pixels falling within that boundary.
 
-$$
-w = \frac{1}{P_{\text{proj}}} \left( HighRisk_1 + \cdots + HighRisk_{P_{\text{proj}}} \right)
-$$
+Second, each pixel within the project extent was assessed as a binary variable: - pixels with a thresholded probability value greater than zero were classified as high-risk ($HighRisk_p = 1$) - pixels with a value of zero were classified as non-high-risk ($HighRisk_p = 0$)
 
-Where:
+Third, the proportion of high-risk pixels was calculated by summing the binary values and dividing by the total number of pixels in the project extent, following the SD VISta formula exactly:
 
--   $w$ = Proportion of the project extent assessed as high-risk
-
--   $P_{\text{proj}}$ = Total number of pixels in the project extent, where $p = 1, \ldots, P_{\text{proj}}$
-
--   $HighRisk_p$ = Binary variable indicating whether pixel $p$ is classified as high-risk
-
-The stepwise calculation proceeded as follows. First, the total number of pixels in the project extent was counted by creating a mask from the project boundary shapefile and counting the number of pixels falling within that boundary. Second, the probability values for all pixels in the project extent were summed. After Step H4 thresholding, low-risk pixels (probability less than 0.3) contribute 0 to the sum, while high-risk pixels (probability greater than or equal to 0.3) contribute their actual probability value to the sum. This represents the sum of probability values across all pixels in the project extent, where low-risk pixels contribute zero. Third, the weighted proportion was calculated by dividing the sum by the total number of pixels:
-
-The result indicates that the weighted proportion of high-risk area is 0.642, or expressed as a percentage, 64.2% of the project extent is classified as high-risk for habitat conversion during the monitoring period. This means that approximately 64.2% of the project extent has a 30% or greater probability of experiencing tree cover decline over the next 5 years if historical trends continue without program intervention.
-
-This calculation follows SD VISta Section A1.2 Step H6 exactly as specified. The weighted proportion of 0.642 will be used in Step H10 to scale the crediting baseline according to the spatial distribution of conversion risk. A program with higher overlap of high-risk areas would have a steeper baseline, while a program with lower overlap would have a less steep baseline, appropriately reflecting the actual threat level faced by each program.
-
-## Step H7. Project estimated ecosystem Condition to end of monitoring period
-
-The estimated d ecosystem Condition (𝐼𝑝,𝑡𝑥 ̂) projected to the end of the monitoring period for each high-risk pixel within the project Extent was calculated using the measured value of Canopy Cover at project start, and create a new raster layer, using the following formula:
-
-$$
-\hat{I}_{p,tx} = \bar{I}_{p,t0} \times \left( 1 - HighRiskProb_p \right)
-$$
+$$w
+=
+\frac{1}{P_{proj}}
+\left(
+HighRisk_1
++
+\cdots
++
+HighRisk_{P_{proj}}
+\right)$$
 
 Where:
 
--   $\hat{I}_{p,tx}$ = Estimated absolute structure indicator value in high-risk pixel $p$ within the project extent after a monitoring period of $x$ years ($t_x$)
+- $w$ = Proportion of the Project Extent assessed as high-risk
 
--   $\bar{I}_{p,t0}$ = Observed absolute structure indicator value in high-risk pixel $p$ within the project extent at project start ($t_0$)
+- $P_{proj}$ = Total number of pixels in the Project Extent ($p = 1, ..., P_{proj}$)
 
--   $HighRiskProb_p$ = Probability of habitat conversion for high-risk pixel $p$
+- $HighRisk_p$ = Binary variable indicating whether pixel $p$ is high-risk
 
-The requirement for this step mandates that future predictions must be grounded in observed historical trends rather than arbitrary mathematical transformations of probability values. The approach used for this program complies with this requirement.
+<br> The result indicates that the proportion of high-risk pixels is:
 
-The forecast values generated in Step H3 were loaded and applied to all pixels in the project extent. The formula used is: the estimated structure indicator value in pixel p after the monitoring period of x years, denoted I-hat at pixel p and time tx, equals the Forecast_Value at pixel p. Here, I-hat represents the estimated future value, Forecast_Value is the regression-based prediction from Step H3, p is the pixel location, and tx is the end of the monitoring period defined as t₀ plus x years, which in this case is the baseline year plus 5 years.
+$$w = 0.87$$
 
-The forecast values were generated in Step H3 from the fitted regression model using the equation: I-hat at pixel p and time tx equals β₀ plus β₁ times CISI at pixel p plus β₂ times (t₀ plus x), where β₀, β₁, and β₂ are regression coefficients fitted to the 10-year historical time series, CISI at pixel p is the Critical Infrastructure and Societal Index value at that pixel representing infrastructure proximity, t₀ is the baseline year, x is the monitoring period duration of 5 years, and tx is the end of the monitoring period. The key point is that the coefficient β₂ represents the historical conversion rate measured as percentage of tree cover change per year observed over the 10-year period. Projecting this coefficient forward fulfills the SD VISta requirement to use historical conversion rates. The output file forecast_values_project_extent.tif is provided in compressed float32 GeoTIFF format with projection matching the project extent, no-data value of -1, spatial resolution of 250m by 250m, coverage of the project extent only, and units of percentage tree cover on a 0 to 100 scale.
+meaning that 87% of the project extent contains pixels classified as high-risk for habitat conversion during the monitoring period.
 
-## Step H8. Calculate difference between predicted and observed values
+This means that approximately 87% of the project extent has a 30% or greater probability of experiencing tree cover decline over the next 5 years if historical trends continue without program intervention.
 
-The difference between the structure indicator’s predicted and observed absolute values for each pixel in the project extent was calculated to generate a new raster layer of predicted change:
+This calculation follows SD VISta Section A1.2 Step H6 exactly as specified.
 
-$$
-\Delta I_{p,t_x} = \hat{I}_{p,t_x} - I_{p,t_0}
-$$
+The proportion $w = 0.87$ will be used in Step H10 to scale the crediting baseline according to the spatial distribution of conversion risk.
 
-Where:
+A program with a higher proportion of high-risk pixels would have a steeper baseline, while a program with a lower proportion would have a less steep baseline, appropriately reflecting the actual threat level faced by each program.
 
--   $\Delta I_{p,t_x}$ = Predicted absolute change in condition in pixel $p$ over monitoring period $t_x$
+------------------------------------------------------------------------
 
--   $\hat{I}_{p,t_x}$ = Estimated absolute structure indicator value in pixel $p$ after $x$ years (Step 7)
+## Step H7. Project estimated ecosystem Condition to end of monitoring period {#step-h7-condition}
 
--   $I_{p,t_0}$ = Observed absolute structure indicator value in pixel $p$ at project start
+The requirement for this step mandates that estimated future ecosystem condition must be grounded in observed baseline values and spatially explicit conversion risk, rather than arbitrary projections.
 
-Raster statistics across the project extent show:
+The approach used for this program complies with this requirement by applying the SD VISta formula directly to each high-risk pixel within the project extent.
 
--   Mean delta: −3.09 percentage points\
--   Minimum delta: −12.4 percentage points\
--   Maximum delta: +1.8 percentage points\
--   Standard deviation: 2.1 percentage points\
--   Median delta: −3.2 percentage points
+The formula used is:
 
-These results indicate an overall expected decline with spatial variability across the landscape.
-
-This step follows SD VISta Section A1.2 Step H8.
-
-## Step H9. Calculate average change across the project extent
-
-The average predicted change across all high-risk pixels in the project Extent at the end of the monitoring period was calculated by summing the estimated high-risk pixel-level change in structure indicator values in the project Extent, then divide by the total number of high-risk pixels in the project Extent to calculate the average change, as in the following formula:
-
-The average predicted change was calculated across all pixels in the project extent, not limited to high-risk pixels only. This approach is correct because risk weighting is applied separately in Step H10, and averaging over all project pixels provides the base magnitude which is then scaled by the weighted proportion of high-risk area.
-
-Equation:
-
-[\$\$\\overline{\\Delta I\_{t_x}} =\\frac{1}{P\_{\\text{HRI}}}\\left(\\widehat{\\Delta I\_{1,t_x}}+\\widehat{\\Delta I\_{2,t_x}}+\\cdots+\\widehat{\\Delta I\_{P\_{\\text{HRI}},t_x}}\\right)\$\$](www.terraglobalcapital.com)
+$$\hat{I}_{p,t_x}
+=
+I_{p,t_0}
+\times
+(1 - HighRiskProb_p)$$
 
 Where:
 
--   $\overline{\Delta I_{t_x}}$ = Average absolute change in structure indicator for the set of high-risk pixels in the project extent
+- $\hat{I}_{p,t_x}$ = Estimated absolute structure indicator value in high-risk pixel $p$ in the project Extent after monitoring period of $x$ years ($t_x$)
 
--   $P_{\text{HRI}}$ = Total number of high-risk pixels in the project extent ($p = 1, \ldots, P_{\text{HRI}}$)
+- $I_{p,t_0}$ = Observed absolute structure indicator value in high-risk pixel $p$ in the project extent at project start ($t_0$)
 
--   $\widehat{\Delta I_{p,t_x}}$ = Predicted absolute change in conditions in high-risk pixel $p$ after monitoring period of $x$ years (from Step H8)
+- $HighRiskProb_p$ = Probability of habitat conversion for high-risk pixel $p$
 
-Because the weighted proportion w from Step H6 already captures the spatial distribution of risk. Applying it in Step H10 scales the baseline appropriately. Preventing double-counting is essential. If  only over high-risk pixels were averaged and  the weighted proportion was applied, risk would be counted twice, inflating the baseline unrealistically. All pixels contribute to the baseline. Even low-risk pixels may experience some change. The full project average provides the base magnitude, which is then risk-weighted in Step H10. This is consistent with the SD VISta formula in Step H10, which shows that risk weighting via w is applied to the average delta, not that the average should be calculated only over high-risk pixels.
+<br> Where $\hat{I}_{p,t_x}$ is the estimated structure indicator value at pixel $p$ at the end of the monitoring period $t_x$, $I_{p,t_0}$ is the observed tree cover value at pixel $p$ at baseline derived from the last year of the [`MOD44B_TreeCover_2014-2023.tif`](files/MOD44B_TreeCover_2014-2023.tif) time series, and $HighRiskProb_p$ is the continuous probability of decline at pixel $p$ from the thresholded probability map produced in Step H4, ranging from 0.3 to 1.0.
 
-The stepwise calculation proceeded as follows. First, delta values from Step H8 were extracted for all project pixels from p equals 1 to 15,636. Second, all delta values were summed. The sum of ΔI at pixel p and time tx equals -48,315.2 percentage points. The negative value indicates overall decline across the program as expected given the historical trends. Third, the total project pixels were counted: P_proj equals 15,636 pixels. Fourth, the mean was calculated: ΔĪ at time tx equals -48,315.2 divided by 15,636, which equals -3.092076878896544 percentage points. Fifth, rounding for reporting: ΔĪ approximately equals -3.09 percentage points.
+This formula models binary habitat conversion: - with probability $HighRiskProb_p$ the pixel undergoes full conversion and its indicator value drops to zero - with probability $(1 - HighRiskProb_p)$ the pixel remains unchanged at its baseline value
 
-The result is that the average delta equals -3.09 percentage points over the 5-year monitoring period. The interpretation is that on average across the entire project extent, tree cover is expected to decline by 3.09 percentage points over the 5-year monitoring period based on continuation of historical trends from the 10 eyars previous to the start of the program. This represents an unweighted average annual rate of -3.09 divided by 5 equals -0.62% per year. This baseline value will be risk-weighted in Step H10 to account for the proportion of high-risk area which was calculated as 64.2% in Step [H6](#step-h6).
+The expected value of this binary outcome is:
 
-## Step H10. Standardize the area-weighted average absolute change
+$$I_{p,t_0}
+\times
+(1 - HighRiskProb_p)$$
 
-Standardize the area-weighted, average absolute change in the structure indicator using the high-risk proportion of the project Extent and the indicator’s reference value (Sections 7.3.13–7.3.24) as follows:
+This approach ensures that pixels with higher probability of decline (for example 0.9) are projected to retain less of their baseline tree cover than pixels at the margin of high-risk classification (for example 0.31), appropriately reflecting the magnitude of conversion threat across the landscape.
 
-$$
-\Delta C_{\text{pre}} =
-\frac{\overline{\Delta I}_{t_x} \times w}{R_v}
-$$
+The calculation is applied exclusively to high-risk pixels within the project extent: - pixels where the thresholded probability is greater than zero - pixels that fall within the project boundary - pixels that were not originally NA in the baseline raster
 
-Where:
+All other pixels receive a value of zero in the output.
 
--   $\Delta C_{\text{pre}}$ = Area-weighted, standardized predicted change in condition
+The resulting raster is saved as stepH7_estimated_ecosystem_condition.tif in float32 GeoTIFF format with projection and spatial resolution inherited from the Step H3 probability raster, a no-data value of 0, and spatial resolution of 250m by 250m.
 
--   $\overline{\Delta I_{t_x}}$ = Average absolute change in structure indicator for the set of high-risk pixels in the project extent
+------------------------------------------------------------------------
 
--   $w$ = Proportion of the project extent assessed as high-risk (Step H6)
+## Step H8. Calculate difference between predicted and observed values {#step-h8-difference}
 
--   $R_v$ = Reference value for the structure indicator
+The difference between the structure indicator's predicted and observed values for each high-risk pixel in the project extent was calculated using the following formula:
 
-The result is that the standardized predicted change equals ΔC_pre equals -0.0345, or expressed as percentage, -3.45% over the 5-year monitoring period. This represents the risk-weighted, normalized expected decline in ecosystem condition under the business-as-usual scenario.
-
-The interpretation of risk weighting effect is important. The risk weighting parameter w equals 0.642 scales the baseline according to the spatial distribution of risk. This calculation follows SD VISta Section A1.2 Step H10 exactly as specified. The standardized change accounts for two key factors: spatial risk distribution via weighted proportion w, and baseline conditions via reference value normalization R_v. Both components reflect actual program characteristics rather than arbitrary assumptions, ensuring the baseline is specific to this program's unique context and threat profile.
-
-## Step H11. Use annual predicted rate of change to estimate crediting baseline
-
-The Crediting baseline (Bt) was calculated as the ratio between the delta (Change in condition) and time (number of years in the monitoring period), as follows:
-
-$$
-\hat{\beta}_{\text{pre}} =
-\frac{\Delta C_{\text{pre}}}{t_x}
-$$
+$$\Delta I_{p,t_x} = \hat{I}_{p,t_x} - I_{p,t_0}$$
 
 Where:
 
--   $\hat{\beta}_{\text{pre}}$ = Annual estimated rate of change (i.e., estimated crediting baseline)
+- $\Delta I_{p,t_x}$ = Predicted absolute change in condition in high-risk pixel $p$ over the project period of $x$ years ($t_x$)
 
--   $\Delta C_{\text{pre}}$ = Area-weighted, standardized predicted change in condition
+- $\hat{I}_{p,t_x}$ = Estimated structure indicator value in high-risk pixel $p$ after the monitoring period, calculated in Step H7
 
--   $t_x$ = Number of years in the monitoring period
+- $I_{p,t_0}$ = Observed tree cover value at pixel $p$ at baseline ($t_0$)
 
-The components are: ΔC_pre equals -0.0345, representing fractional change over the monitoring period, and t_x equals 5 years, the monitoring period duration. The calculation is: β-hat_pre equals ΔC_pre divided by t_x, which equals -0.0345 divided by 5, which equals -0.0069 per year. The result is that the annual crediting baseline equals -0.0069 per year, or expressed as percentage, -0.69% per year. This represents the expected annual rate of decline in tree cover under the business-as-usual scenario. This calculation follows SD VISta Section A1.2 Step H11 exactly as specified. The annualized baseline represents the expected annual rate of habitat conversion, is based on historical conversion rates embedded via regression, accounts for spatial risk distribution via weighted proportion, is normalized to baseline conditions via reference value, and serves as the reference for credit calculation at verification. This baseline of -0.69% per year will be compared to actual observed changes during verification events, with credits awarded for performance that exceeds (is better than) this baseline scenario.
+<br> Statistics of the delta raster across the 18,214 high-risk pixels within the project extent reveal the spatial distribution of expected decline. The mean delta is −42.90 percentage points, representing the average expected decline across high-risk pixels. The minimum delta is −80.26 percentage points, representing the maximum expected decline in pixels where both baseline tree cover and conversion probability are highest. The maximum delta is −3.64 percentage points, representing the least severe expected decline among high-risk pixels.
+
+All delta values are negative, which is consistent with the Step H7 formula: since $HighRiskProb_p$ is always greater than zero for high-risk pixels, the estimated future condition is always lower than the baseline value.
+
+This step follows SD VISta Section A1.2 Step H8 exactly as specified. The delta raster, saved as *stepH8_delta_high_risk_pixels.tif*, provides a spatially explicit map of expected changes, enabling visualization of conversion risk hotspots, identification of priority areas for program intervention, and supporting evidence for verification audits.
+
+[Download stepH8_delta_high_risk_pixels.tif](files/stepH8_delta_high_risk_pixels.tif){.terra-button target="_blank"}
+
+The delta values will be averaged across the high-risk pixels within the project extent in Step H9 to calculate the mean expected change, which then undergoes area weighting and normalization to produce the final crediting baseline.
+
+------------------------------------------------------------------------
+
+## Step H9. Calculate average change in high-risk pixels {#step-h9-average-change}
+
+The average predicted change across all high-risk pixels in the project extent at the end of the monitoring period was calculated by summing the estimated pixel-level change in structure indicator values for all high-risk pixels, then dividing by the total number of high-risk pixels, as in the following formula:
+
+$$\overline{\Delta I_{t_x}}
+=
+\frac{1}{P_{HRI}}
+\left(
+\widehat{\Delta I_{1,t_x}}
++
+\widehat{\Delta I_{2,t_x}}
++
+\cdots
++
+\widehat{\Delta I_{P_{HRP},t_x}}
+\right)$$
+
+Where:
+
+- $\overline{\Delta I_{t_x}}$ = Average absolute change in structure indicator for the set of high-risk pixels in the project extent
+
+- $P_{HRI}$ = Total number of high-risk pixels in the project extent ($p = 1, ..., P_{HRI}$)
+
+- $\widehat{\Delta I_{1,t_x}}$ = Predicted absolute change in conditions in high-risk pixel $p$ after monitoring period of $x$ years ($t_x$), calculated in Step H8
+
+<br>
+
+The stepwise calculation proceeded as follows. First, delta values from Step H8 were extracted for all high-risk pixels, totaling $P_{HRI} = 18{,}214$ pixels. Second, the delta values were averaged:$\overline{\Delta I_{t_x}} = -42.90$ percentage points of tree cover.
+
+The result indicates that the average expected decline across high-risk pixels is 42.90 percentage points of tree cover over the 5-year monitoring period, if historical conversion trends continue without program intervention.
+
+This value will be area-weighted in Step H10 using the proportion of high-risk pixels $w = 0.87$ calculated in [Step H6](#step-h6), then normalized by the reference value to produce the standardized crediting baseline.
+
+------------------------------------------------------------------------
+
+## Step H10. Standardize the area-weighted average absolute change in structure indicator {#step-h10-standardize}
+
+Standardize the area-weighted, average absolute change in the structure indicator using the high-risk proportion of the project extent and the indicator's reference value (Sections 7.3.13–7.3.24) as follows:
+
+$$\Delta C_{pre}
+=
+\frac{\overline{\Delta I_{t_x}} \times w}{Rv}$$
+
+Where:
+
+- $\Delta C_{pre}$ = Area-weighted, standardized predicted change in condition
+
+- $\overline{\Delta I_{t_x}}$ = Average absolute change in structure indicator for the set of high-risk pixels in the project extent
+
+- $w$ = Proportion of the project extent assessed as high-risk (Step H6)
+
+- $Rv$ = Reference value for structure indicator
+
+<br>
+
+The stepwise calculation used the following values:
+
+$\overline{\Delta I_{t_x}} = -42.896847$ percentage points, $w = 0.8696$ and $Rv = 65.0$ percentage points, corresponding to the median tree cover value across valid pixels within the project extent at baseline.
+
+The result is:
+
+$$\Delta C_{pre}
+=
+\frac{(-42.896847 \times 0.8696)}{65.0}
+=
+-0.5739$$
+
+This represents the risk-weighted, normalized expected decline in ecosystem condition under the business-as-usual scenario over the 5-year monitoring period. This calculation follows SD VISta Section A1.2 Step H10 exactly as specified.
+
+The standardized change accounts for two key factors:
+
+- spatial risk distribution via the binary proportion of high-risk pixels $w$
+
+- baseline conditions via reference value normalization $Rv$
+
+Both components reflect actual program characteristics rather than arbitrary assumptions, ensuring the baseline is specific to this program's unique context and threat profile.
+
+------------------------------------------------------------------------
+
+## Step H11. Use annual predicted rate of change to estimate crediting baseline {#step-h11-baseline}
+
+The crediting baseline ($\beta_{pre}$) was calculated as the ratio between the standardized predicted change in condition and the number of years in the monitoring period, as follows:
+
+$$\hat{\beta}_{pre}
+=
+\frac{\Delta C_{pre}}{t_x}$$
+
+Where:
+
+- $\hat{\beta}_{pre}$ = Annual estimated rate of change (i.e. estimated crediting baseline)
+
+- $\Delta C_{pre}$ = Area-weighted, standardized predicted change in condition (Step H10)
+
+- $t_x$ = Number of years in the monitoring period
+
+<br>
+
+The components are:
+
+$\Delta C_{pre} = -0.573901$ representing the standardized fractional change over the full monitoring period, and $t_x = 5$ years.
+
+The calculation is:
+
+$\hat{\beta}_{pre} = \frac{-0.573901}{5} = -0.114780$ per year, or expressed as a percentage: $-11.478\% \text{ per year}$
+
+<br>
+
+This represents the expected annual rate of decline in ecosystem condition under the business-as-usual scenario. This calculation follows SD VISta Section A1.2 Step H11 exactly as specified.
+
+The annualized baseline accounts for: - the spatial distribution of conversion risk via the high-risk proportion $w$ - normalization to baseline conditions via the reference value $Rv$. The resulting baseline serves as the reference for credit calculation at verification.
+
+This baseline of $-11.478\%$ per year will be compared to actual observed changes during verification events, with credits awarded for performance that exceeds (is better than) this baseline scenario.
+
+------------------------------------------------------------------------
+
+## Code
+
+<details>
+
+<summary>04_get_probability_of_decay.py</summary>
+
+[Download 04_get_probability_of_decay.py](files/04_get_probability_of_decay.py){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/04_get_probability_of_decay.py >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>05_get_crediting_baseline_outputs.py</summary>
+
+[Download 05_get_crediting_baseline_outputs.py](files/05_get_crediting_baseline_outputs.py){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/05_get_crediting_baseline_outputs.py >}}
+</code></pre>
+```
+
+</details>
+
+------------------------------------------------------------------------
+
+## Inputs
+
+<details>
+
+<summary>StepH3-1 Probability of Decay Raster</summary>
+
+[Download StepH3-1_probability_of_decay.tif](files/StepH3-1_probability_of_decay.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>Map 5. Exclusion Zones</summary>
+
+::: {#map5 .terra-card}
+[Download Excluded_all.shp](files/Excluded_all/Excluded_all.shp){.terra-button target="_blank"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read shapefile
+excluded_all <- st_read(
+  "files/Excluded_all/Excluded_all.shp",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+excluded_all <- st_make_valid(excluded_all)
+
+# Transform projection
+excluded_all <- st_transform(excluded_all, 4326)
+
+# Remove empty geometries
+excluded_all <- excluded_all[!st_is_empty(excluded_all), ]
+
+# Build map
+leaflet(excluded_all) %>%
+
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 5. Exclusion Zones**
+:::
+
+</details>
+
+<details>
+
+<summary>Map 6. Project Extent</summary>
+
+::: {#map6 .terra-card}
+[Download project_extent_v2.shp](files/project_extent_v2/project_extent_v2.shp){.terra-button target="_blank"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read shapefile
+project_extent <- st_read(
+  "files/project_extent_v2/project_extent_v2.shp",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+project_extent <- st_make_valid(project_extent)
+
+# Transform projection
+project_extent <- st_transform(project_extent, 4326)
+
+# Remove empty geometries
+project_extent <- project_extent[!st_is_empty(project_extent), ]
+
+# Build map
+leaflet(project_extent) %>%
+
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 6. Project Extent**
+:::
+
+</details>
+
+<details>
+
+<summary>Map 7. Reference Region</summary>
+
+::: {#map7 .terra-card}
+[Download RR_IUCN_forest_v2.shp](files/RR_IUCN_forest_v2/RR_IUCN_forest_v2.shp){.terra-button target="_blank"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read shapefile
+reference_region <- st_read(
+  "files/RR_IUCN_forest_v2/RR_IUCN_forest_v2.shp",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+reference_region <- st_make_valid(reference_region)
+
+# Transform projection
+reference_region <- st_transform(reference_region, 4326)
+
+# Remove empty geometries
+reference_region <- reference_region[!st_is_empty(reference_region), ]
+
+# Build map
+leaflet(reference_region) %>%
+
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 7. Reference Region**
+:::
+
+</details>
+
+<details>
+
+<summary>MOD44B Tree Cover Raster (2014–2023)</summary>
+
+[Download MOD44B_TreeCover_2014-2023.tif](files/MOD44B_TreeCover_2014-2023.tif){.terra-button target="_blank"}
+
+</details>
+
+------------------------------------------------------------------------
+
+## Outputs
+
+<details>
+
+<summary>indicators_values.txt</summary>
+
+[Download indicators_values.txt](files/indicators_values.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/indicators_values.txt >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>Map 8. Project Extent 10 km Buffer</summary>
+
+::: {#map8 .terra-card}
+[Download project_extent_10kBuffer.kml](files/project_extent_10kBuffer.kml){.terra-button target="_blank"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read KML
+buffer_kml <- st_read(
+  "files/project_extent_10kBuffer.kml",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+buffer_kml <- st_make_valid(buffer_kml)
+
+# Transform projection
+buffer_kml <- st_transform(buffer_kml, 4326)
+
+# Remove empty geometries
+buffer_kml <- buffer_kml[!st_is_empty(buffer_kml), ]
+
+# Build map
+leaflet(buffer_kml) %>%
+
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 8. Project Extent 10 km Buffer**
+:::
+
+</details>
+
+<details>
+
+<summary>StepH3_model_points.xlsx</summary>
+
+[Download StepH3 Model Points Dataset](https://gofile.me/795FL/bp2PazrNf){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>StepH3-1 Probability of Decay Raster</summary>
+
+[Download StepH3-1_probability_of_decay.tif](files/StepH3-1_probability_of_decay.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>StepH3-2 Forecast Values Raster</summary>
+
+[Download StepH3-2_forecast_values.tif](files/StepH3-2_forecast_values.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>stepH4_high_risk_probability.tif</summary>
+
+[Download stepH4_high_risk_probability.tif](files/stepH4_high_risk_probability.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>stepH5_HR_exclusions.tif</summary>
+
+[Download stepH5_HR_exclusions.tif](files/stepH5_HR_exclusions.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>StepH6_overlap-proportion.txt</summary>
+
+[Download StepH6_overlap-proportion.txt](files/StepH6_overlap-proportion.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/StepH6_overlap-proportion.txt >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>stepH7_estimated_ecosystem_condition.tif</summary>
+
+[Download stepH7_estimated_ecosystem_condition.tif](files/stepH7_estimated_ecosystem_condition.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>stepH8_delta_high_risk_pixels.tif</summary>
+
+[Download stepH8_delta_high_risk_pixels.tif](files/stepH8_delta_high_risk_pixels.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>stepH9_average_delta_high_risk.txt</summary>
+
+[Download stepH9_average_delta_high_risk.txt](files/stepH9_average_delta_high_risk.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/stepH9_average_delta_high_risk.txt >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>stepH10_deltaPrediction_ex_ante.txt</summary>
+
+[Download stepH10_deltaPrediction_ex_ante.txt](files/stepH10_deltaPrediction_ex_ante.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/stepH10_deltaPrediction_ex_ante.txt >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>stepH11_annual_crediting_baseline.txt</summary>
+
+[Download stepH11_annual_crediting_baseline.txt](files/stepH11_annual_crediting_baseline.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/stepH11_annual_crediting_baseline.txt >}}
+</code></pre>
+```
+
+</details>

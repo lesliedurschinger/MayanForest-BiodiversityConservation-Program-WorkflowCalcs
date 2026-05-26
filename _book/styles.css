@@ -1,0 +1,447 @@
+/* ====================================
+   Terra Global – Institutional Book Theme
+   ==================================== */
+
+/* ======================
+   Brand Variables
+   ====================== */
+
+:root {
+  --terra-dark-blue: #022348;
+  --terra-blue: #114C8F;
+  --terra-green: #5D883C;
+  --terra-light-grey: #DEDEDE;
+  --terra-dark-grey: #A6A6A6;
+  --terra-background: #F0F1F5;
+  --terra-orange: #f7931d;
+}
+
+/* ======================
+   Global Layout
+   ====================== */
+
+body {
+  background-color: var(--terra-background);
+  font-family: Calibri, "Helvetica Neue", Arial, sans-serif;
+  color: var(--terra-dark-blue);
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.quarto-container {
+  max-width: 1600px;
+}
+/* ======================
+   Global Links
+   ====================== */
+
+body a {
+  color: var(--terra-blue) !important;
+  text-decoration: underline;
+}
+
+body a:hover {
+  color: var(--terra-orange) !important;
+}
+/* ======================
+   Navbar
+   ====================== */
+
+.navbar {
+  background-color: white !important;
+  border-bottom: 1px solid var(--terra-light-grey);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.navbar .navbar-title {
+  color: var(--terra-dark-blue) !important;
+  font-weight: 600;
+}
+
+.navbar .nav-link {
+  color: var(--terra-dark-blue) !important;
+}
+
+.navbar .nav-link:hover {
+  color: var(--terra-orange) !important;
+}
+
+.navbar .navbar-brand img {
+  height: 60px;
+  max-height: none;
+  width: auto;
+  padding-inline-end: 65px;
+}
+
+.navbar {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ======================
+   Left Sidebar
+   ====================== */
+
+#quarto-sidebar {
+  background-color: var(--terra-dark-blue);
+}
+
+#quarto-sidebar .sidebar-link {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.95rem;
+}
+
+#quarto-sidebar .sidebar-link:hover {
+  color: white;
+}
+
+#quarto-sidebar .sidebar-link.active {
+  color: white;
+  font-weight: 600;
+  border-left: 5px solid var(--terra-orange);
+  padding-left: 12px;
+  background: rgba(255,255,255,0.05);
+}
+
+#quarto-sidebar .chapter-number {
+  opacity: 1;
+  font-weight: 500;
+  color: rgba(255,255,255,0.9);
+  margin-right: 8px;
+}
+/* ======================
+   Left Sidebar Links
+   ====================== */
+
+#quarto-sidebar a {
+  color: white !important;
+}
+
+#quarto-sidebar a:hover {
+  color: var(--terra-orange) !important;
+}
+
+#quarto-sidebar .sidebar-link.active {
+  color: white !important;
+}
+/* ======================
+   Right TOC
+   ====================== */
+
+.margin-sidebar {
+  font-size: 0.9rem;
+}
+
+.margin-sidebar .nav-link.active {
+  color: var(--terra-dark-blue);
+  font-weight: 600;
+  border-left: 3px solid var(--terra-orange);
+  padding-left: 8px;
+}
+
+/* ======================
+   Headings
+   ====================== */
+
+h1, h2, h3, h4 {
+  color: var(--terra-dark-blue);
+  font-weight: 600;
+}
+
+h1.title, h1 {
+  position: relative;
+  padding-bottom: 22px;
+}
+
+h1.title::after, h1::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 20px;
+  border-top: 4px solid var(--terra-orange);
+  border-radius: 50% 50% 0 0;
+}
+}
+
+h2 {
+  border-bottom: 1px solid var(--terra-light-grey);
+  padding-bottom: 6px;
+  margin-bottom: 18px;
+}
+
+/* ======================
+   Terra Hero
+   ====================== */
+
+.terra-hero {
+  background: var(--terra-dark-blue);
+  color: white;
+  padding: 50px 40px;
+  border-radius: 8px;
+  margin-bottom: 40px;
+}
+
+.terra-hero h1 {
+  color: white;
+}
+
+.terra-hero p {
+  opacity: 0.9;
+}
+
+/* ======================
+   Terra Card
+   ====================== */
+.terra-card {
+  background: var(--terra-dark-blue);
+  border-left: 4px solid var(--terra-orange);
+  padding: 20px;
+  margin: 30px auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  display: inline-block;     
+  width: 100%;!important                
+  max-width: 100%;!important
+}
+
+.terra-card h1,
+.terra-card h2,
+.terra-card h3,
+.terra-card h4,
+.terra-card h5,
+.terra-card h6,
+.terra-card p,
+.terra-card li,
+.terra-card span,
+.terra-card strong,
+.terra-card a {
+  color: white !important;
+}
+/* ======================
+   Terra Global Table System 
+   ====================== */
+/* Remove Bootstrap table styling interference */
+.table,
+table.table {
+  background-color: transparent !important;
+  border: none !important;
+}
+table,
+.quarto-book table,
+.table,
+.dataframe {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px !important;
+}
+/* ======================
+   Base Table Styling
+   ====================== */
+.quarto-book table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* Terra Header */
+.quarto-book table thead th {
+  background-color: var(--terra-dark-blue) !important;
+  color: white !important;
+  font-weight: 700 !important;
+  padding: 10px !important;
+  border: 2px solid white !important;
+}
+/* Terra Body */
+.quarto-book table tbody td {
+  background-color: white !important;
+  color: var(--terra-dark-blue) !important;
+  padding: 10px !important;
+  border: 2px solid white !important;
+}
+/* ======================
+   Terra Standard Table
+   ====================== */
+
+.terra-standard table tbody tr:last-child td {
+  font-weight: 700;
+  border-top: 3px solid var(--terra-dark-blue);
+}
+
+.terra-standard table tbody td:last-child {
+  text-align: right;
+}
+
+/* ======================
+   Terra Exec Table
+   ====================== */
+
+.terra-exec table tbody tr:last-child td {
+  font-weight: normal;
+  border-top: 2px solid white;
+}
+
+.terra-exec table tbody td:first-child {
+  background-color: var(--terra-dark-blue);
+  color: white;
+  font-weight: 600;
+}
+
+.terra-exec table tbody td:last-child {
+  text-align: right;
+}
+
+/* ======================
+   Anchor Offset
+   ====================== */
+
+:target {
+  scroll-margin-top: 80px;
+}
+
+/* ======================
+   Hide Loading Overlay
+   ====================== */
+
+#quarto-loading,
+.quarto-loading {
+  display: none !important;
+}
+/* ======================
+   FORCE Terra Header Row
+   ====================== */
+
+table.table thead th,
+.quarto-book table.table thead th {
+  background-color: var(--terra-dark-blue) !important;
+  color: white !important;
+  border-color: white !important;
+ 
+}
+/* ======================
+   Terra Table Body – White
+   ====================== */
+
+/* Make all table body cells white */
+.table tbody td,
+.quarto-book table tbody td {
+  background-color: white !important;
+  color: var(--terra-dark-blue) !important;
+}
+
+/* Preserve Terra Exec first column styling */
+.terra-exec table tbody td:first-child {
+  background-color: var(--terra-dark-blue) !important;
+  color: white !important;
+  font-weight: 600 !important;
+}
+/* ======================
+   Terra Table Gridlines
+   ====================== */
+
+.table tbody td,
+.quarto-book table tbody td {
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.table thead th,
+.quarto-book table thead th {
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+}
+/* ======================
+   Terra Global Link Color
+   ====================== */
+
+
+a:hover {
+  color: var(--terra-orange) !important;
+  text-decoration: underline;
+}
+/* ======================
+   Right TOC – Links
+   ====================== */
+
+/* Default */
+#TOC .nav-link {
+  color: var(--terra-dark-grey) !important;
+}
+
+/* Hover */
+#TOC .nav-link:hover {
+  color: var(--terra-dark-blue) !important;
+}
+
+/* Active section */
+#TOC .nav-link.active {
+  color: var(--terra-dark-blue) !important;
+  font-weight: 600;
+}
+
+/* ======================
+   Terra Collapsible Header
+   ====================== */
+
+details > summary {
+  background: var(--terra-dark-blue);
+  color: white;
+  padding: 10px 14px;
+  border-left: 4px solid var(--terra-orange);
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+/* Remove default arrow */
+details > summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom arrow */
+details > summary::after {
+  content: "▾";
+  float: right;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate arrow when open */
+details[open] > summary::after {
+  transform: rotate(180deg);
+}
+
+/* Space below header */
+details > *:not(summary) {
+  margin-top: 12px;
+}
+/* ======================
+   Terra Collapsible Header Links
+   ====================== */
+
+details > summary a {
+  color: white !important;
+  text-decoration: none;
+}
+
+details > summary a:hover {
+  color: var(--terra-orange) !important;
+  text-decoration: underline;
+}
+
+/* Responsive Embed */
+
+.responsive-embed {
+  position: relative;
+  width: 100%;
+  padding-top: 75%; /* slightly taller for Miro boards */
+}
+
+.responsive-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 6px;
+}

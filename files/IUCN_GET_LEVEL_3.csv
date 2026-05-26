@@ -1,0 +1,7 @@
+﻿"ID","Group","Biome ID","Biome","Realm ID","Realm","Area WKT"
+"T1.2","Tropical/Subtropical dry forests and thickets","T1","Tropical-subtropical forests biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"
+"T7.1","Annual croplands","T7","Intensive land-use biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"
+"T7.2","Sown livestock pastures","T7","Intensive land-use biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"
+"T7.3","Plantations","T7","Intensive land-use biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"
+"T7.4","Urban and industrial ecosystems","T7","Intensive land-use biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"
+"T7.5","Derived semi-natural pastures and old fields","T7","Intensive land-use biome","T","Terrestrial","POLYGON((-89.840698%2017.842833,-89.840698%2019.243736,-89.066162%2019.243736,-89.066162%2017.842833,%20-89.840698%2017.842833))"

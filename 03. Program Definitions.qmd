@@ -1,0 +1,318 @@
+---
+title: "Program Definitions"
+format: html
+bibliography: references.bib
+---
+
+According to the Framework definitions, [Table 1](#table1) presents the boundary, extent and Project Impacts.
+
+<details>
+
+<summary>Table 1. Project Definitions and Extents</summary>
+
+<div class="terra-table-title">
+Table 1. Project Definitions and Extents
+</div>
+
+::: {#table1}
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+table_data <- data.frame(
+    check.names = FALSE,
+  
+  Definition = c(
+    "Project Boundary",
+    "Project Extent",
+    "Area of Project Impacts"
+  ),
+  
+  Description = c(
+    "The project boundary is the area where the project will have impacts on 1) biodiversity outcomes, and 2) the sustainable development context at the project start (see Section 5.7). Impacts can be positive or negative, direct or indirect (i.e., primary or secondary), and intended or unintended. Mexican States of Campeche, Quintana Roo, and Yucatán.",
+    
+    "The physical area, defined by ecosystem type and measured in hectares, in which project activities take place and across which biodiversity outcomes are measured. See Section 3.1.1 for details on calculation and requirements. The project’s Extent may contain more than one discrete area within the project boundary.",
+    
+    "Geographic area beyond the Extent where project impacts will occur. Project impacts within the project boundary are identified and monitored using causal chain analysis (see Section 5.8)."
+  ),
+  
+  `# Hectares` = c(
+    "13,723,631",
+    "122,158",
+    "140,682"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(width = '220px', targets = 0),
+      list(width = '700px', targets = 1),
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+## Project Extent
+
+The delineation of the Project Extent followed a stepwise geospatial approach. A shapefile representing the complete areas under ejido control was used, reflecting lands over which participating communities hold legal ownership and management rights. This dataset served as the foundational boundary for the program. The ejido shapefile was then spatially refined by clipping it to areas classified within the IUCN Global Ecosystem Database, ensuring alignment with recognized ecosystem typologies used in the methodology. The resulting intersected area represents the final Project Extent, within which all project activities are implemented, and biodiversity outcomes are measured. The ecosystem typology for the Project Extent was determined differently than the instructions of the Nature Framework. This is a project deviation that was needed to accurately define the ecosystem typology in the Project Extent. When using the [IUCN GET level 3 classifications and tool](https://global-ecosystems.org/analyse) for the Project Extent (part of the Yucatan Peninsula, Mexico), the data was inaccurate and deficient. For instance, the main function groups that were found in the Project Extent included intensive landscapes like annual croplands, plantations, and urban and industrial ecosystems, as seen in [Table 2](#table2).
+
+<details>
+
+<summary>Table 2. IUCN Level 3 Dataset</summary>
+
+<div class="terra-table-title">
+Table 2. Project Area by Municipality
+</div>
+
+::: {#table2}
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readr)
+library(DT)
+
+iucn_data <- read_csv("files/IUCN_GET_LEVEL_3.csv")
+
+datatable(
+  table_data,
+  
+  options = list(
+    
+    pageLength = 15,
+    
+    scrollX = TRUE,
+    
+    autoWidth = FALSE,
+    
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  
+  rownames = FALSE,
+)
+```
+
+</details>
+
+However, these functional groups are not true for the Project Extent, as they are forested areas. Terra Global has worked closely with Amigos de Calakmul, A.C. (ACAC), implementing partner in this area for over a decade, and recently conducted ground truthing for a carbon project in the same area where extensive LU-LC was assessed. These areas are primarily forested and many of the ejidos included in the program are in the buffer zone of the Calakmul Biosphere Reserve, a largely intact Mayan forest remnant home to much of the wildlife and one of the largest populations of jaguars left in the Yucatan peninsula. Thus, the data used to define the ecosystem types of the Project Extent was based on research and literature [@jung2020]. The data was based on the IUCN Global Database that was later created and used for the methodology, so it is still appropriate to use in this case. This data also allowed the program to refine the Project Extent to the nine ejidos that are included in the Program, and it provided much more accurate results.
+
+The main functional group that was found in all of the ejidos was the Tropical/Sub-tropical Dry forests and thickets. While there were several ecosystem types found in each ejido ([Map 1](#map1)), these ecosystem types were excluded due to being arable land, plantations, or urban areas that are not eligible under the methodology. Furthermore, other ecosystem types, like wetlands and sub-tropical/tropical swamps only made up 1.44% and 0.78% respectively, in the largest areas of the ejidos. The CSV file for the different functional groups per Ejido, relates to [Map 1](#map1), can also be found in [Table 3](#table3)
+
+<details>
+
+<summary>Map 1. Project Extent</summary>
+
+::: {#map1 .terra-card}
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read shapefile
+project_extent <- st_read(
+  "files/project_extent_v2/project_extent_v2.shp",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+project_extent <- st_make_valid(project_extent)
+
+# Transform projection
+project_extent <- st_transform(project_extent, 4326)
+
+# Remove empty geometries
+project_extent <- project_extent[!st_is_empty(project_extent), ]
+
+# Build map
+leaflet(project_extent) %>%
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 1. Project Extent**
+:::
+
+</details>
+
+<details>
+
+<summary>Table 3. Ecosystem IUCN by Ejido Dataset</summary>
+
+<div class="terra-table-title">
+Table 3. Ecosystem IUCN by Ejido Dataset
+</div>
+
+::: {#table3}
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+ecosystem_iucn <- read.csv(
+  "files/Ecosystem IUCN by Ejido.csv",
+  fileEncoding = "latin1"
+)
+
+# Replace periods in column names
+colnames(ecosystem_iucn) <- gsub("\\.", " ", colnames(ecosystem_iucn))
+
+datatable(
+  ecosystem_iucn,
+  options = list(
+    pageLength = 15,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(width = '250px', targets = 1),
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+The file also contains how the other functional groups were excluded and the total number of dry forest per ejido was summed (find explanation in [Project Extent Calculations](#project-extent-calculations)).
+
+### Project Extent Calculations {#project-extent-calculations}
+
+While dry savanna make up part of the ecosystem types for some ejidos, it was ultimately excluded from the Project Extent, as program activities are centered to be implemented in the dry forest ecosystems, and any ecosystem that makes up less than 35% of an ejido is excluded due to their limited spatial extent, which reduces their influence on landscape-scale ecological processes and biodiversity outcomes. Prioritizing ecosystem types that represent a more substantial portion of the Project Extent allows for more efficient allocation of resources, more robust monitoring, and greater potential for measurable impact. However, dry savannas are native ecosystems in the project extent and future instances will include this ecosystem. Following the exclusion of the hectares in the other functional groups, [Table 4](#table4) and [Map 2](#map2) were created to show the number of hectares of Tropical/sub-tropical dry forests in each ejido and the total hectares for the Project Extent.
+
+<details>
+
+<summary><strong>Table 4. Forest Extension Areas, PAI Hectares</strong></summary>
+
+<div class="terra-table-title">
+Table 4. Forest Extension Areas, PAI Hectares
+</div>
+
+::: {#table4}
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+table_data <- data.frame(
+      check.names = FALSE,
+
+  
+  Ejido = c(
+    "Cancabchen",
+    "Chanchen",
+    "Chun Ek",
+    "Crescencio Rejón",
+    "Felipe Ángeles",
+    "Francisco J. Mújica",
+    "Pustunich",
+    "Xcanhá",
+    "Yohaltún",
+    "TOTAL"
+  ),
+  
+  `X Coordinate` = c(
+    "89° 37' 22.12\" W",
+    "89° 11' 05.37\" W",
+    "89° 11' 02.89\" W",
+    "89° 16' 53.85\" W",
+    "89° 43' 10.00\" W",
+    "89° 14' 38.41\" W",
+    "89° 58' 53.20\" W",
+    "89° 26' 01.24\" W",
+    "89° 46' 59.39\" W",
+    ""
+  ),
+  
+  `Y Coordinate` = c(
+    "19° 12' 26.11\" N",
+    "19° 13' 50.35\" N",
+    "19° 07' 49.97\" N",
+    "18° 10' 36.43\" N",
+    "19° 17' 16.20\" N",
+    "17° 54' 47.29\" N",
+    "18° 08' 29.34\" N",
+    "19° 03' 43.36\" N",
+    "17° 54' 38.62\" N",
+    ""
+  ),
+  
+  `Project Activity Instance 1 (Hectares)` = c(
+    "18,970",
+    "9,627",
+    "13,994",
+    "4,086",
+    "3,016",
+    "3,777",
+    "24,457",
+    "30,516",
+    "13,715",
+    "122,158"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(width = '180px', targets = 0),
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+<details>
+
+<summary>Map 2. IUCN Functional Groups found in the Project Boundary</summary>
+
+::: {#map2 .terra-card}
+![**Map 2. IUCN Functional Groups (Ecosystem Types) found in the Project Boundary**](files/IUCN%20Functional%20Groups%20found%20in%20the%20Project%20Boundary.png){fig-align="center" width="100%"}
+:::
+
+</details>
+
+## Area of Project Impacts
+
+The area of Project Impacts are the areas controlled by the Ejidos. This is the geographic area beyond the Extent where project impacts will occur, as seen in [Map 3](#map3).
+
+<details>
+
+<summary>Map 3. Project boundary extent and Area of project impacts</summary>
+
+::: {#map3 .terra-card}
+![**Map 3. Project boundary extent and Area of project impacts**](files/Project%20boundary%20extent%20and%20Area%20of%20project%20impacts.png){fig-align="center" width="100%"}
+:::
+
+</details>

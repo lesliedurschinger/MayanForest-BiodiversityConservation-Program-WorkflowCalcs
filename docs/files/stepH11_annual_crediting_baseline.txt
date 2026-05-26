@@ -1,0 +1,9 @@
+Step H11: Estimated Crediting Baseline
+======================================
+
+Formula: B_pre = dC_pre / tx
+
+dC_pre (standardized change, Step H10): -0.573901
+tx (monitoring period in years): 5
+
+B_pre (annual estimated crediting baseline): -0.114780

@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +91,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -125,7 +155,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03. Project Extent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project Extent</span></a>
+  <a href="./03. Program Definitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Program Definitions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -208,47 +238,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Define all ecosystem types in the project Extent (or the instance being added, in the case of grouped projects) using the IUCN GET Level 3 (i.e., functional group) classifications and the tool accessed via <a href="https://global-ecosystems.org/analyse">this link</a>. Where applicable, stratify land uses within each ecosystem type defined. Indicate the Extent (in hectares) for each ecosystem type defined and in total.</p>
-<p>The functional group (<a href="https://global-ecosystems.org/analyse">IUCN GET level 3 classifications and tool</a>) for the Project Extent (part of the Yucatan Peninsula, Mexico) was inaccurate and data was deficient. Thus, the data used to define the ecosystem types of the Project Extent was based on research and literature (<a href="https://www.nature.com/articles/s41597-020-00599-8">Jung, et al., 2020</a>). The data was based on the IUCN Global Database that was later created and used for the methodology.</p>
-<details open="">
+<p>The functional group (IUCN GET level 3 classifications and tool) for the Project Extent (part of the Yucatan Peninsula, Mexico) was inaccurate and data was deficient. Thus, the data used to define the ecosystem types of the Project Extent (<a href="#table5">Table 5</a>) was based on research and literature <span class="citation" data-cites="jung2020">(<a href="#ref-jung2020" role="doc-biblioref">Jung et al. 2020</a>)</span>. The data was based on the IUCN Global Database that was later created and used for the methodology.</p>
+<details>
 <summary>
-<strong><a href="#table2">Table 2.</a> Data from IUCN Global Database to define the ecosystem types of the Project Extent</strong>
+Table 5. Project Extent
 </summary>
-<div id="table2" class="terra-standard">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Realm</th>
-<th style="text-align: left;">Biome</th>
-<th style="text-align: left;">Ecosystem</th>
-<th style="text-align: right;">Extent (in ha)</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Terrestrial</td>
-<td style="text-align: left;">Tropical and Sub-Tropical Forests</td>
-<td style="text-align: left;">Tropical/Sub-tropical dry forests</td>
-<td style="text-align: right;">122,158</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"><strong>TOTAL</strong></td>
-<td style="text-align: right;"><strong>122,158</strong></td>
-</tr>
-</tbody>
-</table>
+<div id="table5">
+
+</div>
+<div class="terra-table-title">
+<p>Table 5. Project Extent</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-8d222036996689e6a55a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-8d222036996689e6a55a">{"x":{"filter":"none","vertical":false,"data":[["Terrestrial"],["Tropical and Sub-Tropical Forests"],["Tropical/Sub-tropical dry forests"],["122,158"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Realm<\/th>\n      <th>Biome<\/th>\n      <th>Ecosystem<\/th>\n      <th>Project Extent (ha)<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Realm","targets":0},{"name":"Biome","targets":1},{"name":"Ecosystem","targets":2},{"name":"Project Extent (ha)","targets":3}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-jung2020" class="csl-entry" role="listitem">
+Jung, Martin, Prabhat Raj Dahal, Stuart H. M. Butchart, Paul F. Donald, Xavier De Lamo, Myroslava Lesiv, Valerie Kapos, Carlo Rondinini, and Piero Visconti. 2020. <span>“A Global Map of Terrestrial Habitat Types.”</span> <em>Scientific Data</em> 7 (1). <a href="https://doi.org/10.1038/s41597-020-00599-8">https://doi.org/10.1038/s41597-020-00599-8</a>.
+</div>
+</div>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

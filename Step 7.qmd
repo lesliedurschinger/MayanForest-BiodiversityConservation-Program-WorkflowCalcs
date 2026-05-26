@@ -2,10 +2,6 @@
 title: "Step 7. Calculate area-adjusted Condition at project start (year 0)"
 format: html
 ---
-Note: In grouped project scenarios, the area-adjusted Condition must be independently calculated for each instance and then summed.
-
-Multiply the total ecosystem Extent (in hectares) by the Condition at project start calculated in the previous step. Report the value, showing the calculation.
-
 The following equation from Step 7 was used for validation of the tropical/sub-tropical dry forests ecosystem:
 
 $$
@@ -20,16 +16,62 @@ Where:
 
 -   $C_0$ = Condition at project start
 
-The results can be found in Table 7.
+<br>
 
-<details open>
+The results are described in [Table 14](#table14).
 
-<summary><strong>[Table 7](#table7). Area-adjusted Condition at Project Start</strong></summary>
+<details>
 
-::: {#table7 .terra-standard}
-| Ecosystem Type          | Extent (E₀) (ha) |   C₀ |       Ca₀ |
-|:------------------------|-----------------:|-----:|----------:|
-| Subtropical Dry Forests |       122,158.00 | 0.76 | 93,408.90 |
-:::
+<summary>Table 14. Area-adjusted Condition at Project Start</summary>
+
+::::{#table14}
+::::
+
+<div class="terra-table-title">
+Table 14. Area-adjusted Condition at Project Start
+</div>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+
+table_data <- data.frame(
+  check.names = FALSE,
+  
+  `Ecosystem Type` = c(
+    "Subtropical Dry Forests"
+  ),
+  
+  `Project Extent (E0) (Ha)` = c(
+    "122,158.00"
+  ),
+  
+  C0 = c(
+    "0.72"
+  ),
+  
+  Ca0 = c(
+    "87,347.99"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact",
+  
+)
+```
 
 </details>

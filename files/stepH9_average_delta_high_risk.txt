@@ -1,0 +1,6 @@
+Step H9: Average predicted change in structure indicator (high-risk pixels)
+=========================================================================
+
+Average delta (high-risk pixels): -42.896847
+Total high-risk pixels in project extent: 18214
+Sum of delta values: -781323.187500

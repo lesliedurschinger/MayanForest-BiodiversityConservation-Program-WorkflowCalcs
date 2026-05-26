@@ -1,0 +1,6 @@
+Step H6: Proportion of high-risk pixels (binary count)
+======================================================
+
+High-risk pixels in project extent: 18214
+Total pixels in project extent: 20945
+w (proportion): 0.87

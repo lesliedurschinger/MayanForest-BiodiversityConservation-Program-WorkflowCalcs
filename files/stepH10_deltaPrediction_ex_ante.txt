@@ -1,0 +1,10 @@
+Step H10: Standardized, area-weighted average change in structure indicator
+==========================================================================
+
+Formula: dC_pre = (dI_tx * w) / Rv
+
+dI_tx (average delta, Step H9): -42.896847
+w (high-risk proportion, Step H6): 0.869611
+Rv (reference value): 65.000000
+
+dC_pre (standardized change): -0.573901

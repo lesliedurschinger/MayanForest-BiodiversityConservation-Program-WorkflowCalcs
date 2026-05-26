@@ -2,46 +2,268 @@
 title: "Step 4. Measure Condition indicators at project start"
 format: html
 ---
+
 While the project does have historical start date, biodiversity monitoring was conducted two weeks after the start date, thus, we did not need to use proxy sites.
 
-The following Table 4 includes the condition at project start for each indicator, and each subsection provides an explanation on how these were calculated.
+The following [Table 7](#table7) includes the condition at project start for each indicator, and each subsection provides an explanation on how these were calculated.
 
-<details open>
+<details>
 
-<summary><strong>[Table 4](#table4). Condition at Project Start for each Indicator</strong></summary>
+<summary>Table 7. Condition at Project Start for each Indicator</summary>
 
-::: {#table4 .terra-exec}
-| Condition Component | Indicator Description | Condition Value Measured at Project Start |
-|:-----------------------|:-----------------------|-----------------------:|
-| Composition (Cm1) | Species richness of herpetofauna | 46.000 |
-| Composition (Cm2) | Species richness of birds | 215.000 |
-| Composition (Cm3) | Species richness of mammals | 31.000 |
-| Structure (S1) | Aboveground biomass (Mg DM ha^-1^) | 152.051 |
-| Structure (S2) | Forest canopy cover (%) | 60.000 |
+::: terra-table-title
+Table 7. Condition at Project Start for each Indicator
 :::
+
+::: {#table7}
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+table_data <- data.frame(
+  check.names = FALSE,
+  
+  `Condition Component` = c(
+    "Composition (Cm1)",
+    "Composition (Cm2)",
+    "Composition (Cm3)",
+    "Structure (S1)",
+    "Structure (S2)"
+  ),
+  
+  `Indicator Description` = c(
+    "Species richness of herpetofauna",
+    "Species richness of birds",
+    "Species richness of mammals",
+    "Aboveground biomass (MG DM ha-1)",
+    "Forest canopy cover (%)"
+  ),
+  
+  `Condition value measured at project start` = c(
+    "46.000",
+    "215.000",
+    "31.000",
+    "34.540",
+    "49.050"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
 
 </details>
 
 ## Mammal Species Richness
 
-Each camera trap had a unique name and GPS coordinate to identify which camera captured which animal. Once we were able to get the raw data, we also needed to ensure that the data collected from the baseline assessment of the carbon project aligned with the Nature Framework requirements. We found that the data collected at each camera trap could have been associated with a different functional group, so we took each location of camera trap and added it to the shapefile of the functional groups. We then cross referenced this file to the raw data collected in the field according to the camera trap ID and coordinates. If the camera trap was in an area not described as Tropical/Sub-tropical dry forests, the data was excluded.
+Each camera trap had a unique name and GPS coordinate to identify which camera captured which animal. Once the raw data was collected and reviewed, it was aligned with the Nature Framework requirements. The data collected at each camera trap could have been associated with a different functional group, so each location was taken and added to the shapefile of the functional group.
 
-To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+Then, this file was cross referenced to the raw data collected in the field according to the camera trap ID and coordinates. If the camera trap was in an area not described as Tropical/Sub-tropical dry forests, the data was excluded, as seen in [Table 8](#table8).
+
+<details>
+
+<summary>Table 8. Camera Trap Data – Calakmul</summary>
+
+::: {#table8}
+:::
+
+::: terra-table-title
+Table 8. Camera Trap Data – Calakmul
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(DT)
+
+table_data <- read_excel(
+  "files/Camaras trampa Calakmul v0-2.xlsx"
+)
+
+datatable(
+  table_data,
+  options = list(
+    pageLength = 15,
+    scrollX = TRUE,
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+To calculate the species richness, the total number of species observed in each ejido was added for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
 
 ## Avian Species Richness
 
 At each point, the geographical coordinates, point number, time, species observed/heard, number of individuals per species, distance and observation height were taken. Another aspect to mention, in some points more transects were made and in others less, due to the conditions of the terrain and surface of the area. The recorded species were identified using binoculars (8x42) and the field guide “Go out and bird Yucatán” (2014) and the Merlin application (The Cornell Lab).
 
-Each coordinate for point counts (observation points) was included in the raw data and were cross referenced with the location of each coordinate and the associated functional group. Any point and corresponding data was excluded if it was not located in the Tropical/Sub-tropical dry forests.
+Each coordinate for point counts (observation points) was included in the raw data and were cross referenced with the location of each coordinate and the associated functional group. Any point and corresponding data was excluded if it was not located in the Tropical/Sub-tropical dry forests, as seen in [Table 9](#table9).
 
-To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+<details>
+
+<summary>Table 9. Classification per Field Data Plot</summary>
+
+::: {#table9}
+:::
+
+::: terra-table-title
+Table 9. Classification per Field Data Plot
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(DT)
+
+table_data <- read_excel(
+  "files/Classification_per_field_data_plot.xlsx"
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    pageLength = 15,
+    scrollX = TRUE,
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests, as seen in [Table 10](#table10).
+
+<details>
+
+<summary>Table 10. Bird Species Lists by Ejido</summary>
+
+::: {#table10}
+:::
+
+::: terra-table-title
+Table 10. Bird Species Lists by Ejido
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(DT)
+
+table_data <- read_excel(
+  "files/Aves Listas por Ejido v0-3.xlsx"
+)
+
+datatable(
+  table_data,
+  options = list(
+    pageLength = 15,
+    scrollX = TRUE,
+    autoWidth = TRUE
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
+
+</details>
 
 ## Herpetofauna Species Richness
 
 To determine which transects needed to be excluded from the study, the transect coordinates were cross referenced to the IUCN functional groups. Because transects were followed for these observations, multiple points along the transect were assessed to determine what functional group they were located in. Each transect had an initial and final coordinate along the transect.
 
-To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests.
+<details>
 
-### EMPTY Aboveground Biomass
+<summary>Table 11. Herpetofauna Species Dataset</summary>
 
-### EMPTY Canopy Cover
+::: {#table11}
+:::
+
+::: terra-table-title
+Table 11. Herpetofauna Species Dataset
+:::
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(readxl)
+library(DT)
+
+table_data <- read_excel(
+  "files/herps Base de datos final v0-2.xlsx"
+)
+
+# Replace periods in column names
+colnames(table_data) <- gsub("\\.", " ", colnames(table_data))
+
+datatable(
+  table_data,
+  
+  options = list(
+    paging = FALSE,
+    pageLength = 15,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  
+  rownames = FALSE,
+  
+  class = "stripe hover compact"
+)
+```
+
+</details>
+
+To calculate the species richness, we measured the total number of species observed in each ejido and added them together for the Project Extent, while excluding any species that was found outside of the tropical/sub-tropical dry forests, as seen in [Table 11](#table11).
+
+### Aboveground Biomass
+
+To ensure high-precision and replicable values of Aboveground Biomass (AGB), raw GEDI data was used: **Spaceborne LiDAR: NASA GEDI Level 4A (GEDI04_A_002)**
+
+The Global Ecosystem Dynamics Investigation (GEDI) L4A Monthly dataset was utilized as the primary source for biomass calibration. GEDI provides high-resolution laser ranging observations of the Earth’s 3D structure from the International Space Station. Footprint-level estimates of Aboveground Biomass Density (AGBD) were extracted and used directly.
+
+GEDI’s LiDAR technology provides direct measurements of canopy height and vertical profile, which are more strongly correlated with biomass than passive optical signals alone. This minimizes the risk of "signal saturation" in high-biomass areas.
+
+<details>
+
+<summary>GEDI_AGB_2023_raw.tif</summary>
+
+[Download GEDI Aboveground Biomass Raster (2023)](files/GEDI_AGB_2023_raw.tif){.terra-button target="_blank"}
+
+</details>
+
+### Canopy Cover
+
+The canopy cover raster was retrieved from the NASA hub and the product is described in [Step H3](Step%208.html#step-h3-raster). Canopy Cover directly measures habitat structure and is highly sensitive to both ecosystem degradation and conversion.
+
+The indicator has 10 years of continuous historical data, enabling regression-based forecasting as required by SD VISta for using historical conversion rates MODIS is a credible, globally recognized source with documented accuracy and validation Spatial resolution (250m) complies with SD VISta requirement of ≤300m.
+
+The indicator is already used for program monitoring, ensuring consistency between baseline and verification. Compliance with Section 7.5.4: Dataset meets all data requirements including spatial resolution, temporal coverage, credible source, and sensitivity to habitat conversion.
+
+<details>
+
+<summary>MOD44B_TreeCover_2014-2023.tif</summary>
+
+[Download MOD44B Tree Cover Raster (2014–2023)](files/MOD44B_TreeCover_2014-2023.tif){.terra-button target="_blank"}
+
+</details>

@@ -1,0 +1,38 @@
+Generated : 2026-05-15 11:12:44
+
+=================================================================
+INPUTS
+=================================================================
+Rasters:
+  GEDI AGB 2023
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\7_AGB\GEDI\GEDI_AGB_2023_raw.tif
+    band : 1  |  units : Mg/ha
+  MOD44B Tree Cover (last yr)
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\response\MOD44B_TreeCover_2014-2023.tif
+    band : last  |  units : %
+
+Areas of interest:
+  Project Extent - Condition at Project Start
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\Project_Extent\project_extent_v2.shp
+  Core Zone - Reference Value
+    path : A:\TGC-01201 Amigos de Calakmul - Mexico\1. GIS\2. Working Files\28. Additional Information\Core_Zone.shp
+
+=========================================================
+TABLE 1 — AOI AREAS
+=========================================================
+AOI                                             Area (ha)
+---------------------------------------------------------
+Project Extent - Condition at Project Start     122,031.6
+Core Zone - Reference Value                     247,378.9
+=========================================================
+
+=============================================================================================================================
+TABLE 2 — RASTER STATISTICS
+=============================================================================================================================
+AOI                                          Raster                             Mean        Min        Max       N (obs)  Units
+-----------------------------------------------------------------------------------------------------------------------------
+Project Extent - Condition at Project Start  GEDI AGB 2023                     51.65       0.00    1413.82        13,244  Mg/ha
+Project Extent - Condition at Project Start  MOD44B Tree Cover (last yr)       61.91       1.00      84.00        20,945  %
+Core Zone - Reference Value                  GEDI AGB 2023                     48.86       0.00    1179.28        13,865  Mg/ha
+Core Zone - Reference Value                  MOD44B Tree Cover (last yr)       66.28      12.00      87.00        41,987  %
+=============================================================================================================================

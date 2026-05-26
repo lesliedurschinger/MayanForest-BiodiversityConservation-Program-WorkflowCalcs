@@ -20,7 +20,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -71,6 +91,25 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/leaflet-1.3.1/leaflet.css" rel="stylesheet">
+<script src="site_libs/leaflet-1.3.1/leaflet.js"></script>
+<link href="site_libs/leafletfix-1.0.0/leafletfix.css" rel="stylesheet">
+<script src="site_libs/proj4-2.6.2/proj4.min.js"></script>
+<script src="site_libs/Proj4Leaflet-1.0.1/proj4leaflet.js"></script>
+<link href="site_libs/rstudio_leaflet-1.3.1/rstudio_leaflet.css" rel="stylesheet">
+<script src="site_libs/leaflet-binding-2.2.3/leaflet.js"></script>
+<script src="site_libs/leaflet-providers-3.0.0/leaflet-providers.js"></script>
+<script src="site_libs/leaflet-providers-plugin-2.2.3/leaflet-providers-plugin.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
 
 <link rel="stylesheet" href="styles.css">
@@ -125,7 +164,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03. Project Extent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project Extent</span></a>
+  <a href="./03. Program Definitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Program Definitions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -183,8 +222,26 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active" data-toc-expanded="1">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#composition-indicators" id="toc-composition-indicators" class="nav-link active" data-scroll-target="#composition-indicators">Composition Indicators</a>
+  <ul class="collapse">
+  <li><a href="#mammal-species-richness" id="toc-mammal-species-richness" class="nav-link" data-scroll-target="#mammal-species-richness">Mammal Species Richness</a></li>
+  <li><a href="#avian-species-richness" id="toc-avian-species-richness" class="nav-link" data-scroll-target="#avian-species-richness">Avian Species Richness</a></li>
+  <li><a href="#herpetofauna-species-richness" id="toc-herpetofauna-species-richness" class="nav-link" data-scroll-target="#herpetofauna-species-richness">Herpetofauna Species Richness</a></li>
+  </ul></li>
+  <li><a href="#structure-indicators" id="toc-structure-indicators" class="nav-link" data-scroll-target="#structure-indicators">Structure Indicators</a>
+  <ul class="collapse">
+  <li><a href="#aboveground-biomass" id="toc-aboveground-biomass" class="nav-link" data-scroll-target="#aboveground-biomass">Aboveground biomass</a></li>
+  </ul></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code:</a></li>
+  <li><a href="#inputs" id="toc-inputs" class="nav-link" data-scroll-target="#inputs">Inputs:</a></li>
+  <li><a href="#outputs" id="toc-outputs" class="nav-link" data-scroll-target="#outputs">Outputs:</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -208,64 +265,753 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="composition-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="composition-indicators">Composition Indicators</h2>
 <p>Evidence of the documented inventory used to establish reference values for Condition indicators is maintained through a structured compilation of peer-reviewed literature, spatial datasets, and reproducible analytical workflows. All data sources, selection criteria, and analytical steps were recorded and archived to ensure transparency, traceability, and auditability in accordance with Verra requirements.</p>
 <p>For biodiversity composition indicators, including mammal, bird, and herpetofauna species richness, the documented inventory consists of peer-reviewed scientific studies published from 2000 onward and primarily conducted in the Calakmul Biosphere Reserve (CBR) and the broader Yucatan Peninsula. The CBR was selected as the primary reference area because it represents near-pristine ecological conditions where most anthropogenic activities are prohibited. Literature searches were conducted systematically using Google Scholar with predefined keyword combinations such as “species richness,” “diversity,” “Calakmul Biosphere Reserve,” and “Yucatan Peninsula,” tailored to each taxonomic group. Records of search terms, publication dates, and inclusion criteria were maintained as part of the inventory documentation.</p>
-<p>For mammal species richness, the inventory includes camera-trap and field-based studies focusing on different mammalian groups within the CBR. These include studies on ungulates documenting six species (Reyna-Hurtado &amp; Tanner, 2007) and broader assessments of large terrestrial mammals across the Yucatan Peninsula, identifying a total of 14 large mammal species (Reyna-Hurtado et al., 2015). Because many studies focused on specific taxa, results were synthesized across multiple sources to produce a comprehensive mammal species inventory (excluding bats), resulting in a reference value of 46 species. All source publications are cited and archived as part of the documented inventory.</p>
-<p>For bird species richness, the inventory draws on multiple avifaunal surveys conducted within the CBR. These include a study assessing bird abundance across feeding guilds that identified more than 300 species (Walsh, 2018), as well as a comprehensive inventory documenting 403 bird species, which represents the most extensive avian dataset available for the reserve (González et al., 2016). These studies were used to inform a conservative reference value of 230 bird species, reflecting expected richness under intact ecological conditions while accounting for methodological variability among surveys.</p>
-<p>For herpetofauna species richness, the documented inventory includes post-2000 studies conducted in the CBR using standardized field methods such as Visual Encounter Surveys and pitfall traps. A key study documented the presence of 20 amphibian species and 69 reptile species, resulting in a total of 90 herpetofauna species under near-pristine conditions (Colston et al., 2015). This study and supporting literature were archived as evidence of the reference condition.</p>
-<p>For structural condition indicators where historical field-based reference data were limited, the documented inventory consists of spatially explicit remote sensing datasets and derived statistical analyses. Canopy cover reference values were based on Terra MODIS Vegetation Continuous Fields (VCF) products at 250 m resolution, generated annually using monthly composites of Terra MODIS land surface reflectance and temperature data across all seven spectral bands. Datasets covering the ten years preceding project start (t–10 to t=0) were included in the inventory, along with ecosystem classification layers and Habitat Conversion Risk maps used to filter pixels.</p>
-<p>Aboveground biomass reference values were derived from a documented inventory of GEDI Level 4 Aboveground Biomass data combined with Sentinel-1 synthetic aperture radar and Sentinel-2 multispectral imagery. A Random Forest regression model was trained annually using approximately 4,000 GEDI plots per year to predict AGB across the program’s ecoregion. All input datasets, model parameters, training samples, and output rasters were stored with accompanying metadata describing spatial resolution, temporal coverage, and ecosystem filtering criteria.</p>
-<p>All analytical procedures used to derive percentile-based reference values (75th percentile for canopy cover and 90th percentile for aboveground biomass) were fully documented, including pixel selection rules, statistical assumptions, and sample sizes. Reproducible scripts and summary outputs were archived to enable independent verification.</p>
-<details open="">
+<section id="mammal-species-richness" class="level3">
+<h3 class="anchored" data-anchor-id="mammal-species-richness">Mammal Species Richness</h3>
+<p>For mammal species richness, the inventory includes camera-trap and field-based studies focusing on different mammalian groups within the CBR. These include studies on ungulates documenting six species <span class="citation" data-cites="reyna-hurtado2015">(<a href="#ref-reyna-hurtado2015" role="doc-biblioref">Reyna-Hurtado et al. 2015</a>)</span> and broader assessments of large terrestrial mammals across the Yucatan Peninsula, identifying a total of 14 large mammal species <span class="citation" data-cites="reyna-hurtado2015">(<a href="#ref-reyna-hurtado2015" role="doc-biblioref">Reyna-Hurtado et al. 2015</a>)</span>. Because many studies focused on specific taxa, results were synthesized across multiple sources to produce a comprehensive mammal species inventory (excluding bats), resulting in a reference value of 46 species. All source publications are cited and archived as part of the documented inventory.</p>
+</section>
+<section id="avian-species-richness" class="level3">
+<h3 class="anchored" data-anchor-id="avian-species-richness">Avian Species Richness</h3>
+<p>For bird species richness, the inventory draws on multiple avifaunal surveys conducted within the CBR. These include a study assessing bird abundance across feeding guilds that identified more than 300 species <span class="citation" data-cites="walsh2018">(<a href="#ref-walsh2018" role="doc-biblioref">Walsh 2018</a>)</span>, as well as a comprehensive inventory documenting 403 bird species, which represents the most extensive avian dataset available for the reserve <span class="citation" data-cites="gonzález-jaramillo2016">(<a href="#ref-gonzález-jaramillo2016" role="doc-biblioref">González-Jaramillo, Martínez, and Esparza-Olguín 2016</a>)</span>. These studies were used to inform a conservative reference value of 230 bird species, reflecting expected richness under intact ecological conditions while accounting for methodological variability among surveys.</p>
+</section>
+<section id="herpetofauna-species-richness" class="level3">
+<h3 class="anchored" data-anchor-id="herpetofauna-species-richness">Herpetofauna Species Richness</h3>
+<p>For herpetofauna species richness, the documented inventory includes post-2000 studies conducted in the CBR using standardized field methods such as Visual Encounter Surveys and pitfall traps. A key study documented the presence of 20 amphibian species and 69 reptile species, resulting in a total of 90 herpetofauna species under near-pristine conditions <span class="citation" data-cites="colston2015">(<a href="#ref-colston2015" role="doc-biblioref">Colston et al. 2015</a>)</span>. This study and supporting literature were archived as evidence of the reference condition.</p>
+</section>
+</section>
+<section id="structure-indicators" class="level2">
+<h2 class="anchored" data-anchor-id="structure-indicators">Structure Indicators</h2>
+<p>For structural condition indicators the documented inventory consists of spatially explicit remote sensing datasets and derived statistical analyses. Canopy cover reference values were based on Terra MODIS Vegetation Continuous Fields (VCF) products at 250 m resolution, generated annually using monthly composites of Terra MODIS land surface reflectance and temperature data across all seven spectral bands. Dataset at project start (t=0) was used to calculate the reference value.</p>
+<section id="aboveground-biomass" class="level3">
+<h3 class="anchored" data-anchor-id="aboveground-biomass">Aboveground biomass</h3>
+<p>Aboveground biomass reference values were derived from a documented inventory of raw GEDI Level 4A Aboveground Biomass Density (GEDI L4A) data, accessed via Google Earth Engine (GEE) using the monthly composites collection (LARSE/GEDI/GEDI04_A_002_MONTHLY). The aboveground biomass density band (agbd, expressed in Mg/ha) was extracted at the native GEDI footprint resolution of approximately 25 m. Monthly granules corresponding to the project start year (2023, t=0) were filtered to the project area and composited into an annual mean composite representative of baseline conditions. Prior to compositing, pixels with non-positive values were masked to exclude fill values and invalid retrievals. The resulting composite was clipped to the project boundary and exported at 25 m resolution in geographic coordinates (EPSG:4326). No additional aboveground biomass datasets were incorporated; GEDI L4A constitutes the sole source for aboveground biomass reference values in this inventory.</p>
+<hr>
+<p>Reproducible scripts and summary outputs were archived to enable independent verification:</p>
+</section>
+</section>
+<section id="code" class="level2">
+<h2 class="anchored" data-anchor-id="code">Code:</h2>
+<details>
 <summary>
-<strong><a href="#table3">Table 3.</a> Reference Values for each Indicator</strong>
+01_get_mod44b.py
 </summary>
-<div id="table3" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 28%">
-<col style="width: 48%">
-<col style="width: 22%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Condition Component</th>
-<th style="text-align: left;">Indicator Description</th>
-<th style="text-align: right;">Reference Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Composition (Cm1)</td>
-<td style="text-align: left;">Species richness of herpetofauna</td>
-<td style="text-align: right;">90.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Composition (Cm2)</td>
-<td style="text-align: left;">Species richness of birds</td>
-<td style="text-align: right;">230.000</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Composition (Cm3)</td>
-<td style="text-align: left;">Species richness of mammals</td>
-<td style="text-align: right;">46.000</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Structure (S1)</td>
-<td style="text-align: left;">Aboveground biomass (Mg DM ha<sup>-1</sup>)</td>
-<td style="text-align: right;">187.234</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Structure (S2)</td>
-<td style="text-align: left;">Forest canopy cover (%)</td>
-<td style="text-align: right;">72.000</td>
-</tr>
-</tbody>
-</table>
+<p><a href="files/01_get_mod44b.py" class="terra-button" target="_blank">Download 01_get_mod44b.py</a></p>
+<pre><code>
+"""
+Download MODIS MOD44B Vegetation Continuous Fields (VCF) 2014–2023
+===================================================================
+
+Downloads the MODIS MOD44B annual Vegetation Continuous Fields product for a
+given area of interest and stacks all years into a single multi-band GeoTIFF.
+
+Source: Google Earth Engine
+- Collection: MODIS/061/MOD44B
+- Band: Percent_Tree_Cover (0–100 %; fill value = 200)
+- Resolution: 250 m
+- Available: yearly, ~day 065 (early March) of each year
+
+INPUTS:
+-------
+- Shapefile defining the area of interest (AOI)
+
+OUTPUTS:
+--------
+- Single multi-band GeoTIFF with one band per year (2014–2023),
+  each band named tree_cover_{year}. Fill-value pixels (200) are masked.
+
+DEPENDENCIES:
+-------------
+- Google Earth Engine (ee) — authenticated and initialized
+- geemap, geopandas
+"""
+
+import ee
+import geemap
+import geopandas as gpd
+import os
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Path to the AOI shapefile
+SHAPEFILE_PATH = r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\2_Project_extent\Project_Boundary.shp"
+
+# Output directory
+OUTPUT_DIR = r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\response"
+
+# Output filename
+OUTPUT_FILENAME = "MOD44B_TreeCover_2014-2023.tif"
+
+# Year range
+START_YEAR = 2014
+END_YEAR = 2023
+
+# Export scale in meters (native resolution is 250 m)
+SCALE = 250
+
+# =============================================================================
+# Main
+# =============================================================================
+
+def download_mod44b_stack(shapefile_path, output_dir, output_filename,
+                          start_year=2014, end_year=2023, scale=250):
+    """
+    Build a multi-band MOD44B Percent_Tree_Cover stack for [start_year, end_year]
+    and download it as a single GeoTIFF.
+
+    Each band is named tree_cover_{year} and corresponds to one annual image.
+    Fill-value pixels (value == 200, encoding water / no-data) are masked out.
+
+    Parameters
+    ----------
+    shapefile_path : str
+        Path to the AOI shapefile.
+    output_dir : str
+        Directory where the output GeoTIFF will be saved.
+    output_filename : str
+        Name of the output multi-band file.
+    start_year : int
+        First year of the stack (inclusive).
+    end_year : int
+        Last year of the stack (inclusive).
+    scale : int
+        Export resolution in meters.
+    """
+    # Load AOI
+    print(f"Loading AOI from: {shapefile_path}")
+    gdf = gpd.read_file(shapefile_path)
+    gdf_wgs84 = gdf.to_crs(epsg=4326)
+    aoi = geemap.geopandas_to_ee(gdf_wgs84)
+
+    # Build one band per year and collect them
+    print(f"Building MOD44B stack for {start_year}–{end_year}...")
+    bands = []
+
+    for year in range(start_year, end_year + 1):
+        print(f"  [{year}] Fetching annual image...")
+        collection = (
+            ee.ImageCollection("MODIS/061/MOD44B")
+            .filter(ee.Filter.calendarRange(year, year, "year"))
+            .filterBounds(aoi)
+            .select("Percent_Tree_Cover")
+        )
+
+        image_count = collection.size().getInfo()
+        if image_count == 0:
+            print(f"  [{year}] WARNING: No image found — band will be skipped.")
+            continue
+
+        # MOD44B is annual; take the first (and normally only) image.
+        # Mask fill value (200) which encodes water / no-data.
+        band = (
+            collection.first()
+            .updateMask(collection.first().lt(200))
+            .rename(f"tree_cover_{year}")
+        )
+        bands.append(band)
+        print(f"  [{year}] Band added: tree_cover_{year}")
+
+    if not bands:
+        raise ValueError("No MOD44B images were found for any year in the requested range.")
+
+    # Stack all bands into a single image
+    print(f"\nStacking {len(bands)} annual bands into one image...")
+    stack = ee.Image.cat(bands).clip(aoi)
+
+    # Create output directory if needed
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, output_filename)
+
+    # Remove existing file to avoid permission errors from locked files
+    if os.path.exists(output_path):
+        try:
+            os.remove(output_path)
+            print(f"Removed existing file: {output_path}")
+        except PermissionError:
+            raise PermissionError(
+                f"Cannot overwrite '{output_path}' — the file is open in another application. "
+                f"Close it in QGIS / ArcGIS and try again."
+            )
+
+    print(f"Downloading stack to: {output_path}  (scale={scale}m)")
+    geemap.download_ee_image(
+        stack,
+        filename=output_path,
+        scale=scale,
+        region=aoi.geometry(),
+        crs="EPSG:4326",
+    )
+
+    print(f"\nDownload complete: {output_path}")
+    print(f"Bands: {[f'tree_cover_{y}' for y in range(start_year, end_year + 1)]}")
+    return output_path
+
+
+if __name__ == "__main__":
+    # Initialize Earth Engine
+    try:
+        ee.Number(1).getInfo()
+    except Exception:
+        ee.Authenticate()
+        ee.Initialize(project="ee-tgcwindows11")
+
+    download_mod44b_stack(
+        shapefile_path=SHAPEFILE_PATH,
+        output_dir=OUTPUT_DIR,
+        output_filename=OUTPUT_FILENAME,
+        start_year=START_YEAR,
+        end_year=END_YEAR,
+        scale=SCALE,
+    )
+
+</code></pre>
+</details>
+<details>
+<summary>
+02_get_gedi_agb.py
+</summary>
+<p><a href="files/02_get_gedi_agb.py" class="terra-button" target="_blank">Download 02_get_gedi_agb.py</a></p>
+<pre><code>
+"""
+Download GEDI L4A Aboveground Biomass (AGB) for a given year
+=============================================================
+
+Downloads the GEDI Level 4A Aboveground Biomass Density product for a given
+area of interest, aggregated as an annual mean composite.
+
+Source: Google Earth Engine
+- Collection: LARSE/GEDI/GEDI04_A_002_MONTHLY
+- Band: agbd (Aboveground Biomass Density, Mg/ha)
+- Resolution: ~25m (GEDI footprint)
+- Available: April 2019 onwards
+
+INPUTS:
+-------
+- Shapefile defining the area of interest (AOI)
+
+OUTPUTS:
+--------
+- GeoTIFF with AGB values (Mg/ha) clipped to the AOI
+
+DEPENDENCIES:
+-------------
+- Google Earth Engine (ee) — authenticated and initialized
+- geemap, geopandas
+"""
+
+import ee
+import geemap
+import geopandas as gpd
+import os
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Path to the AOI shapefile (same as 03_get_esa_agb.py)
+SHAPEFILE_PATH = r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\2_Project_extent\Project_Boundary.shp"
+
+# Output directory
+OUTPUT_DIR = r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\7_AGB\GEDI"
+
+# Output filename
+OUTPUT_FILENAME = "GEDI_AGB_2023_raw.tif"
+
+# Year of interest (GEDI available from 2019 onwards)
+YEAR = 2023
+
+# Export scale in meters (GEDI footprint is ~25m)
+SCALE = 25
+
+# =============================================================================
+# Main
+# =============================================================================
+
+def download_gedi_agb(shapefile_path, output_dir, output_filename, year=2023, scale=25):
+    """
+    Download GEDI L4A AGB annual mean composite for a given year and AOI.
+
+    Parameters
+    ----------
+    shapefile_path : str
+        Path to the AOI shapefile.
+    output_dir : str
+        Directory where the output GeoTIFF will be saved.
+    output_filename : str
+        Name of the output file.
+    year : int
+        Year for the annual composite. GEDI available from 2019 onwards.
+    scale : int
+        Export resolution in meters.
+    """
+    # Load AOI
+    print(f"Loading AOI from: {shapefile_path}")
+    gdf = gpd.read_file(shapefile_path)
+    gdf_wgs84 = gdf.to_crs(epsg=4326)
+    aoi = geemap.geopandas_to_ee(gdf_wgs84)
+
+    # Filter GEDI L4A monthly collection to the target year
+    print(f"Fetching GEDI L4A AGB monthly composites for {year}...")
+    collection = (
+        ee.ImageCollection("LARSE/GEDI/GEDI04_A_002_MONTHLY")
+        .filter(ee.Filter.calendarRange(year, year, "year"))
+        .filterBounds(aoi)
+        .select("agbd")
+    )
+
+    image_count = collection.size().getInfo()
+    if image_count == 0:
+        raise ValueError(
+            f"No GEDI L4A images found for year {year} within the AOI. "
+            f"GEDI is available from April 2019 onwards."
+        )
+
+    print(f"Found {image_count} monthly image(s) for {year} — computing annual mean...")
+
+    # Annual mean composite, masking nodata (agbd fill value is -9999)
+    agb_image = (
+        collection
+        .map(lambda img: img.updateMask(img.gt(0)))
+        .mean()
+        .rename("agb")
+    )
+
+    # Clip to AOI
+    agb_clipped = agb_image.clip(aoi)
+
+    # Create output directory if needed
+    os.makedirs(output_dir, exist_ok=True)
+    output_path = os.path.join(output_dir, output_filename)
+
+    # Remove existing file to avoid permission errors from locked files
+    if os.path.exists(output_path):
+        try:
+            os.remove(output_path)
+            print(f"Removed existing file: {output_path}")
+        except PermissionError:
+            raise PermissionError(
+                f"Cannot overwrite '{output_path}' — the file is open in another application. "
+                f"Close it in QGIS / ArcGIS and try again."
+            )
+
+    # Download using geemap (splits into tiles to bypass 50MB limit)
+    print(f"Downloading AGB to: {output_path}")
+    print(f"Scale: {scale}m")
+
+    geemap.download_ee_image(
+        agb_clipped,
+        filename=output_path,
+        scale=scale,
+        region=aoi.geometry(),
+        crs="EPSG:4326",
+    )
+
+    print(f"Download complete: {output_path}")
+    return output_path
+
+
+if __name__ == "__main__":
+    # Initialize Earth Engine
+    try:
+        ee.Number(1).getInfo()
+    except Exception:
+        ee.Authenticate()
+        ee.Initialize(project="ee-tgcwindows11")
+
+    download_gedi_agb(
+        shapefile_path=SHAPEFILE_PATH,
+        output_dir=OUTPUT_DIR,
+        output_filename=OUTPUT_FILENAME,
+        year=YEAR,
+        scale=SCALE,
+    )
+
+</code></pre>
+</details>
+<details>
+<summary>
+03_get_indicators_values.py
+</summary>
+<p><a href="files/03_get_indicators_values.py" class="terra-button" target="_blank">Download 03_get_indicators_values.py</a></p>
+<pre><code>
+"""
+AGB &amp; Tree Cover Raster Statistics by Area of Interest
+=======================================================
+
+Calculates mean, min, and max for rasters masked to shapefile boundaries.
+Statistics are computed over all valid pixels within the entire shapefile area
+(not per polygon). Also reports the area of each AOI shapefile in hectares.
+
+INPUTS:
+-------
+- AGB rasters: GEDI (2023)
+- MOD44B multi-band raster: last band (most recent year) used
+- Two shapefiles as areas of interest
+
+OUTPUTS:
+--------
+- Printed summary table with mean, min, max per raster/AOI combination
+- AOI area in hectares
+
+Last Updated: 2026-05-08
+"""
+
+import rasterio
+from rasterio import features
+import geopandas as gpd
+import numpy as np
+import os
+from datetime import datetime
+
+
+# =============================================================================
+# Configuration
+# =============================================================================
+
+# Each entry: "label" -&gt; {"path": ..., "band": int or -1 for last, "units": str}
+RASTERS = {
+    "GEDI AGB 2023": {
+        "path":  r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\7_AGB\GEDI\GEDI_AGB_2023_raw.tif",
+        "band":  1,
+        "units": "Mg/ha",
+    },
+    "MOD44B Tree Cover (last yr)": {
+        "path":  r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\response\MOD44B_TreeCover_2014-2023.tif",
+        "band":  -1,   # -1 = last band
+        "units": "%",
+    },
+}
+
+AREAS_OF_INTEREST = {
+    "Project Extent - Condition at Project Start": r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\Project_Extent\project_extent_v2.shp",
+    "Core Zone - Reference Value": r"A:\TGC-01201 Amigos de Calakmul - Mexico\1. GIS\2. Working Files\28. Additional Information\Core_Zone.shp",
+}
+
+OUTPUT_DIR = r"A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\outputs"
+OUTPUT_TXT  = os.path.join(OUTPUT_DIR, "indicators_values.txt")
+
+
+# =============================================================================
+# Helpers
+# =============================================================================
+
+def get_shapefile_area_ha(shp_path):
+    """
+    Return the total area of all features in a shapefile in hectares.
+    Reprojects to EPSG:6933 (WGS 84 / NSIDC EASE-Grid 2.0, equal-area) for
+    accurate area calculation regardless of the original CRS.
+    """
+    gdf = gpd.read_file(shp_path)
+    gdf_ea = gdf.to_crs(epsg=6933)
+    area_ha = gdf_ea.geometry.area.sum() / 10_000
+    return area_ha
+
+
+def get_raster_stats_by_aoi(raster_path, band_index, units, shp_path, raster_name, aoi_name):
+    """
+    Extract mean, min, and max from one band of a raster masked to a shapefile.
+
+    Args:
+        raster_path : Path to the input raster (.tif)
+        band_index  : 1-based band number, or -1 to use the last band
+        units       : String label for the units (e.g. "Mg/ha", "%")
+        shp_path    : Path to the shapefile defining the AOI
+        raster_name : Display label for the raster
+        aoi_name    : Display label for the AOI
+
+    Returns:
+        dict with keys 'mean', 'min', 'max', 'count', or None if no valid pixels
+    """
+    print(f"\n  Raster : {raster_name}")
+    print(f"  AOI    : {aoi_name}")
+
+    with rasterio.open(raster_path) as src:
+        n_bands = src.count
+        band_num = n_bands if band_index == -1 else band_index
+        print(f"  Band   : {band_num}/{n_bands}")
+
+        raster_data = src.read(band_num).astype("float32")
+        nodata = src.nodata
+        transform = src.transform
+        crs = src.crs
+        shape = src.shape
+
+    # Mask nodata and NaN
+    invalid = np.isnan(raster_data)
+    if nodata is not None:
+        invalid |= raster_data == nodata
+
+    # Reproject shapefile to raster CRS if needed
+    gdf = gpd.read_file(shp_path)
+    if gdf.crs != crs:
+        gdf = gdf.to_crs(crs)
+
+    # Burn all geometries into a single boolean mask (True = inside AOI)
+    aoi_mask = features.geometry_mask(
+        gdf.geometry,
+        out_shape=shape,
+        transform=transform,
+        invert=True,
+    )
+
+    valid_pixels = raster_data[aoi_mask &amp; ~invalid]
+
+    if valid_pixels.size == 0:
+        print("  WARNING: No valid pixels found within AOI.")
+        return None
+
+    stats = {
+        "mean":  float(np.mean(valid_pixels)),
+        "min":   float(np.min(valid_pixels)),
+        "max":   float(np.max(valid_pixels)),
+        "count": int(valid_pixels.size),
+        "units": units,
+    }
+
+    print(f"  Valid pixels : {stats['count']:,}")
+    print(f"  Mean  : {stats['mean']:.4f} {units}")
+    print(f"  Min   : {stats['min']:.4f} {units}")
+    print(f"  Max   : {stats['max']:.4f} {units}")
+
+    return stats
+
+
+# =============================================================================
+# Main Workflow
+# =============================================================================
+
+def run_agb_statistics():
+    """
+    Run statistics for all raster / AOI combinations, print a summary, and
+    save two tables plus the input paths to a text file.
+    """
+    print("\n" + "=" * 70)
+    print("RASTER STATISTICS BY AREA OF INTEREST")
+    print("=" * 70)
+
+    areas = {}
+    results = {}
+
+    for aoi_name, shp_path in AREAS_OF_INTEREST.items():
+        areas[aoi_name] = get_shapefile_area_ha(shp_path)
+
+    for aoi_name, shp_path in AREAS_OF_INTEREST.items():
+        print(f"\n{'─' * 65}")
+        print(f"AOI: {aoi_name}")
+        print(f"{'─' * 65}")
+        results[aoi_name] = {}
+        for raster_name, cfg in RASTERS.items():
+            stats = get_raster_stats_by_aoi(
+                cfg["path"], cfg["band"], cfg["units"],
+                shp_path, raster_name, aoi_name,
+            )
+            results[aoi_name][raster_name] = stats
+
+    # Build output lines (printed to console and written to file)
+    lines = []
+
+    lines.append(f"Generated : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    lines.append("")
+
+    # Inputs section
+    lines.append("=" * 65)
+    lines.append("INPUTS")
+    lines.append("=" * 65)
+    lines.append("Rasters:")
+    for raster_name, cfg in RASTERS.items():
+        band_label = "last" if cfg["band"] == -1 else str(cfg["band"])
+        lines.append(f"  {raster_name}")
+        lines.append(f"    path : {cfg['path']}")
+        lines.append(f"    band : {band_label}  |  units : {cfg['units']}")
+    lines.append("")
+    lines.append("Areas of interest:")
+    for aoi_name, shp_path in AREAS_OF_INTEREST.items():
+        lines.append(f"  {aoi_name}")
+        lines.append(f"    path : {shp_path}")
+    lines.append("")
+
+    # Table 1 — AOI areas (dynamic column widths)
+    w_aoi_t1 = max(len("AOI"), max(len(n) for n in areas))
+    w_area   = max(len("Area (ha)"), 12)
+    sep_len_t1 = w_aoi_t1 + 2 + w_area
+
+    lines.append("=" * sep_len_t1)
+    lines.append("TABLE 1 — AOI AREAS")
+    lines.append("=" * sep_len_t1)
+    lines.append(f"{'AOI':&lt;{w_aoi_t1}}  {'Area (ha)':&gt;{w_area}}")
+    lines.append("-" * sep_len_t1)
+    for aoi_name, area_ha in areas.items():
+        lines.append(f"{aoi_name:&lt;{w_aoi_t1}}  {area_ha:&gt;{w_area},.1f}")
+    lines.append("=" * sep_len_t1)
+    lines.append("")
+
+    # Table 2 — Raster statistics (dynamic column widths)
+    w_aoi    = max(len("AOI"),    max(len(n) for n in results))
+    w_raster = max(len("Raster"), max(len(n) for n in RASTERS))
+    w_num    = 10   # width for Mean / Min / Max values
+    sep_len  = w_aoi + 2 + w_raster + 2 + w_num * 3 + 2 + 5   # +5 for Units label
+
+    lines.append("=" * sep_len)
+    lines.append("TABLE 2 — RASTER STATISTICS")
+    lines.append("=" * sep_len)
+    lines.append(
+        f"{'AOI':&lt;{w_aoi}}  {'Raster':&lt;{w_raster}}  "
+        f"{'Mean':&gt;{w_num}} {'Min':&gt;{w_num}} {'Max':&gt;{w_num}}  Units"
+    )
+    lines.append("-" * sep_len)
+    for aoi_name, raster_results in results.items():
+        for raster_name, stats in raster_results.items():
+            if stats:
+                lines.append(
+                    f"{aoi_name:&lt;{w_aoi}}  {raster_name:&lt;{w_raster}}  "
+                    f"{stats['mean']:&gt;{w_num}.2f} {stats['min']:&gt;{w_num}.2f} {stats['max']:&gt;{w_num}.2f}  {stats['units']}"
+                )
+            else:
+                lines.append(
+                    f"{aoi_name:&lt;{w_aoi}}  {raster_name:&lt;{w_raster}}  "
+                    f"{'N/A':&gt;{w_num}} {'N/A':&gt;{w_num}} {'N/A':&gt;{w_num}}"
+                )
+    lines.append("=" * sep_len)
+
+    # Print to console
+    print()
+    for line in lines:
+        print(line)
+
+    # Write to file
+    os.makedirs(OUTPUT_DIR, exist_ok=True)
+    with open(OUTPUT_TXT, "w", encoding="utf-8") as f:
+        f.write("\n".join(lines) + "\n")
+    print(f"\nSaved to: {OUTPUT_TXT}")
+
+    return results
+
+
+if __name__ == "__main__":
+    run_agb_statistics()
+
+</code></pre>
+</details>
+<hr>
+</section>
+<section id="inputs" class="level2">
+<h2 class="anchored" data-anchor-id="inputs">Inputs:</h2>
+<details>
+<summary>
+GEDI_AGB_2023_raw.tif
+</summary>
+<p><a href="files/GEDI_AGB_2023_raw.tif" class="terra-button" target="_blank">Download GEDI_AGB_2023_raw.tif</a></p>
+</details>
+<details>
+<summary>
+MOD44B_TreeCover_2014-2023.tif
+</summary>
+<p><a href="files/MOD44B_TreeCover_2014-2023.tif" class="terra-button" target="_blank">Download MOD44B_TreeCover_2014-2023.tif</a></p>
+</details>
+<details>
+<summary>
+Map 4. Core Zone
+</summary>
+<div id="map4" class="terra-card">
+<p><a href="files/Core_Zone/Core_Zone.shp" class="terra-button" target="_blank">Download Core_Zone.shp</a></p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="leaflet html-widget html-fill-item" id="htmlwidget-22adace7821e81f74bd9" style="width:100%;height:464px;"></div>
+<script type="application/json" data-for="htmlwidget-22adace7821e81f74bd9">{"x":{"options":{"crs":{"crsClass":"L.CRS.EPSG3857","code":null,"proj4def":null,"projectedBounds":null,"options":{}}},"calls":[{"method":"addProviderTiles","args":["Esri.WorldImagery",null,null,{"errorTileUrl":"","noWrap":false,"detectRetina":false}]},{"method":"addPolygons","args":[[[[{"lng":[-89.74620856105929,-89.74918455998444,-89.71769521699676,-89.72270625972324,-89.54821063025179,-89.5471134746865,-89.48839794781355,-89.49013735295507,-89.49922616768364,-89.47469525040223,-89.35932454607578,-89.3258979587883,-89.74620856105929],"lat":[17.81539738975977,18.01476113463248,18.01520599708192,18.19734525351515,18.19904190682248,18.37497641798667,18.37575350668989,18.3434894975167,18.20949902147756,18.02968140634798,17.89373226096857,17.81365978798859,17.81539738975977]}]],[[{"lng":[-89.47348867143842,-89.66310151420086,-89.66216349847511,-89.56279433883191,-89.56420594608745,-89.18411007735459,-89.18291635993695,-89.47226081620023,-89.47348867143842],"lat":[18.61565426090327,18.61306586219135,18.88148469791374,18.88288144124975,18.97537160548944,18.9802471715974,18.88843236977061,18.88480862197554,18.61565426090327]}]]],null,null,{"interactive":true,"className":"","stroke":true,"color":"#f7931d","weight":2,"opacity":0.5,"fill":true,"fillColor":"#f7931d","fillOpacity":0.35,"smoothFactor":1,"noClip":false},null,null,null,{"interactive":false,"permanent":false,"direction":"auto","opacity":1,"offset":[0,0],"textsize":"10px","textOnly":false,"className":"","sticky":true},null]}],"limits":{"lat":[17.81365978798859,18.9802471715974],"lng":[-89.74918455998444,-89.18291635993695]}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><strong>Map 4. Core Zone</strong></p>
+</div>
+</details>
+<hr>
+</section>
+<section id="outputs" class="level2">
+<h2 class="anchored" data-anchor-id="outputs">Outputs:</h2>
+<details>
+<summary>
+indicators_values.txt
+</summary>
+<p><a href="files/indicators_values.txt" class="terra-button" target="_blank">Download indicators_values.txt</a></p>
+<pre><code>
+Generated : 2026-05-15 11:12:44
+
+=================================================================
+INPUTS
+=================================================================
+Rasters:
+  GEDI AGB 2023
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\1_GIS\2_Working Files\7_AGB\GEDI\GEDI_AGB_2023_raw.tif
+    band : 1  |  units : Mg/ha
+  MOD44B Tree Cover (last yr)
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\response\MOD44B_TreeCover_2014-2023.tif
+    band : last  |  units : %
+
+Areas of interest:
+  Project Extent - Condition at Project Start
+    path : A:\TGC-01925 Mexico-ACAC-Yucatan-Biodiversity Credits\2_RS\Crediting_baseline\Project_Extent\project_extent_v2.shp
+  Core Zone - Reference Value
+    path : A:\TGC-01201 Amigos de Calakmul - Mexico\1. GIS\2. Working Files\28. Additional Information\Core_Zone.shp
+
+=========================================================
+TABLE 1 — AOI AREAS
+=========================================================
+AOI                                             Area (ha)
+---------------------------------------------------------
+Project Extent - Condition at Project Start     122,031.6
+Core Zone - Reference Value                     247,378.9
+=========================================================
+
+=============================================================================================================================
+TABLE 2 — RASTER STATISTICS
+=============================================================================================================================
+AOI                                          Raster                             Mean        Min        Max       N (obs)  Units
+-----------------------------------------------------------------------------------------------------------------------------
+Project Extent - Condition at Project Start  GEDI AGB 2023                     51.65       0.00    1413.82        13,244  Mg/ha
+Project Extent - Condition at Project Start  MOD44B Tree Cover (last yr)       61.91       1.00      84.00        20,945  %
+Core Zone - Reference Value                  GEDI AGB 2023                     48.86       0.00    1179.28        13,865  Mg/ha
+Core Zone - Reference Value                  MOD44B Tree Cover (last yr)       66.28      12.00      87.00        41,987  %
+=============================================================================================================================
+
+</code></pre>
+</details>
+<details>
+<summary>
+Table 6. Reference Values for each Indicator
+</summary>
+<div class="{#table6">
+
+</div>
+<div class="terra-table-title">
+<p>Table 6. Reference Values for each Indicator</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-12332eb63b8d1422d215" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-12332eb63b8d1422d215">{"x":{"filter":"none","vertical":false,"data":[["Composition (Cm1)","Composition (Cm2)","Composition (Cm3)","Structure (S1)","Structure (S2)"],["Species richness of herpetofauna","Species richness of birds","Species richness of mammals","Aboveground biomass (MG DM ha-1)","Forest canopy cover (%)"],["90.000","230.000","46.000","48.860","66.280"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Condition Component<\/th>\n      <th>Indicator Description<\/th>\n      <th>Reference Value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Condition Component","targets":0},{"name":"Indicator Description","targets":1},{"name":"Reference Value","targets":2}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-colston2015" class="csl-entry" role="listitem">
+Colston, Timothy J., José António L. Barão-Nóbrega, Ryan Manders, Alice Lett, Jamie Wilmott, Gavin Cameron, Sidony Hunter, et al. 2015. <span>“Amphibians and Reptiles of the Calakmul Biosphere Reserve, México, with New Records.”</span> <em>Check List</em> 11 (5): 1759. <a href="https://doi.org/10.15560/11.5.1759">https://doi.org/10.15560/11.5.1759</a>.
+</div>
+<div id="ref-gonzález-jaramillo2016" class="csl-entry" role="listitem">
+González-Jaramillo, ﻿Mónica, Eduardo Martínez, and Ligia G. Esparza-Olguín. 2016. <span>“Actualización Del Inventario de La Avifauna de La Reserva de La Biosfera de Calakmul, Península de Yucatán, México: Abundancia, Estacionalidad y Categoría de Conservación.”</span> <em>Huitzil Revista Mexicana de Ornitología</em> 17 (1). <a href="https://doi.org/10.28947/hrmo.2016.17.1.219">https://doi.org/10.28947/hrmo.2016.17.1.219</a>.
+</div>
+<div id="ref-reyna-hurtado2015" class="csl-entry" role="listitem">
+Reyna-Hurtado, Rafael, Georgina O’Farrill, Cuauhtémoc Chávez, Juan Carlos Serio-Silva, and Guillermo Castillo-Vela. 2015. <span>“Large Terrestrial Mammals.”</span> In, 227–55. Springer International Publishing. <a href="https://doi.org/10.1007/978-3-319-06529-8_10">https://doi.org/10.1007/978-3-319-06529-8_10</a>.
+</div>
+<div id="ref-walsh2018" class="csl-entry" role="listitem">
+Walsh, Lyndsay. 2018. <span>“Investigating How Habitat Influences Bird Abundance, Diversity and Feeding Guilds in Calakmul Biosphere Reserve, Mexico.”</span> Undergraduate Research Thesis, Trinity College Dublin, The University of Dublin. <a href="https://gua.soutron.net/Portal/Default/en-GB/RecordView/Index/835">https://gua.soutron.net/Portal/Default/en-GB/RecordView/Index/835</a>.
+</div>
+</div>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

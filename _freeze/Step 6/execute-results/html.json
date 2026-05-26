@@ -1,0 +1,19 @@
+{
+  "hash": "bbd2e918e1a8741bdb982b148b713ef4",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Step 6. Calculate Condition at project start (year 0)\"\nformat: html\n---\n\nThe following arithmetic mean equation was followed to calculate the condition of the indicators at project start. $$\nC_0 = \\frac{\\frac{St_1 + St_2 + \\cdots + St_n}{n} + \\frac{Cm_1 + Cm_2 + \\cdots + Cm_n}{n}}{2}\n$$\n\nWhere:\n\n-   $C_0$ = Condition at project start (Year 0)\\\n-   $St$ = Standardized structure indicator at project start (year 0) (calculated as SI0 in Step 5)\\\n-   $Cm$ = Standardized composition indicator at project start (year 0) (calculated as SI0 in Step 5)\\\n-   $n$ = Total number of structure and composition indicators\n\n<br>\n\nThe calculation can be found below:\n\n$$\n\\frac{\\left(\\frac{0.812 + 0.833}{2}\\right) + \\left(\\frac{0.511 + 0.935 + 0.674}{3}\\right)}{2}=0.76\n$$\n\n[Table 13](#table13) demonstrates the values for each component of the calculation:\n\n<details>\n\n<summary>Table 13. Condition at Project Start</summary>\n\n::::{#table13}\n::::\n\n<div class=\"terra-table-title\">\nTable 13. Condition at Project Start\n</div>\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"datatables html-widget html-fill-item\" id=\"htmlwidget-d31845a2f5205a19d989\" style=\"width:100%;height:auto;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-d31845a2f5205a19d989\">{\"x\":{\"filter\":\"none\",\"vertical\":false,\"data\":[[\"Subtropical Dry Forests\"],[\"0.51\"],[\"0.93\"],[\"0.67\"],[\"0.71\"],[\"0.74\"],[\"0.71\"],[\"0.72\"],[\"0.72\"]],\"container\":\"<table class=\\\"stripe hover compact\\\">\\n  <thead>\\n    <tr>\\n      <th>Ecosystem Type<\\/th>\\n      <th>Cm1<\\/th>\\n      <th>Cm2<\\/th>\\n      <th>Cm3<\\/th>\\n      <th>St1<\\/th>\\n      <th>St2<\\/th>\\n      <th>Cm0<\\/th>\\n      <th>St0<\\/th>\\n      <th>C0<\\/th>\\n    <\\/tr>\\n  <\\/thead>\\n<\\/table>\",\"options\":{\"paging\":false,\"searching\":false,\"info\":false,\"ordering\":false,\"scrollX\":true,\"autoWidth\":false,\"columnDefs\":[{\"className\":\"dt-center\",\"targets\":\"_all\"},{\"name\":\"Ecosystem Type\",\"targets\":0},{\"name\":\"Cm1\",\"targets\":1},{\"name\":\"Cm2\",\"targets\":2},{\"name\":\"Cm3\",\"targets\":3},{\"name\":\"St1\",\"targets\":4},{\"name\":\"St2\",\"targets\":5},{\"name\":\"Cm0\",\"targets\":6},{\"name\":\"St0\",\"targets\":7},{\"name\":\"C0\",\"targets\":8}],\"order\":[],\"orderClasses\":false}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n\n</details>",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/htmltools-fill-0.5.9/fill.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<link href=\"site_libs/datatables-css-0.0.0/datatables-crosstalk.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/datatables-binding-0.34.0/datatables.js\"></script>\n<script src=\"site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css\" rel=\"stylesheet\" />\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js\"></script>\n<link href=\"site_libs/crosstalk-1.2.2/css/crosstalk.min.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/crosstalk-1.2.2/js/crosstalk.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

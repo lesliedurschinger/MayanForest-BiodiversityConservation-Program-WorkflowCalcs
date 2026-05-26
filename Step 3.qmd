@@ -1,35 +1,226 @@
 ---
 title: "Step 3. Define reference values for Condition indicators"
 format: html
+bibliography: references.bib
 ---
+
+## Composition Indicators
+
 Evidence of the documented inventory used to establish reference values for Condition indicators is maintained through a structured compilation of peer-reviewed literature, spatial datasets, and reproducible analytical workflows. All data sources, selection criteria, and analytical steps were recorded and archived to ensure transparency, traceability, and auditability in accordance with Verra requirements.
 
 For biodiversity composition indicators, including mammal, bird, and herpetofauna species richness, the documented inventory consists of peer-reviewed scientific studies published from 2000 onward and primarily conducted in the Calakmul Biosphere Reserve (CBR) and the broader Yucatan Peninsula. The CBR was selected as the primary reference area because it represents near-pristine ecological conditions where most anthropogenic activities are prohibited. Literature searches were conducted systematically using Google Scholar with predefined keyword combinations such as “species richness,” “diversity,” “Calakmul Biosphere Reserve,” and “Yucatan Peninsula,” tailored to each taxonomic group. Records of search terms, publication dates, and inclusion criteria were maintained as part of the inventory documentation.
 
-For mammal species richness, the inventory includes camera-trap and field-based studies focusing on different mammalian groups within the CBR. These include studies on ungulates documenting six species (Reyna-Hurtado & Tanner, 2007) and broader assessments of large terrestrial mammals across the Yucatan Peninsula, identifying a total of 14 large mammal species (Reyna-Hurtado et al., 2015). Because many studies focused on specific taxa, results were synthesized across multiple sources to produce a comprehensive mammal species inventory (excluding bats), resulting in a reference value of 46 species. All source publications are cited and archived as part of the documented inventory.
+### Mammal Species Richness
 
-For bird species richness, the inventory draws on multiple avifaunal surveys conducted within the CBR. These include a study assessing bird abundance across feeding guilds that identified more than 300 species (Walsh, 2018), as well as a comprehensive inventory documenting 403 bird species, which represents the most extensive avian dataset available for the reserve (González et al., 2016). These studies were used to inform a conservative reference value of 230 bird species, reflecting expected richness under intact ecological conditions while accounting for methodological variability among surveys.
+For mammal species richness, the inventory includes camera-trap and field-based studies focusing on different mammalian groups within the CBR. These include studies on ungulates documenting six species [@reyna-hurtado2015] and broader assessments of large terrestrial mammals across the Yucatan Peninsula, identifying a total of 14 large mammal species [@reyna-hurtado2015]. Because many studies focused on specific taxa, results were synthesized across multiple sources to produce a comprehensive mammal species inventory (excluding bats), resulting in a reference value of 46 species. All source publications are cited and archived as part of the documented inventory.
 
-For herpetofauna species richness, the documented inventory includes post-2000 studies conducted in the CBR using standardized field methods such as Visual Encounter Surveys and pitfall traps. A key study documented the presence of 20 amphibian species and 69 reptile species, resulting in a total of 90 herpetofauna species under near-pristine conditions (Colston et al., 2015). This study and supporting literature were archived as evidence of the reference condition.
+### Avian Species Richness
 
-For structural condition indicators where historical field-based reference data were limited, the documented inventory consists of spatially explicit remote sensing datasets and derived statistical analyses. Canopy cover reference values were based on Terra MODIS Vegetation Continuous Fields (VCF) products at 250 m resolution, generated annually using monthly composites of Terra MODIS land surface reflectance and temperature data across all seven spectral bands. Datasets covering the ten years preceding project start (t–10 to t=0) were included in the inventory, along with ecosystem classification layers and Habitat Conversion Risk maps used to filter pixels.
+For bird species richness, the inventory draws on multiple avifaunal surveys conducted within the CBR. These include a study assessing bird abundance across feeding guilds that identified more than 300 species [@walsh2018], as well as a comprehensive inventory documenting 403 bird species, which represents the most extensive avian dataset available for the reserve [@gonzález-jaramillo2016]. These studies were used to inform a conservative reference value of 230 bird species, reflecting expected richness under intact ecological conditions while accounting for methodological variability among surveys.
 
-Aboveground biomass reference values were derived from a documented inventory of GEDI Level 4 Aboveground Biomass data combined with Sentinel-1 synthetic aperture radar and Sentinel-2 multispectral imagery. A Random Forest regression model was trained annually using approximately 4,000 GEDI plots per year to predict AGB across the program’s ecoregion. All input datasets, model parameters, training samples, and output rasters were stored with accompanying metadata describing spatial resolution, temporal coverage, and ecosystem filtering criteria.
+### Herpetofauna Species Richness
 
-All analytical procedures used to derive percentile-based reference values (75th percentile for canopy cover and 90th percentile for aboveground biomass) were fully documented, including pixel selection rules, statistical assumptions, and sample sizes. Reproducible scripts and summary outputs were archived to enable independent verification.
+For herpetofauna species richness, the documented inventory includes post-2000 studies conducted in the CBR using standardized field methods such as Visual Encounter Surveys and pitfall traps. A key study documented the presence of 20 amphibian species and 69 reptile species, resulting in a total of 90 herpetofauna species under near-pristine conditions [@colston2015]. This study and supporting literature were archived as evidence of the reference condition.
 
-<details open>
+## Structure Indicators
 
-<summary><strong>[Table 3.](#table3) Reference Values for each Indicator</strong></summary>
+For structural condition indicators the documented inventory consists of spatially explicit remote sensing datasets and derived statistical analyses. Canopy cover reference values were based on Terra MODIS Vegetation Continuous Fields (VCF) products at 250 m resolution, generated annually using monthly composites of Terra MODIS land surface reflectance and temperature data across all seven spectral bands. Dataset at project start (t=0) was used to calculate the reference value.
 
-::: {#table3 .terra-exec}
-| Condition Component | Indicator Description              | Reference Value |
-|:--------------------|:-----------------------------------|----------------:|
-| Composition (Cm1)   | Species richness of herpetofauna   |          90.000 |
-| Composition (Cm2)   | Species richness of birds          |         230.000 |
-| Composition (Cm3)   | Species richness of mammals        |          46.000 |
-| Structure (S1)      | Aboveground biomass (Mg DM ha^-1^) |         187.234 |
-| Structure (S2)      | Forest canopy cover (%)            |          72.000 |
+### Aboveground biomass
+
+Aboveground biomass reference values were derived from a documented inventory of raw GEDI Level 4A Aboveground Biomass Density (GEDI L4A) data, accessed via Google Earth Engine (GEE) using the monthly composites collection (LARSE/GEDI/GEDI04_A_002_MONTHLY). The aboveground biomass density band (agbd, expressed in Mg/ha) was extracted at the native GEDI footprint resolution of approximately 25 m. Monthly granules corresponding to the project start year (2023, t=0) were filtered to the project area and composited into an annual mean composite representative of baseline conditions. Prior to compositing, pixels with non-positive values were masked to exclude fill values and invalid retrievals. The resulting composite was clipped to the project boundary and exported at 25 m resolution in geographic coordinates (EPSG:4326). No additional aboveground biomass datasets were incorporated; GEDI L4A constitutes the sole source for aboveground biomass reference values in this inventory.
+
+------------------------------------------------------------------------
+
+Reproducible scripts and summary outputs were archived to enable independent verification:
+
+## Code:
+
+<details>
+
+<summary>01_get_mod44b.py</summary>
+
+[Download 01_get_mod44b.py](files/01_get_mod44b.py){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/01_get_mod44b.py >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>02_get_gedi_agb.py</summary>
+
+[Download 02_get_gedi_agb.py](files/02_get_gedi_agb.py){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/02_get_gedi_agb.py >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>03_get_indicators_values.py</summary>
+
+[Download 03_get_indicators_values.py](files/03_get_indicators_values.py){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/03_get_indicators_values.py >}}
+</code></pre>
+```
+
+</details>
+
+------------------------------------------------------------------------
+
+## Inputs:
+<details>
+
+<summary>GEDI_AGB_2023_raw.tif</summary>
+
+[Download GEDI_AGB_2023_raw.tif](files/GEDI_AGB_2023_raw.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>MOD44B_TreeCover_2014-2023.tif</summary>
+
+[Download MOD44B_TreeCover_2014-2023.tif](files/MOD44B_TreeCover_2014-2023.tif){.terra-button target="_blank"}
+
+</details>
+
+<details>
+
+<summary>Map 4. Core Zone</summary>
+
+::: {#map4 .terra-card}
+
+[Download Core_Zone.shp](files/Core_Zone/Core_Zone.shp){.terra-button target="_blank"}
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+
+library(sf)
+library(leaflet)
+library(magrittr)
+
+# Read shapefile
+core_zone <- st_read(
+  "files/Core_Zone/Core_Zone.shp",
+  quiet = TRUE
+)
+
+# Fix invalid geometries
+core_zone <- st_make_valid(core_zone)
+
+# Transform projection
+core_zone <- st_transform(core_zone, 4326)
+
+# Remove empty geometries
+core_zone <- core_zone[!st_is_empty(core_zone), ]
+
+# Build map
+leaflet(core_zone) %>%
+
+  addProviderTiles(providers$Esri.WorldImagery) %>%
+
+  addPolygons(
+    color = "#f7931d",
+    weight = 2,
+    fillOpacity = 0.35
+  )
+
+```
+
+**Map 4. Core Zone**
+
 :::
+
+</details>
+
+------------------------------------------------------------------------
+
+## Outputs:
+
+<details>
+
+<summary>indicators_values.txt</summary>
+
+[Download indicators_values.txt](files/indicators_values.txt){.terra-button target="_blank"}
+
+```{=html}
+<pre><code>
+{{< include files/indicators_values.txt >}}
+</code></pre>
+```
+
+</details>
+
+<details>
+
+<summary>Table 6. Reference Values for each Indicator</summary>
+
+::: {#table6
+:::
+
+<div class="terra-table-title">
+Table 6. Reference Values for each Indicator
+</div>
+
+```{r echo=FALSE, message=FALSE, warning=FALSE}
+library(DT)
+
+table_data <- data.frame(
+    check.names = FALSE,
+    
+  `Condition Component` = c(
+    "Composition (Cm1)",
+    "Composition (Cm2)",
+    "Composition (Cm3)",
+    "Structure (S1)",
+    "Structure (S2)"
+  ),
+  
+  `Indicator Description` = c(
+    "Species richness of herpetofauna",
+    "Species richness of birds",
+    "Species richness of mammals",
+    "Aboveground biomass (MG DM ha-1)",
+    "Forest canopy cover (%)"
+  ),
+  
+  `Reference Value` = c(
+    "90.000",
+    "230.000",
+    "46.000",
+    "48.860",
+    "66.280"
+  )
+)
+
+datatable(
+  table_data,
+  options = list(
+    paging = FALSE,
+    searching = FALSE,
+    info = FALSE,
+    ordering = FALSE,
+    scrollX = TRUE,
+    autoWidth = FALSE,
+    columnDefs = list(
+      list(className = 'dt-center', targets = "_all")
+    )
+  ),
+  rownames = FALSE,
+  class = "stripe hover compact"
+)
+```
 
 </details>

@@ -31,18 +31,7 @@ body {
 .quarto-container {
   max-width: 1600px;
 }
-/* ======================
-   Global Links
-   ====================== */
 
-body a {
-  color: var(--terra-blue) !important;
-  text-decoration: underline;
-}
-
-body a:hover {
-  color: var(--terra-orange) !important;
-}
 /* ======================
    Navbar
    ====================== */
@@ -143,7 +132,10 @@ body a:hover {
    Headings
    ====================== */
 
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--terra-dark-blue);
   font-weight: 600;
 }
@@ -163,7 +155,6 @@ h1.title::after, h1::after {
   border-top: 4px solid var(--terra-orange);
   border-radius: 50% 50% 0 0;
 }
-}
 
 h2 {
   border-bottom: 1px solid var(--terra-light-grey);
@@ -172,123 +163,198 @@ h2 {
 }
 
 /* ======================
-   Terra Hero
+   Global Link Styling
    ====================== */
 
-.terra-hero {
+a {
+
+  color: var(--terra-blue);
+
+  text-decoration: none;
+
+  transition: all 0.15s ease;
+}
+
+/* Hover */
+
+a:hover {
+
+  color: var(--terra-orange);
+
+  text-decoration: underline;
+}
+
+/* ======================
+   Terra Button Link
+   ====================== */
+
+.terra-button {
+
+  display: inline-block;
+
+  color: white !important;
+
   background: var(--terra-dark-blue);
-  color: white;
-  padding: 50px 40px;
-  border-radius: 8px;
-  margin-bottom: 40px;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  padding: 0.7rem 1rem;
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  border-radius: 6px;
+
+  font-size: 0.95rem;
+
+  font-weight: 500;
+
+  text-decoration: none !important;
+
+  transition: all 0.15s ease;
 }
 
-.terra-hero h1 {
-  color: white;
-}
+/* Hover */
 
-.terra-hero p {
-  opacity: 0.9;
+.terra-button:hover {
+
+  color: var(--terra-orange) !important;
+
+  border-color: var(--terra-orange);
+
+  background: var(--terra-dark-blue);
 }
 
 /* ======================
    Terra Card
    ====================== */
+
 .terra-card {
+
   background: var(--terra-dark-blue);
-  border-left: 4px solid var(--terra-orange);
-  padding: 20px;
-  margin: 30px auto;
+
+  padding: 1rem;
+
+  margin: 1rem 0;
+
   border-radius: 8px;
+
   box-sizing: border-box;
 
-  display: inline-block;     
-  width: 100%;!important                
-  max-width: 100%;!important
+  width: 100% !important;
+
+  overflow: hidden;
+  
+  border-left: 4px solid var(--terra-orange);
 }
 
-.terra-card h1,
-.terra-card h2,
-.terra-card h3,
-.terra-card h4,
-.terra-card h5,
-.terra-card h6,
-.terra-card p,
-.terra-card li,
-.terra-card span,
-.terra-card strong,
-.terra-card a {
-  color: white !important;
+/* Remove extra paragraph spacing */
+
+.terra-card p {
+  margin: 0 !important;
 }
-/* ======================
-   Terra Global Table System 
-   ====================== */
-/* Remove Bootstrap table styling interference */
-.table,
-table.table {
-  background-color: transparent !important;
-  border: none !important;
-}
-table,
-.quarto-book table,
-.table,
-.dataframe {
+
+/* Images / maps */
+
+.terra-card img,
+.terra-card .leaflet-container {
+
+  display: block;
+
   width: 100%;
-  border-collapse: collapse;
-  font-size: 13px !important;
+
+  margin: 0;
+
+  border-radius: 4px 4px 0 0;
+
+  overflow: hidden;
 }
-/* ======================
-   Base Table Styling
-   ====================== */
-.quarto-book table {
-  width: 100%;
-  border-collapse: collapse;
-}
-/* Terra Header */
-.quarto-book table thead th {
-  background-color: var(--terra-dark-blue) !important;
-  color: white !important;
-  font-weight: 700 !important;
-  padding: 10px !important;
-  border: 2px solid white !important;
-}
-/* Terra Body */
-.quarto-book table tbody td {
-  background-color: white !important;
+
+/* Caption styling */
+
+.terra-card strong {
+
+  display: block;
+
+  margin: 0;
+
+  margin-top: 0.25rem;
+
+  background: #f7f8fa;
+
   color: var(--terra-dark-blue) !important;
-  padding: 10px !important;
-  border: 2px solid white !important;
-}
-/* ======================
-   Terra Standard Table
-   ====================== */
 
-.terra-standard table tbody tr:last-child td {
-  font-weight: 700;
-  border-top: 3px solid var(--terra-dark-blue);
-}
+  padding: 0.75rem 1rem;
 
-.terra-standard table tbody td:last-child {
-  text-align: right;
-}
+  border-radius: 0 0 4px 4px;
 
-/* ======================
-   Terra Exec Table
-   ====================== */
+  font-size: 1rem;
 
-.terra-exec table tbody tr:last-child td {
-  font-weight: normal;
-  border-top: 2px solid white;
-}
+  line-height: 1.45;
 
-.terra-exec table tbody td:first-child {
-  background-color: var(--terra-dark-blue);
-  color: white;
   font-weight: 600;
 }
 
-.terra-exec table tbody td:last-child {
-  text-align: right;
+/* Remove extra spacing inside Terra cards */
+
+.terra-card > *:last-child {
+  margin-bottom: 0 !important;
+}
+
+.terra-card .html-widget {
+  margin-bottom: 0 !important;
+}
+
+.terra-card .leaflet-container {
+  margin-bottom: 0 !important;
+}
+
+.terra-card figure {
+  margin-bottom: 0 !important;
+}
+
+/* ======================
+   Links Inside Terra Cards
+   ====================== */
+
+.terra-card a {
+
+  display: inline-block;
+
+  color: white !important;
+
+  background: transparent;
+
+  border: 1px solid rgba(255,255,255,0.25);
+
+  padding: 0.45rem 0.75rem;
+
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+
+  border-radius: 4px;
+
+  font-size: 0.9rem;
+
+  font-weight: 500;
+
+  text-decoration: none !important;
+
+  transition:
+  color 0.15s ease,
+  background-color 0.15s ease,
+  border-color 0.15s ease;
+}
+
+/* Hover */
+
+.terra-card a:hover {
+
+  color: var(--terra-orange) !important;
+
+  border-color: var(--terra-orange);
+
+  background: rgba(255,255,255,0.05);
 }
 
 /* ======================
@@ -307,56 +373,7 @@ table,
 .quarto-loading {
   display: none !important;
 }
-/* ======================
-   FORCE Terra Header Row
-   ====================== */
 
-table.table thead th,
-.quarto-book table.table thead th {
-  background-color: var(--terra-dark-blue) !important;
-  color: white !important;
-  border-color: white !important;
- 
-}
-/* ======================
-   Terra Table Body – White
-   ====================== */
-
-/* Make all table body cells white */
-.table tbody td,
-.quarto-book table tbody td {
-  background-color: white !important;
-  color: var(--terra-dark-blue) !important;
-}
-
-/* Preserve Terra Exec first column styling */
-.terra-exec table tbody td:first-child {
-  background-color: var(--terra-dark-blue) !important;
-  color: white !important;
-  font-weight: 600 !important;
-}
-/* ======================
-   Terra Table Gridlines
-   ====================== */
-
-.table tbody td,
-.quarto-book table tbody td {
-  border: 1px solid rgba(0, 0, 0, 0.08) !important;
-}
-
-.table thead th,
-.quarto-book table thead th {
-  border: 1px solid rgba(0, 0, 0, 0.12) !important;
-}
-/* ======================
-   Terra Global Link Color
-   ====================== */
-
-
-a:hover {
-  color: var(--terra-orange) !important;
-  text-decoration: underline;
-}
 /* ======================
    Right TOC – Links
    ====================== */
@@ -376,72 +393,277 @@ a:hover {
   color: var(--terra-dark-blue) !important;
   font-weight: 600;
 }
-
 /* ======================
-   Terra Collapsible Header
+   Terra Collapsible
    ====================== */
 
+details {
+  margin-bottom: 14px;
+}
+
+/* Summary */
 details > summary {
-  background: var(--terra-dark-blue);
-  color: white;
+  background: rgba(2, 35, 72, 0.03);
+
+  border-left: 3px solid var(--terra-dark-blue);
+
   padding: 10px 14px;
-  border-left: 4px solid var(--terra-orange);
-  border-radius: 8px;
+
+  border-radius: 4px;
+
+  color: var(--terra-dark-blue);
+
   cursor: pointer;
+
   font-weight: 600;
+  font-size: 16px;
+
   list-style: none;
-  box-sizing: border-box;
+  position: relative;
+
+  transition:
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease;
 }
 
-/* Remove default arrow */
-details > summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Custom arrow */
+/* Plus/minus */
 details > summary::after {
-  content: "▾";
-  float: right;
-  transition: transform 0.2s ease;
+  content: "+";
+
+  position: absolute;
+  right: 14px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  font-size: 15px;
+  font-weight: 500;
+
+  color: var(--terra-dark-blue);
+
+  transition: color 0.18s ease;
 }
 
-/* Rotate arrow when open */
+/* Open */
 details[open] > summary::after {
-  transform: rotate(180deg);
+  content: "−";
 }
 
-/* Space below header */
-details > *:not(summary) {
-  margin-top: 12px;
+/* Hover Icon */
+details > summary:hover::after {
+  color: var(--terra-orange) !important;
 }
+
+/* Hover Text */
+details > summary:hover {
+  color: var(--terra-orange);
+  border-left-color: var(--terra-orange);
+  background: var(--terra-dark-blue);
+
+}
+
+/* =========================
+   DT TABLES — TERRA STYLE
+========================= */
+
+/* Overall table */
+table.dataTable {
+  border-collapse: collapse !important;
+  font-family: "Aptos", sans-serif;
+  font-size: 15px;
+  color: #022348;
+  width: 100% !important;
+  background-color: #ffffff !important;
+}
+
+/* Header styling */
+table.dataTable thead th {
+  background-color: #022348 !important;
+  color: #ffffff !important;
+  font-weight: 700;
+  border: none !important;
+  padding: 5px 5px !important;
+  text-align: left !important;
+}
+
+/* Body cells */
+table.dataTable tbody td {
+  padding: 12px 14px !important;
+  border-bottom: 1px solid #d9d9d9 !important;
+  vertical-align: top !important;
+  background-color: #ffffff !important;
+}
+
+/* Alternating row colors */
+table.dataTable.stripe tbody tr.odd,
+table.dataTable.display tbody tr.odd {
+  background-color: #f7f9fc !important;
+}
+
+/* Hover effect */
+table.dataTable.hover tbody tr:hover,
+table.dataTable.display tbody tr:hover {
+  background-color: #eef4fb !important;
+}
+
+/* Remove default borders */
+table.dataTable.no-footer {
+  border-bottom: none !important;
+}
+
+/* Add spacing below controls */
+.dataTables_wrapper .dataTables_filter,
+.dataTables_wrapper .dataTables_length {
+  margin-bottom: 12px !important;
+}
+
+/* Search box */
+.dataTables_filter input {
+  border: 1px solid #d9d9d9 !important;
+  border-radius: 6px !important;
+  padding: 3px 5px !important;
+  background-color: #ffffff !important;
+}
+
+/* Pagination buttons */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+  border-radius: 6px !important;
+  border: none !important;
+  padding: 4px 5px !important;
+  margin: 2px !important;
+  color: #022348 !important;
+}
+
+/* Active page */
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+  background: #022348 !important;
+  color: white !important;
+}
+
+/* Length dropdown */
+.dataTables_length select {
+  border-radius: 6px !important;
+  border: 1px solid #d9d9d9 !important;
+  padding: 4px 5px !important;
+  background-color: #ffffff !important;
+}
+
+
 /* ======================
-   Terra Collapsible Header Links
+   Step TOC Navigation
    ====================== */
 
-details > summary a {
-  color: white !important;
+.steps-toc {
+  font-size: 1.05rem;
+  font-weight: 500;
+  line-height: 1.35;
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+/* Remove default H2 underline effect */
+.steps-toc::after {
+  display: none !important;
+}
+
+/* Links */
+.steps-toc a {
+  color: var(--terra-dark-blue) !important;
   text-decoration: none;
 }
 
-details > summary a:hover {
+/* Hover */
+.steps-toc a:hover {
   color: var(--terra-orange) !important;
-  text-decoration: underline;
 }
 
-/* Responsive Embed */
-
-.responsive-embed {
-  position: relative;
-  width: 100%;
-  padding-top: 75%; /* slightly taller for Miro boards */
+/* Step number emphasis */
+.steps-toc strong {
+  color: var(--terra-blue);
+  font-weight: 700;
 }
 
-.responsive-embed iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  border-radius: 6px;
+/* ======================
+   References Section
+   ====================== */
+
+#refs {
+  margin-top: 50px;
+  padding-top: 20px;
+  border-top: 1px solid var(--terra-light-grey);
+}
+
+/* Individual citations */
+#refs .csl-entry {
+  margin-bottom: 12px;
+  line-height: 1;
+}
+
+/* Clean technical code blocks */
+
+pre {
+  background: #f7f8fa !important;
+  border: 1px solid #e3e7eb !important;
+  border-left: 4px solid #022348 !important;
+
+  border-radius: 10px !important;
+
+  padding: 1rem 1.25rem !important;
+
+  margin-top: 0.75rem !important;
+  margin-bottom: 0.75rem !important;
+
+  box-shadow: none !important;
+
+  overflow-x: auto;
+}
+
+/* Inner code styling */
+
+pre code {
+  background: transparent !important;
+  border: none !important;
+
+  color: #1f2937 !important;
+
+  font-size: 0.85rem !important;
+  line-height: 1.5 !important;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    Menlo,
+    monospace !important;
+}
+
+/* Remove weird Quarto highlighting */
+
+code.sourceCode {
+  background: transparent !important;
+}
+
+/* ======================
+   Table Titles
+   ====================== */
+
+.terra-table-title {
+
+  text-align: center;
+
+  color: var(--terra-dark-blue);
+
+  font-size: 1.05rem;
+
+  font-weight: 700;
+
+  line-height: 1.4;
+
+  margin-top: 1rem;
+  margin-bottom: 0rem;
+
+  padding: 0;
 }

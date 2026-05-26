@@ -3,3 +3,20 @@ title: "Quantification of Biodiversity Outcomes"
 format: html
 ---
 
+### [**Step 1.**](Step%201.html#step1) Ecosystem Type and Extent {.steps-toc}
+
+### [**Step 2.**](Step%202.html#step2) Condition Indicators {.steps-toc}
+
+### [**Step 3.**](Step%203.html#step3) Define Reference Values for Condition Indicators {.steps-toc}
+
+### [**Step 4.**](Step%204.html#step4) Measure Condition Indicators at Project Start {.steps-toc}
+
+### [**Step 5.**](Step%205.html#step5) Standardized Condition Indicators {.steps-toc}
+
+### [**Step 6.**](Step%206.html#step6) Calculate Condition at Project Start (Year 0) {.steps-toc}
+
+### [**Step 7.**](Step%207.html#step7) Calculate Area-Adjusted Condition at Project Start (Year 0) {.steps-toc}
+
+### [**Step 8.**](Step%208.html#step8) Crediting Baseline {.steps-toc}
+
+### [**Step 9.**](Step%209.html#step9) Monitor Project Impacts – Ex-Ante Projections {.steps-toc}

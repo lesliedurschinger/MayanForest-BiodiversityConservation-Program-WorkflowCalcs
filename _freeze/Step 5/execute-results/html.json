@@ -1,0 +1,19 @@
+{
+  "hash": "0c29b63f1928ee54f70ebeb0c2965058",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Step 5. Standardize Condition indicators\"\nformat: html\n---\n\nFollowing the equation for Step 3 (below), each standardized condition value was calculated and can be found in [Table 12](#table12).\n\n$$SI_0 = \\frac{I_0}{RV}$$\n\nWhere:\n\n- $SI_0$ = Standardized Condition Indicator at project start\n\n- $I_0$ = Condition indicator value at project start\n\n- $RV$ = Reference value\n\n<br>\n\nSpecies richness of herpetofauna: $$ \n    SI_{0,\\text{herp}} = \\frac{46}{90} = 0.511\n    $$\n\nSpecies richness of birds: $$SI_{0,\\text{birds}} = \\frac{215}{230} = 0.935$$\n\nSpecies richness of mammals: $$SI_{0,\\text{mammals}} = \\frac{31}{46} = 0.674$$\n\nAboveground biomass: $$SI_{0,\\text{AGB}} = \\frac{152.051}{187.234} = 0.812$$\n\nForest canopy cover: $$SI_{0,\\text{canopy}} = \\frac{60}{72} = 0.833$$\n\n<details>\n\n<summary>Table 12. Standardized Condition Indicators</summary>\n\n::: {#table12}\n:::\n\n::: terra-table-title\nTable 12. Standardized Condition Indicators\n:::\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"datatables html-widget html-fill-item\" id=\"htmlwidget-634996f6c2a8b995470a\" style=\"width:100%;height:auto;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-634996f6c2a8b995470a\">{\"x\":{\"filter\":\"none\",\"vertical\":false,\"data\":[[\"Composition (Cm1)\",\"Composition (Cm2)\",\"Composition (Cm3)\",\"Structure (S1)\",\"Structure (S2)\"],[\"Species richness of herpetofauna\",\"Species richness of birds\",\"Species richness of mammals\",\"Aboveground biomass (MG DM ha-1)\",\"Forest canopy cover (%)\"],[\"90.000\",\"230.000\",\"46.000\",\"48.860\",\"66.280\"],[\"46.000\",\"215.000\",\"31.000\",\"34.540\",\"49.050\"],[\"0.511\",\"0.935\",\"0.674\",\"0.707\",\"0.740\"]],\"container\":\"<table class=\\\"stripe hover compact\\\">\\n  <thead>\\n    <tr>\\n      <th>Condition Component<\\/th>\\n      <th>Indicator Description<\\/th>\\n      <th>Reference Value<\\/th>\\n      <th>Condition value measured at project start<\\/th>\\n      <th>Standardized Condition value<\\/th>\\n    <\\/tr>\\n  <\\/thead>\\n<\\/table>\",\"options\":{\"paging\":false,\"searching\":false,\"info\":false,\"ordering\":false,\"scrollX\":true,\"autoWidth\":false,\"columnDefs\":[{\"className\":\"dt-center\",\"targets\":\"_all\"},{\"name\":\"Condition Component\",\"targets\":0},{\"name\":\"Indicator Description\",\"targets\":1},{\"name\":\"Reference Value\",\"targets\":2},{\"name\":\"Condition value measured at project start\",\"targets\":3},{\"name\":\"Standardized Condition value\",\"targets\":4}],\"order\":[],\"orderClasses\":false}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n\n</details>\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/htmltools-fill-0.5.9/fill.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<link href=\"site_libs/datatables-css-0.0.0/datatables-crosstalk.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/datatables-binding-0.34.0/datatables.js\"></script>\n<script src=\"site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css\" rel=\"stylesheet\" />\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js\"></script>\n<link href=\"site_libs/crosstalk-1.2.2/css/crosstalk.min.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/crosstalk-1.2.2/js/crosstalk.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

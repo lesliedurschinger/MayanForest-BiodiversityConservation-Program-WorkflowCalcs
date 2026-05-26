@@ -71,6 +71,16 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 <style>html{ scroll-behavior: smooth; }</style>
+<link href="site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
+<script src="site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
+<link href="site_libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="site_libs/datatables-binding-0.34.0/datatables.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js"></script>
+<link href="site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -154,7 +164,7 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./03. Project Extent.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Project Extent</span></a>
+  <a href="./03. Program Definitions.html" class="sidebar-item-text sidebar-link"><span class="chapter-title">Program Definitions</span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -237,91 +247,37 @@ window.Quarto = {
 </header>
 
 
-<p>Following the equation for Step 3 (below), each standardized condition value was calculated and can be found in <a href="#table5">Table 5</a>.</p>
-<p><span class="math display">\[
-SI_0 = \frac{I_0}{RV}
-\]</span></p>
+<p>Following the equation for Step 3 (below), each standardized condition value was calculated and can be found in <a href="#table12">Table 12</a>.</p>
+<p><span class="math display">\[SI_0 = \frac{I_0}{RV}\]</span></p>
 <p>Where:</p>
 <ul>
 <li><p><span class="math inline">\(SI_0\)</span> = Standardized Condition Indicator at project start</p></li>
 <li><p><span class="math inline">\(I_0\)</span> = Condition indicator value at project start</p></li>
 <li><p><span class="math inline">\(RV\)</span> = Reference value</p></li>
 </ul>
+<p><br></p>
 <p>Species richness of herpetofauna: <span class="math display">\[
     SI_{0,\text{herp}} = \frac{46}{90} = 0.511
     \]</span></p>
-<p>Species richness of birds: <span class="math display">\[
-SI_{0,\text{birds}} = \frac{215}{230} = 0.935
-\]</span></p>
-<p>Species richness of mammals: <span class="math display">\[
-SI_{0,\text{mammals}} = \frac{31}{46} = 0.674
-\]</span></p>
-<p>Aboveground biomass: <span class="math display">\[
-SI_{0,\text{AGB}} = \frac{152.051}{187.234} = 0.812
-\]</span></p>
-<p>Forest canopy cover: <span class="math display">\[
-SI_{0,\text{canopy}} = \frac{60}{72} = 0.833
-\]</span></p>
-<details open="">
+<p>Species richness of birds: <span class="math display">\[SI_{0,\text{birds}} = \frac{215}{230} = 0.935\]</span></p>
+<p>Species richness of mammals: <span class="math display">\[SI_{0,\text{mammals}} = \frac{31}{46} = 0.674\]</span></p>
+<p>Aboveground biomass: <span class="math display">\[SI_{0,\text{AGB}} = \frac{152.051}{187.234} = 0.812\]</span></p>
+<p>Forest canopy cover: <span class="math display">\[SI_{0,\text{canopy}} = \frac{60}{72} = 0.833\]</span></p>
+<details>
 <summary>
-<strong><a href="#table5">Table 5</a>. Standardized Condition Indicators</strong>
+Table 12. Standardized Condition Indicators
 </summary>
-<div id="table5" class="terra-exec">
-<table class="caption-top table">
-<colgroup>
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-<col style="width: 20%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">Condition Component</th>
-<th style="text-align: left;">Indicator Description</th>
-<th style="text-align: right;">Reference Value</th>
-<th style="text-align: right;">Condition Value Measured at Project Start</th>
-<th style="text-align: right;">Standardized Condition Value</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">Composition (Cm1)</td>
-<td style="text-align: left;">Species richness of herpetofauna</td>
-<td style="text-align: right;">90.000</td>
-<td style="text-align: right;">46.000</td>
-<td style="text-align: right;">0.511</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Composition (Cm2)</td>
-<td style="text-align: left;">Species richness of birds</td>
-<td style="text-align: right;">230.000</td>
-<td style="text-align: right;">215.000</td>
-<td style="text-align: right;">0.935</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Composition (Cm3)</td>
-<td style="text-align: left;">Species richness of mammals</td>
-<td style="text-align: right;">46.000</td>
-<td style="text-align: right;">31.000</td>
-<td style="text-align: right;">0.674</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">Structure (S1)</td>
-<td style="text-align: left;">Aboveground biomass (Mg DM ha<sup>-1</sup>)</td>
-<td style="text-align: right;">187.234</td>
-<td style="text-align: right;">152.051</td>
-<td style="text-align: right;">0.812</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">Structure (S2)</td>
-<td style="text-align: left;">Forest canopy cover (%)</td>
-<td style="text-align: right;">72.000</td>
-<td style="text-align: right;">60.000</td>
-<td style="text-align: right;">0.833</td>
-</tr>
-</tbody>
-</table>
+<div id="table12">
+
+</div>
+<div class="terra-table-title">
+<p>Table 12. Standardized Condition Indicators</p>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="datatables html-widget html-fill-item" id="htmlwidget-634996f6c2a8b995470a" style="width:100%;height:auto;"></div>
+<script type="application/json" data-for="htmlwidget-634996f6c2a8b995470a">{"x":{"filter":"none","vertical":false,"data":[["Composition (Cm1)","Composition (Cm2)","Composition (Cm3)","Structure (S1)","Structure (S2)"],["Species richness of herpetofauna","Species richness of birds","Species richness of mammals","Aboveground biomass (MG DM ha-1)","Forest canopy cover (%)"],["90.000","230.000","46.000","48.860","66.280"],["46.000","215.000","31.000","34.540","49.050"],["0.511","0.935","0.674","0.707","0.740"]],"container":"<table class=\"stripe hover compact\">\n  <thead>\n    <tr>\n      <th>Condition Component<\/th>\n      <th>Indicator Description<\/th>\n      <th>Reference Value<\/th>\n      <th>Condition value measured at project start<\/th>\n      <th>Standardized Condition value<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"paging":false,"searching":false,"info":false,"ordering":false,"scrollX":true,"autoWidth":false,"columnDefs":[{"className":"dt-center","targets":"_all"},{"name":"Condition Component","targets":0},{"name":"Indicator Description","targets":1},{"name":"Reference Value","targets":2},{"name":"Condition value measured at project start","targets":3},{"name":"Standardized Condition value","targets":4}],"order":[],"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
 </div>
 </details>
 

@@ -18,7 +18,7 @@ book:
   chapters:
     - index.qmd
     - 02. Workflow Overview.qmd
-    - 03. Project Extent.qmd
+    - 03. Program Definitions.qmd
     - 04. Quantification of Biodiversity Outcomes.qmd
     - Step 1.qmd
     - Step 2.qmd
@@ -29,6 +29,9 @@ book:
     - Step 7.qmd
     - Step 8.qmd
     - Step 9.qmd
+
+execute:
+  freeze: auto
 
 format:
   html:

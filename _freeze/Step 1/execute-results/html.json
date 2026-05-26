@@ -1,0 +1,19 @@
+{
+  "hash": "b8062afe64eff7ba1d8c917b51bd0630",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Step 1. Ecosystem type and Extent\"\nnumbered: false\nformat: html\nbibliography: references.bib\n---\n\nThe functional group (IUCN GET level 3 classifications and tool) for the Project Extent (part of the Yucatan Peninsula, Mexico) was inaccurate and data was deficient. Thus, the data used to define the ecosystem types of the Project Extent ([Table 5](#table5)) was based on research and literature [@jung2020]. The data was based on the IUCN Global Database that was later created and used for the methodology.\n\n<details>\n\n<summary>Table 5. Project Extent</summary>\n\n::: {#table5}\n:::\n\n<div class=\"terra-table-title\">\nTable 5. Project Extent\n</div>\n\n\n::: {.cell}\n::: {.cell-output-display}\n\n```{=html}\n<div class=\"datatables html-widget html-fill-item\" id=\"htmlwidget-8d222036996689e6a55a\" style=\"width:100%;height:auto;\"></div>\n<script type=\"application/json\" data-for=\"htmlwidget-8d222036996689e6a55a\">{\"x\":{\"filter\":\"none\",\"vertical\":false,\"data\":[[\"Terrestrial\"],[\"Tropical and Sub-Tropical Forests\"],[\"Tropical/Sub-tropical dry forests\"],[\"122,158\"]],\"container\":\"<table class=\\\"stripe hover compact\\\">\\n  <thead>\\n    <tr>\\n      <th>Realm<\\/th>\\n      <th>Biome<\\/th>\\n      <th>Ecosystem<\\/th>\\n      <th>Project Extent (ha)<\\/th>\\n    <\\/tr>\\n  <\\/thead>\\n<\\/table>\",\"options\":{\"paging\":false,\"searching\":false,\"info\":false,\"ordering\":false,\"scrollX\":true,\"autoWidth\":false,\"columnDefs\":[{\"className\":\"dt-center\",\"targets\":\"_all\"},{\"name\":\"Realm\",\"targets\":0},{\"name\":\"Biome\",\"targets\":1},{\"name\":\"Ecosystem\",\"targets\":2},{\"name\":\"Project Extent (ha)\",\"targets\":3}],\"order\":[],\"orderClasses\":false}},\"evals\":[],\"jsHooks\":[]}</script>\n```\n\n:::\n:::\n\n\n</details>",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<link href=\"site_libs/htmltools-fill-0.5.9/fill.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/htmlwidgets-1.6.4/htmlwidgets.js\"></script>\n<link href=\"site_libs/datatables-css-0.0.0/datatables-crosstalk.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/datatables-binding-0.34.0/datatables.js\"></script>\n<script src=\"site_libs/jquery-3.6.0/jquery-3.6.0.min.js\"></script>\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.min.css\" rel=\"stylesheet\" />\n<link href=\"site_libs/dt-core-1.13.6/css/jquery.dataTables.extra.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/dt-core-1.13.6/js/jquery.dataTables.min.js\"></script>\n<link href=\"site_libs/crosstalk-1.2.2/css/crosstalk.min.css\" rel=\"stylesheet\" />\n<script src=\"site_libs/crosstalk-1.2.2/js/crosstalk.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
